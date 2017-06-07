@@ -1,0 +1,28 @@
+{
+    "name": "chemistry-calculator/domain",
+    "description": "Chemistry calculator domain logic code",
+    "keywords": ["chemistry", "calculator", "domain"],
+    "license": "own",
+    "type": "project/library",
+    "require": {
+        "php": ">=7",
+        "arkitekto/math": "^3.0",
+        "markrogoyski/math-php": "^0.29.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ChemCalc\\Domain\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ChemCalc\\Domain\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
