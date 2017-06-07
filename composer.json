@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ChemCalc\\Domain\\": "app/"
+            "ChemCalc\\Domain\\": "src/"
         }
     },
     "autoload-dev": {
