@@ -35,7 +35,6 @@ class ElementDataLoader implements ElementDataLoaderInterface
 	 */
 	public function loadData(){
 		if(isset($this->data) == false){
-			//$this->data = json_decode(file_get_contents($this->dataJsonPath))->elements;
 			$this->data = json_decode(file_get_contents($this->dataJsonPath), true)['elements'];
 		}
 		return $this->data;
