@@ -25,8 +25,7 @@ class ElementDataLoader implements ElementDataLoaderInterface
 	protected $dataJsonPath;
 
 	public function __construct(string $dataJsonPath = null){
-		//$this->dataJsonPath = $dataJsonPath ?: '../../../res/PeriodicTableJSON.json';
-		$this->dataJsonPath = $dataJsonPath ?: 'res/PeriodicTableJSON.json';
+		$this->dataJsonPath = $dataJsonPath ?: realpath(dirname(__FILE__)).'/../../../res/PeriodicTableJSON.json';
 	}
 
 	/**
@@ -35,11 +34,10 @@ class ElementDataLoader implements ElementDataLoaderInterface
 	 * @return array  data for all elements
 	 */
 	public function loadData(){
-		if(isset($this->data)){
-			return $this->data;
+		if(isset($this->data) == false){
+			//$this->data = json_decode(file_get_contents($this->dataJsonPath))->elements;
+			$this->data = json_decode(file_get_contents($this->dataJsonPath), true)['elements'];
 		}
-
-		$this->data = json_decode(file_get_contents($this->dataJsonPath));
 		return $this->data;
 	}
 

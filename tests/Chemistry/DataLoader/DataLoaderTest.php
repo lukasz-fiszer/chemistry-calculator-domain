@@ -6,6 +6,12 @@ use ChemCalc\Domain\Chemistry\DataLoader\ElementDataLoader;
 
 class DataLoaderTest extends \PHPUnit_Framework_TestCase
 {
+	public function __construct(){
+		$this->dataJsonPath = realpath(dirname(__FILE__)).'/../../../res/PeriodicTableJSON.json';
+		//$this->data = json_decode(file_get_contents($this->dataJsonPath))->elements;
+		$this->data = json_decode(file_get_contents($this->dataJsonPath), true)['elements'];
+	}
+
 	public function testConstructorPropertiesInjection(){
 		$elementDataLoader = new ElementDataLoader('some/directory/path');
 		$this->assertAttributeEquals('some/directory/path', 'dataJsonPath', $elementDataLoader);
@@ -13,13 +19,18 @@ class DataLoaderTest extends \PHPUnit_Framework_TestCase
 
 	public function testLoadData(){
 		$elementDataLoader = new ElementDataLoader();
-		$data = json_decode(file_get_contents('res/PeriodicTableJSON.json'));
-		$this->assertEquals($data, $elementDataLoader->loadData());
+		$this->assertEquals($this->data, $elementDataLoader->loadData());
 	}
 
 	public function testGetDataForElement(){
 		$elementDataLoader = new ElementDataLoader();
-		$data = json_decode(file_get_contents('res/PeriodicTableJSON.json'));
-		//$this->
+		$this->assertEquals($this->data[0], $elementDataLoader->getDataForElement(['name' => 'Hydrogen']));
+		$this->assertEquals(null, $elementDataLoader->getDataForElement(['name' => 'Fictious element']));
+	}
+
+	public function testGetDataForElementBySymbol(){
+		$elementDataLoader = new ElementDataLoader();
+		$this->assertEquals($this->data[0], $elementDataLoader->getDataForElementBySymbol('H'));
+		$this->assertEquals(null, $elementDataLoader->getDataForElementBySymbol('FicSym'));
 	}
 }
