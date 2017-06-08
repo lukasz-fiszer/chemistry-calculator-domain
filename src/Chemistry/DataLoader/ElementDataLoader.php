@@ -24,6 +24,11 @@ class ElementDataLoader implements ElementDataLoaderInterface
 	 */
 	protected $dataJsonPath;
 
+	/**
+	 * Construct new element data loader that uses json
+	 * 
+	 * @param string|null $dataJsonPath path to json file with elements data, if null, default path for json in res/ directory is used 
+	 */
 	public function __construct(string $dataJsonPath = null){
 		$this->dataJsonPath = $dataJsonPath ?: realpath(dirname(__FILE__)).'/../../../res/PeriodicTableJSON.json';
 	}

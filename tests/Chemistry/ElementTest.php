@@ -2,7 +2,7 @@
 
 namespace ChemCalc\Domain\Tests\Chemistry;
 
-use ChemCalc\Domain\Chemistry\Element;
+use ChemCalc\Domain\Chemistry\Entity\Element;
 
 class ElementTest extends \PHPUnit_Framework_TestCase
 {

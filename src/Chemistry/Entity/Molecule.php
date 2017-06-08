@@ -1,6 +1,6 @@
 <?php
 
-namespace ChemCalc\Domain\Chemistry;
+namespace ChemCalc\Domain\Chemistry\Entity;
 
 /**
  * Chemistry molecule

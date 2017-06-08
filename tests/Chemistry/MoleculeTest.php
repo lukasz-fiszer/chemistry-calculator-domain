@@ -2,8 +2,8 @@
 
 namespace ChemCalc\Domain\Tests\Chemistry;
 
-use ChemCalc\Domain\Chemistry\Molecule;
-use ChemCalc\Domain\Chemistry\Element;
+use ChemCalc\Domain\Chemistry\Entity\Molecule;
+use ChemCalc\Domain\Chemistry\Entity\Element;
 
 class MoleculeTest extends \PHPUnit_Framework_TestCase
 {
