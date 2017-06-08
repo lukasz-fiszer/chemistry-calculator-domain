@@ -37,18 +37,36 @@ class Element
 	protected $atomicMass;
 
 	/**
+	 * True if element is real
+	 * 
+	 * @var bool
+	 */
+	protected $isReal;
+
+	/**
 	 * Construct new immutable element object
 	 * 
 	 * @param string $name       element name
 	 * @param string $symbol     element symbol
 	 * @param float  $atomicMass element atomic mass
+	 * @param bool   $isReal     true if element is real
 	 * @param array  $data       element data
 	 */
-	public function __construct(string $name, string $symbol, float $atomicMass, array $data = []){
+	public function __construct(string $name, string $symbol, float $atomicMass, bool $isReal = true, array $data = []){
 		$this->name = $name;
 		$this->symbol = $symbol;
 		$this->atomicMass = $atomicMass;
+		$this->isReal = $isReal;
 		$this->data = $data;
+	}
+
+	/**
+	 * Check if element is real
+	 * 
+	 * @return boolean true if element is real
+	 */
+	public function isReal(){
+		return $this->isReal;
 	}
 
     /**

@@ -11,5 +11,14 @@ class ElementTest extends \PHPUnit_Framework_TestCase
 		$this->assertAttributeEquals('Hydrogen', 'name', $element);
 		$this->assertAttributeEquals('H', 'symbol', $element);
 		$this->assertAttributeEquals(1.008, 'atomicMass', $element);
+		$this->assertAttributeEquals(true, 'isReal', $element);
+		$this->assertAttributeEquals([], 'data', $element);
+
+		$element2 = new Element('Fictious Element', 'FicSym', 20.40, false, ['attribute' => 'value']);
+		$this->assertAttributeEquals('Fictious Element', 'name', $element2);
+		$this->assertAttributeEquals('FicSym', 'symbol', $element2);
+		$this->assertAttributeEquals(20.40, 'atomicMass', $element2);
+		$this->assertAttributeEquals(false, 'isReal', $element2);
+		$this->assertAttributeEquals(['attribute' => 'value'], 'data', $element2);
 	}
 }
