@@ -3,6 +3,7 @@
 namespace ChemCalc\Domain\Chemistry\DataLoader;
 
 use ChemCalc\Domain\Chemistry\DataLoader\Interfaces\ElementDataLoader as ElementDataLoaderInterface;
+use ChemCalc\Domain\Chemistry\Entity\MatchesElement;
 
 /**
  * Chemistry element data loader interface implementation
@@ -10,6 +11,8 @@ use ChemCalc\Domain\Chemistry\DataLoader\Interfaces\ElementDataLoader as Element
  */
 class ElementDataLoader implements ElementDataLoaderInterface
 {
+	use MatchesElement;
+
 	/**
 	 * Data for all elements
 	 * 
@@ -59,22 +62,6 @@ class ElementDataLoader implements ElementDataLoaderInterface
 			}
 		}
 		return null;
-	}
-
-	/**
-	 * Check if given element key-value pairs matches given full element data
-	 * 
-	 * @param  array  $element     element key-value pairs
-	 * @param  array  $elementData full element data
-	 * @return bool true if they match
-	 */
-	protected function checkIfElementMatchesData(array $element, array $elementData){
-		foreach($element as $key => $value){
-			if($elementData[$key] != $value){
-				return false;
-			}
-		}
-		return true;
 	}
 
 	/**

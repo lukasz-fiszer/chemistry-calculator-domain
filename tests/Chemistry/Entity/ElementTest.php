@@ -1,10 +1,10 @@
 <?php
 
-namespace ChemCalc\Domain\Tests\Chemistry;
+namespace ChemCalc\Domain\Tests\Chemistry\Entity;
 
 use ChemCalc\Domain\Chemistry\Entity\Element;
 
-class ElementTest extends \PHPUnit_Framework_TestCase
+class ElementTest extends \PHPUnit\Framework\TestCase
 {
 	public function testConstructorPropertiesInjection(){
 		$element = new Element('Hydrogen', 'H', 1.008);

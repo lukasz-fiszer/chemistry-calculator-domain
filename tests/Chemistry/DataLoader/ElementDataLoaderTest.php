@@ -4,9 +4,9 @@ namespace ChemCalc\Domain\Tests\Chemistry\DataLoader;
 
 use ChemCalc\Domain\Chemistry\DataLoader\ElementDataLoader;
 
-class ElementDataLoaderTest extends \PHPUnit_Framework_TestCase
+class ElementDataLoaderTest extends \PHPUnit\Framework\TestCase
 {
-	public function __construct(){
+	public function setUp(){
 		$this->dataJsonPath = realpath(dirname(__FILE__)).'/../../../res/PeriodicTableJSON.json';
 		$this->data = json_decode(file_get_contents($this->dataJsonPath), true)['elements'];
 	}

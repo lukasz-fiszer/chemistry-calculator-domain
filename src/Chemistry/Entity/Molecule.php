@@ -55,7 +55,6 @@ class Molecule
 	 * @return bool true if molecule is real
 	 */
 	protected function checkIfIsReal(){
-		//foreach($this->elements as list($element, $occurences)){
 		foreach($this->elements as $elementEntry){
 			if($elementEntry['element']->isReal() == false){
 				return false;
@@ -71,7 +70,6 @@ class Molecule
 	 */
 	protected function calculateAtomicMass(){
 		$mass = 0;
-		//foreach($this->elements as list($element, $occurences)){
 		foreach($this->elements as $elementEntry){
 			$mass += $elementEntry['element']->getAtomicMass() * $elementEntry['occurences'];
 		}
