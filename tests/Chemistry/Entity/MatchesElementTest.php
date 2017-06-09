@@ -5,32 +5,18 @@ namespace ChemCalc\Domain\Tests\Chemistry\Entity;
 use ChemCalc\Domain\Chemistry\Entity\MatchesElement;
 use ChemCalc\Domain\Tests\InvokesInaccessibleMethod;
 
-//class MatchesElementTest extends \PHPUnit_Framework_TestCase
 class MatchesElementTest extends \PHPUnit\Framework\TestCase
 {
 	use InvokesInaccessibleMethod;
 
-	/*public function __construct(){
-		parent::__construct();
-		$this->elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
-	}*/
-
 	/**
 	 * @dataProvider elementsMatchesProvider
 	 */
-	//public function testCheckIfElementMatchesData(array $element, array $elementData, bool $expectedMatches){
-	public function testCheckIfElementMatchesData($element, $elementData, bool $expectedMatches){
-		//echo 'abcd';
-		//$this->elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
-		//$this->assertEquals($expectedMatches, $this->elementMatcherMock->checkIfElementMatchesData($element, $elementData));
+	public function testCheckIfElementMatchesData(array $element, array $elementData, bool $expectedMatches){
 		$elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
 		$matches = $this->invokeMethod($elementMatcherMock, 'checkIfElementMatchesData', [$element, $elementData]);
 		$this->assertEquals($expectedMatches, $matches);
 
-	}
-
-	public function testA(){
-		$this->assertTrue(true);
 	}
 
 	public function elementsMatchesProvider(){

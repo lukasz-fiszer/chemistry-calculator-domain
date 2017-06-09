@@ -16,8 +16,6 @@ trait MatchesElement
 	 */
 	protected function checkIfElementMatchesData(array $element, array $elementData){
 		foreach($element as $key => $value){
-			//if($elementData[$key] != $value){
-			//if(isset($elementData[$key]) && $elementData[$key] != $value){
 			if(isset($elementData[$key]) == false || $elementData[$key] != $value){
 				return false;
 			}
