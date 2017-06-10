@@ -45,9 +45,6 @@ class Molecule
 	 * 
 	 * @var function
 	 */
-	/*protected static $toElementData = function($elementEntry){
-		return $elementEntry['element'];
-	};*/
 	protected $toElementData;
 
 	/**
@@ -62,7 +59,6 @@ class Molecule
 		$this->isReal = $this->checkIfIsReal();
 		$this->atomicMass = $this->calculateAtomicMass();
 		$this->toElementData  = function($elementEntry){
-			//return $elementEntry['element'];
 			return $elementEntry['element']->getData();
 		};
 	}
@@ -101,7 +97,6 @@ class Molecule
 	 * @return boolean          true if molecule has given element present
 	 */
 	public function hasElement(array $element){
-		//return $this->findMatchingElement($element, $this->elements, self::$toElementData) === null ? false : true;
 		return $this->findMatchingElement($element, $this->elements, $this->toElementData) === null ? false : true;
 	}
 
