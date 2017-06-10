@@ -2,12 +2,16 @@
 
 namespace ChemCalc\Domain\Chemistry\Entity;
 
+use ChemCalc\Domain\Chemistry\Entity\MatchesElement;
+
 /**
  * Chemistry molecule
  * Immutable object
  */
 class Molecule
 {
+	use MatchesElement;
+
 	/**
 	 * Array of molecule elements and their occurences
 	 * 
@@ -37,6 +41,16 @@ class Molecule
 	protected $isReal;
 
 	/**
+	 * Function that returns element data out of element entry
+	 * 
+	 * @var function
+	 */
+	/*protected static $toElementData = function($elementEntry){
+		return $elementEntry['element'];
+	};*/
+	protected $toElementData;
+
+	/**
 	 * Construct new immutable molecule object
 	 * 
 	 * @param array  $elements array of molecule elements and their occurences
@@ -47,6 +61,10 @@ class Molecule
 		$this->formula = $formula;
 		$this->isReal = $this->checkIfIsReal();
 		$this->atomicMass = $this->calculateAtomicMass();
+		$this->toElementData  = function($elementEntry){
+			//return $elementEntry['element'];
+			return $elementEntry['element']->getData();
+		};
 	}
 
 	/**
@@ -74,6 +92,47 @@ class Molecule
 			$mass += $elementEntry['element']->getAtomicMass() * $elementEntry['occurences'];
 		}
 		return $mass;
+	}
+
+	/**
+	 * Check if molecule has given element present
+	 * 
+	 * @param  array   $element key-value pairs describing element data
+	 * @return boolean          true if molecule has given element present
+	 */
+	public function hasElement(array $element){
+		//return $this->findMatchingElement($element, $this->elements, self::$toElementData) === null ? false : true;
+		return $this->findMatchingElement($element, $this->elements, $this->toElementData) === null ? false : true;
+	}
+
+	/**
+	 * Check if molecule has given element present by symbol
+	 * 
+	 * @param  string  $symbol element symbol
+	 * @return boolean         true if molecule has given element present
+	 */
+	public function hasElementBySymbol(string $symbol){
+		return $this->hasElement(['symbol' => $symbol]);
+	}
+
+	/**
+	 * Get element entry containing element object and its occurences count
+	 * 
+	 * @param  array  $element key-value pairs describing element data
+	 * @return array|null      element entry or null otherwise
+	 */
+	public function getElementEntry(array $element){
+		return $this->findMatchingElement($element, $this->elements, $this->toElementData);
+	}
+
+	/**
+	 * Get element entry containing element object and its occurences count
+	 * 
+	 * @param  string $symbol element symbol
+	 * @return array|null     element entry or null otherwise
+	 */
+	public function getElementEntryBySymbol(string $symbol){
+		return $this->getElementEntry(['symbol' => $symbol]);
 	}
 
 	 /**
