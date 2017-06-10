@@ -58,6 +58,18 @@ class Element
 		$this->atomicMass = $atomicMass;
 		$this->isReal = $isReal;
 		$this->data = $data;
+		$this->fillData();
+	}
+
+	/**
+	 * Fill element data array with object properties if these were not specified in array already
+	 * 
+	 * @return void
+	 */
+	protected function fillData(){
+		$properties = ['name' => $this->name, 'symbol' => $this->symbol, 'atomic_mass' => $this->atomicMass, 'is_real' => $this->isReal];
+		$difference = array_diff_assoc($properties, $this->data);
+		$this->data = array_merge($difference, $this->data);
 	}
 
 	/**
