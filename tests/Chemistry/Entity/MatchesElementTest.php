@@ -9,12 +9,34 @@ class MatchesElementTest extends \PHPUnit\Framework\TestCase
 {
 	use InvokesInaccessibleMethod;
 
+	public static function setUpBeforeClass(){
+		//self::$elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
+	}
+
+	public function setUp(){
+		if(isset($this->initialized) == false){
+			$this->initialized = true;
+			$this->elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
+			$this->toElementData = function($elementEntry){return $elementEntry['element'];};
+			$this->e1 = ['symbol' => 'H'];
+			$this->e2 = ['symbol' => 'H', 'name' => 'Hydrogen_changed_name'];
+			$this->e3 = ['symbol' => 'FicSym'];
+			$this->e4 = ['non_existent_key' => 'value'];
+			$this->dataJsonPath = realpath(dirname(__FILE__)).'/../../../res/PeriodicTableJSON.json';
+			$this->c1 = json_decode(file_get_contents($this->dataJsonPath), true)['elements'];
+			$this->c2 = [
+				['element' => $this->e1, 'occurences' => 2],
+				['element' => $this->e2, 'occurences' => 4],
+			];
+		}
+	}
+
 	/**
 	 * @dataProvider elementsMatchesProvider
 	 */
 	public function testCheckIfElementMatchesData(array $element, array $elementData, bool $expectedMatches){
-		$elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
-		$matches = $this->invokeMethod($elementMatcherMock, 'checkIfElementMatchesData', [$element, $elementData]);
+		//$elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
+		$matches = $this->invokeMethod($this->elementMatcherMock, 'checkIfElementMatchesData', [$element, $elementData]);
 		$this->assertEquals($expectedMatches, $matches);
 
 	}
@@ -78,8 +100,8 @@ class MatchesElementTest extends \PHPUnit\Framework\TestCase
 
 	//protected function testFindMatchingElementCall(){
 	protected function callFindMatchingElement($expected, $arguments){
-		$elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
-		$matched = $this->invokeMethod($elementMatcherMock, 'findMatchingElement', $arguments);
+		//$elementMatcherMock = $this->getMockForTrait(MatchesElement::class);
+		$matched = $this->invokeMethod($this->elementMatcherMock, 'findMatchingElement', $arguments);
 		$this->assertEquals($expected, $matched);
 	}
 
