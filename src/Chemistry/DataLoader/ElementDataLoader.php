@@ -55,13 +55,7 @@ class ElementDataLoader implements ElementDataLoaderInterface
 	 * @return array|null  data for given element
 	 */
 	public function getDataForElement(array $element){
-		$data = $this->loadData();
-		foreach($data as $elementData){
-			if($this->checkIfElementMatchesData($element, $elementData)){
-				return $elementData;
-			}
-		}
-		return null;
+		return $this->findMatchingElement($element, $this->loadData());
 	}
 
 	/**
