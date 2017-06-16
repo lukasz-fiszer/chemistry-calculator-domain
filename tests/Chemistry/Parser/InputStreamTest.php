@@ -3,6 +3,7 @@
 namespace ChemCalc\Domain\Tests\Chemistry\Parser;
 
 use ChemCalc\Domain\Chemistry\Parser\InputStream;
+use Exception;
 
 class InputStreamTest extends \PHPUnit\Framework\TestCase
 {
@@ -48,5 +49,32 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertAttributeEquals(19, 'position', $inputStream);
 		$this->assertAttributeEquals(3, 'line', $inputStream);
 		$this->assertAttributeEquals(4, 'column', $inputStream);
+	}
+
+	public function testExceptionThrown(){
+		$inputStream = new InputStream('test');
+		$catched = false;
+		try{
+			$inputStream->throwException('message');
+		}
+		catch(Exception $e){
+			$catched = true;
+			$this->assertAttributeEquals('message (line: 0, column: 0)', 'message', $e);
+			$this->assertAttributeEquals('test', 'parserInput', $e);
+			$this->assertAttributeEquals(0, 'parserPosition', $e);
+			$this->assertAttributeEquals(0, 'parserLine', $e);
+			$this->assertAttributeEquals(0, 'parserColumn', $e);
+		}
+		if(!$catched){
+			$this->fail('Input stream had to throw exception');
+		}
+	}
+
+	/**
+	 * @expectedException ChemCalc\Domain\Chemistry\Parser\ParserException
+	 */
+	public function testExceptionThrowing(){
+		$inputStream = new InputStream('test');
+		$inputStream->throwException();
 	}
 }

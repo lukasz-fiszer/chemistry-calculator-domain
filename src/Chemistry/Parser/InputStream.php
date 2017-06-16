@@ -84,6 +84,17 @@ class InputStream
 		return $this->peek() === null;
 	}
 
+	/**
+	 * Throw new parser exception
+	 * 
+	 * @param  string $message exception message
+	 * @throws ParserException parser exception
+	 * @return void
+	 */
+	public function throwException(string $message = ''){
+		throw new ParserException($message, $this->input, $this->position, $this->line, $this->column);
+	}
+
     /**
      * Gets the Input to the stream.
      *
