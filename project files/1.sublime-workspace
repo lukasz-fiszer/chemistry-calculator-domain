@@ -4,6 +4,86 @@
 		"selected_items":
 		[
 			[
+				"Fic",
+				"Fictious"
+			],
+			[
+				"getElement",
+				"getElementEntry"
+			],
+			[
+				"ele",
+				"elements"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"array_diff",
+				"array_diff_assoc"
+			],
+			[
+				"atomi",
+				"atomicMass"
+			],
+			[
+				"sym",
+				"symbol"
+			],
+			[
+				"ret",
+				"returnElementData"
+			],
+			[
+				"to",
+				"toElementData"
+			],
+			[
+				"arrayinter",
+				"array_intersect_assoc"
+			],
+			[
+				"ex",
+				"expectedMatches"
+			],
+			[
+				"assert",
+				"assertEquals"
+			],
+			[
+				"elem",
+				"elementMatcherMock"
+			],
+			[
+				"mol",
+				"molecule2"
+			],
+			[
+				"for",
+				"formula"
+			],
+			[
+				"ass",
+				"assertAttributeEquals"
+			],
+			[
+				"check",
+				"checkIfElementMatchesData"
+			],
+			[
+				"data",
+				"dataJsonPath"
+			],
+			[
+				"Ele",
+				"ElementDataLoaderInterface"
+			],
+			[
+				"atom",
+				"atomicMass"
+			],
+			[
 				"sea",
 				"searchQuery"
 			],
@@ -434,97 +514,27 @@
 			[
 				"paretn",
 				"parentPage"
-			],
-			[
-				"view",
-				"viewData"
-			],
-			[
-				"addpage",
-				"addPageModel"
-			],
-			[
-				"inl",
-				"inline-block"
-			],
-			[
-				"PAge",
-				"PagesLinksCollection"
-			],
-			[
-				"setA",
-				"setAdditional"
-			],
-			[
-				"admin",
-				"adminAuth"
-			],
-			[
-				"check",
-				"checkAccessKey"
-			],
-			[
-				"render",
-				"renderLink"
-			],
-			[
-				"slug",
-				"slug_en"
-			],
-			[
-				"mrg",
-				"margin-top"
-			],
-			[
-				"json",
-				"json_decode"
-			],
-			[
-				"background",
-				"background-image"
-			],
-			[
-				"text",
-				"text-align"
-			],
-			[
-				"padd",
-				"padding"
-			],
-			[
-				"table",
-				"table-row"
-			],
-			[
-				"box",
-				"box-sizing"
-			],
-			[
-				"re",
-				"req\trequire …"
-			],
-			[
-				"req",
-				"request"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"temp",
-				"templatePath"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/composer.json",
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
 			"settings":
 			{
-				"buffer_size": 1300,
-				"line_ending": "Unix"
+				"buffer_size": 2301,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
+			"settings":
+			{
+				"buffer_size": 3796,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -535,10 +545,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 47.0,
+		"height": 354.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"generate ",
+				"PHP: Generate Getters"
+			],
+			[
+				"",
+				"Generate Getter for ..."
+			],
 			[
 				"markdown p",
 				"Markdown Preview: Preview in Browser"
@@ -564,7 +582,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 494.0
+		"width": 382.0
 	},
 	"console":
 	{
@@ -584,10 +602,37 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/chemistry-calculator-domain"
+		"/C/xampp/htdocs/chemistry-calculator-domain",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Error/Error.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/res/PeriodicTableJSON.json",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/DataLoader/ElementDataLoaderTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/InvokesInaccessibleMethod.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/TestCase.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/MoleculeTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/ElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Molecule.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Element.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/Interfaces/ElementDataLoader.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/Interface/ElementDataLoader.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoaderInterface.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/ElementDataLoader.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/composer.json",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/bootstrap.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/.gitattributes",
+		"/C/xampp/htdocs/chemistry-calculator-domain/.gitignore",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/app/Http/Controllers/IndexController.php",
 		"/C/xampp/htdocs/chemistry-calculator/composer.json",
@@ -692,30 +737,7 @@
 		"/C/xampp/htdocs/photo2/vendor/symfony/console/Application.php",
 		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Contracts/Console/Kernel.php",
 		"/C/xampp/htdocs/photo2/artisan",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php",
-		"/C/xampp/htdocs/photo2/app/Exceptions/Handler.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Support/Facades/URL.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/gallery/include_assets.blade.php",
-		"/C/xampp/htdocs/photo2/config/sluggable.php",
-		"/C/xampp/htdocs/photo2/resources/views/slider/edit.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/slider/slide_draggable.blade.php",
-		"/C/xampp/htdocs/photo2/public/js/jquery.sortable.js",
-		"/C/xampp/htdocs/photo2/resources/views/admin/index.blade.php",
-		"/C/xampp/htdocs/photo2/routes/breadcrumbs/admin.php",
-		"/C/xampp/htdocs/photo2/resources/views/admin/login.blade.php",
-		"/C/xampp/htdocs/photo2/database/migrations/2017_03_03_212815_create_slides_table.php",
-		"/C/xampp/htdocs/photo2/vendor/nesbot/carbon/src/Carbon/Carbon.php",
-		"/C/xampp/htdocs/photo2/app/Helper/CacheManager.php",
-		"/C/Users/Łukasz/Documents/frontend/drag and drop sortable/html5sortable/jquery.sortable.js",
-		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
-		"/C/Users/Łukasz/Documents/frontend/drag and drop sortable/html5sortable/README.md",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php",
-		"/C/xampp/htdocs/photo2/app/Http/Middleware/VerifyCsrfToken.php",
-		"/C/xampp/htdocs/photo2/app/Http/Kernel.php",
-		"/C/xampp/htdocs/photo2/app/Providers/RouteServiceProvider.php",
-		"/C/xampp/htdocs/photo2/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/GalleryComposer.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/PagesLinksCollection.php"
+		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php"
 	],
 	"find":
 	{
@@ -736,6 +758,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"molecule",
+			"toElementData",
+			"Exception",
+			" $",
+			"name",
 			"n searchable",
 			"searchable(",
 			"firemodele",
@@ -851,32 +878,60 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/composer.json",
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1300,
+						"buffer_size": 2301,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1515,
+								1515
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2069,
+								2069
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -933,6 +988,66 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"matche",
+				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
+			],
+			[
+				"matchesel",
+				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
+			],
+			[
+				"mat",
+				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
+			],
+			[
+				"matcheselemtest",
+				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
+			],
+			[
+				"molec",
+				"tests\\Chemistry\\Entity\\MoleculeTest.php"
+			],
+			[
+				"dataloder",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"dataloader",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"moleculetest",
+				"tests\\Chemistry\\Entity\\MoleculeTest.php"
+			],
+			[
+				"phpunitframeworkerror",
+				"vendor\\phpunit\\phpunit\\src\\Framework\\Error\\Error.php"
+			],
+			[
+				"elemtest",
+				"tests\\Chemistry\\Entity\\ElementTest.php"
+			],
+			[
+				"perio",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"molectest",
+				"tests\\Chemistry\\Entity\\MoleculeTest.php"
+			],
+			[
+				"dataloadertet",
+				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
+			],
+			[
+				"elementtest",
+				"tests\\Chemistry\\Entity\\ElementTest.php"
+			],
+			[
+				"phpunit/framework/testcase",
+				"vendor\\phpunit\\phpunit\\src\\Framework\\TestCase.php"
+			],
 			[
 				"searchabelscope",
 				"vendor\\laravel\\scout\\src\\SearchableScope.php"
@@ -1384,66 +1499,6 @@
 			[
 				"migrationsslide",
 				"database\\migrations\\2017_03_03_212815_create_slides_table.php"
-			],
-			[
-				"verifycsrfotken",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php"
-			],
-			[
-				"verifycsrf",
-				"app\\Http\\Middleware\\VerifyCsrfToken.php"
-			],
-			[
-				"tagscontorller",
-				"app\\Http\\Controllers\\TagsController.php"
-			],
-			[
-				"photocomposer",
-				"app\\Http\\ViewComposers\\Helper\\Gallery\\PhotosComposer.php"
-			],
-			[
-				"photoscomposer",
-				"app\\Http\\ViewComposers\\Helper\\Gallery\\PhotosComposer.php"
-			],
-			[
-				"galleryphotos",
-				"resources\\views\\helper\\gallery\\photos.blade.php"
-			],
-			[
-				"tagshow",
-				"resources\\views\\tag\\show.blade.php"
-			],
-			[
-				"stylecss",
-				"public\\css\\style-1.css"
-			],
-			[
-				"stylc",
-				"public\\css\\style-1.css"
-			],
-			[
-				"stylecs",
-				"public\\css\\style-1.css"
-			],
-			[
-				"photoscopmo",
-				"app\\Http\\ViewComposers\\Helper\\Gallery\\PhotosComposer.php"
-			],
-			[
-				"indexcontroller",
-				"app\\Http\\Controllers\\IndexController.php"
-			],
-			[
-				"enhelpergaller",
-				"resources\\lang\\en\\helper\\gallery.php"
-			],
-			[
-				"icnlude",
-				"resources\\views\\helper\\gallery\\include_assets.blade.php"
-			],
-			[
-				"includeassets",
-				"resources\\views\\helper\\gallery\\include_assets.blade.php"
 			]
 		],
 		"width": 0.0
