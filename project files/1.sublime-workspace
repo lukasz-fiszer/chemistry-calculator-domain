@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"Input",
+				"InputStream"
+			],
+			[
+				"throw",
+				"throwException"
+			],
+			[
+				"Parser",
+				"ParserException"
+			],
+			[
+				"pre",
+				"previous"
+			],
+			[
+				"is_element",
+				"is_element_identifier_start"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"ctype",
+				"ctype_digit"
+			],
+			[
+				"In",
+				"InputStream"
+			],
+			[
+				"ass",
+				"assertEquals"
+			],
+			[
+				"input",
+				"inputStream"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
 				"Fic",
 				"Fictious"
 			],
@@ -62,10 +106,6 @@
 			[
 				"for",
 				"formula"
-			],
-			[
-				"ass",
-				"assertAttributeEquals"
 			],
 			[
 				"check",
@@ -474,65 +514,34 @@
 			[
 				"chil",
 				"childrenObj"
-			],
-			[
-				"child",
-				"childrenObj"
-			],
-			[
-				"pro",
-				"productionSeeder"
-			],
-			[
-				"Data",
-				"DatabaseProductionSeeder"
-			],
-			[
-				"rot",
-				"rootPage"
-			],
-			[
-				"pref",
-				"prefix_slug_pl"
-			],
-			[
-				"parent",
-				"parentPage"
-			],
-			[
-				"form",
-				"formDisabled"
-			],
-			[
-				"pran",
-				"parentPage"
-			],
-			[
-				"inse",
-				"insertedPage"
-			],
-			[
-				"paretn",
-				"parentPage"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
 			"settings":
 			{
-				"buffer_size": 2301,
+				"buffer_size": 2426,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
 			"settings":
 			{
-				"buffer_size": 3796,
+				"buffer_size": 5943,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+			"settings":
+			{
+				"buffer_size": 2950,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -545,10 +554,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 354.0,
-		"last_filter": "",
+		"height": 227.0,
+		"last_filter": "getters",
 		"selected_items":
 		[
+			[
+				"getters",
+				"PHP: Generate Getters"
+			],
+			[
+				"getter for",
+				"Generate Getter for ..."
+			],
+			[
+				"gettters",
+				"PHP: Generate Getters"
+			],
 			[
 				"generate ",
 				"PHP: Generate Getters"
@@ -603,15 +624,20 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/chemistry-calculator-domain",
+		"/C/xampp/htdocs/chemistry-calculator-domain/res",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity"
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Error/Error.php",
@@ -732,12 +758,7 @@
 		"/C/xampp/htdocs/photo2/public/test.php",
 		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Foundation/Providers/ArtisanServiceProvider.php",
 		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Foundation/Console/TinkerCommand.php",
-		"/C/xampp/htdocs/photo2/app/Console/Kernel.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
-		"/C/xampp/htdocs/photo2/vendor/symfony/console/Application.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Contracts/Console/Kernel.php",
-		"/C/xampp/htdocs/photo2/artisan",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php"
+		"/C/xampp/htdocs/photo2/app/Console/Kernel.php"
 	],
 	"find":
 	{
@@ -883,19 +904,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2301,
+						"buffer_size": 2426,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1515,
-								1515
+								1768,
+								1460
 							]
 						],
 						"settings":
@@ -903,27 +924,27 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 1035.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3796,
+						"buffer_size": 5943,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2069,
-								2069
+								1306,
+								1306
 							]
 						],
 						"settings":
@@ -931,10 +952,39 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2320,
+								2320
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -988,6 +1038,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"inputstraemtest",
+				"tests\\Chemistry\\Parser\\InputStreamTest.php"
+			],
+			[
+				"parser",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
+			[
+				"parse",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
 			[
 				"matche",
 				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
@@ -1487,18 +1549,6 @@
 			[
 				"routeg",
 				"app\\Helper\\RouteGenerator.php"
-			],
-			[
-				"modellate",
-				"app\\Helper\\ModelLatest\\ModelLatest.php"
-			],
-			[
-				"slider",
-				"app\\Http\\ViewComposers\\Helper\\SliderComposer.php"
-			],
-			[
-				"migrationsslide",
-				"database\\migrations\\2017_03_03_212815_create_slides_table.php"
 			]
 		],
 		"width": 0.0
