@@ -2,7 +2,6 @@
 
 namespace ChemCalc\Domain\Chemistry\Parser;
 
-//use ChemCalc\Domain\Chemistry\Parser\InputStream;
 
 /**
  * Chemistry reaction equation

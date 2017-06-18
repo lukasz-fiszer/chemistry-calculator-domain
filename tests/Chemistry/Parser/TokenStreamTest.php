@@ -18,46 +18,7 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testStreamMethods(){
-		/*$inputStream = new InputStream("abcd\nabcd\ntest\n\t ab");
-		$this->assertAttributeEquals("abcd\nabcd\ntest\n\t ab", 'input', $inputStream);
-
-		$this->assertEquals('a', $inputStream->peek());
-		$this->assertEquals('a', $inputStream->next());
-		$this->assertAttributeEquals("abcd\nabcd\ntest\n\t ab", 'input', $inputStream);
-		$this->assertAttributeEquals(1, 'position', $inputStream);
-		$this->assertAttributeEquals(0, 'line', $inputStream);
-		$this->assertAttributeEquals(1, 'column', $inputStream);
-		$this->assertEquals(false, $inputStream->eof());
-
-		$this->assertEquals('bcd', $inputStream->next().$inputStream->next().$inputStream->next());
-		$this->assertEquals("\n", $inputStream->peek());
-		$this->assertEquals("\n", $inputStream->next());
-		$this->assertAttributeEquals(5, 'position', $inputStream);
-		$this->assertAttributeEquals(1, 'line', $inputStream);
-		$this->assertAttributeEquals(0, 'column', $inputStream);
-
-		for($i = 0; $i < 10; $i++){
-			$inputStream->next();
-		}
-		$this->assertEquals("\t", $inputStream->next());
-		$this->assertEquals(' ', $inputStream->next());
-		$this->assertEquals('a', $inputStream->next());
-		$this->assertEquals('b', $inputStream->next());
-		
-		$this->assertEquals(null, $inputStream->peek());
-		$this->assertEquals(null, $inputStream->next());
-		$this->assertEquals(null, $inputStream->next());
-		$this->assertEquals(true, $inputStream->eof());
-		$this->assertAttributeEquals(19, 'position', $inputStream);
-		$this->assertAttributeEquals(3, 'line', $inputStream);
-		$this->assertAttributeEquals(4, 'column', $inputStream);*/
 		//$tokenStream = new TokenStream(new InputStream('H2+4O + He2(H2Oa5)10'));
-		/*$tokenStream = new TokenStream(new InputStream('H2+4O -> He2(H2Oa5)10'));
-		echo "\n";
-		while($tokenStream->peek()){
-			print_r($tokenStream->next());
-			echo "\n";
-		}*/
 		$tokenStream = new TokenStream(new InputStream('H2+4O -> He2(H2Oa5)10'));
 
 		$token = (object) ['type' => 'element_identifier', 'value' => 'H'];
