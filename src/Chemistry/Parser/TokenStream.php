@@ -41,7 +41,6 @@ class TokenStream
 	public function next(){
 		$token = $this->current;
 		$this->current = null;
-		//return $token || $this->readNext();
 		return $token ?: $this->readNext();
 	}
 
@@ -51,7 +50,6 @@ class TokenStream
 	 * @return object the next token
 	 */
 	public function peek(){
-		//return $this->current || ($this->current = $this->readNext());
 		return $this->current ?: ($this->current = $this->readNext());
 	}
 
@@ -92,9 +90,9 @@ class TokenStream
 		if($this->is_element_identifier_start($character)){
 			return $this->readElementIdentifier();
 		}
-		if($this->is_charge_identifier($character)){
+		/*if($this->is_charge_identifier($character)){
 			return (object) ['type' => 'charge_identifier', 'value' => $this->inputStream->next()];
-		}
+		}*/
 		if($this->is_punctuation($character)){
 			return (object) ['type' => 'punctuation', 'value' => $this->inputStream->next()];
 		}
@@ -118,7 +116,6 @@ class TokenStream
 	/**
 	 * Read input stream for a number
 	 * 
-	 * \\@return string  number read from the input stream
 	 * @return object number token object
 	 */
 	protected function readNumber(){
@@ -177,8 +174,6 @@ class TokenStream
 	 * @return bool               true if given character is operator character
 	 */
 	protected function is_operator_character(string $character, string $previous = ''){
-		//return strpos('+=<->', $character) !== false;
-		//if(!$previous){
 		if($previous === ''){
 			return strpos('+=<->', $character) !== false;
 		}
