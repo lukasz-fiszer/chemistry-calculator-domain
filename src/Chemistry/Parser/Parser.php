@@ -110,7 +110,6 @@ class Parser
 		//while($this->isMoleculeStart() && ($chargeAllowed === false || $isChargeOperator())){
 		//while($this->isMoleculeStart() || !($chargeAllowed === false || $isChargeOperator())){
 		while($this->isMoleculeStart() || ($chargeAllowed && $isChargeOperator())){
-		//while($this->isMoleculeStart()){
 			$entries[] = $this->parseMoleculeEntry($chargeAllowed);
 		}
 		return (object) ['type' => 'molecule', 'entries' => $entries];
@@ -128,26 +127,16 @@ class Parser
 			$this->tokenStream->next();
 			$molecule = $this->parseMolecule(true);
 			$this->skipTokenType('punctuation', $token->opposite);
-			/*$occurences = 1;
-			if($this->isTokenType('number')){
-				$occurences = (int) $this->tokenStream->next()->value;
-			}*/
-			return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $this->findOccurences()]]];
+			//return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $this->findOccurences()]]];
+			$molecule->occurences = $this->findOccurences();
+			return $molecule;
 		}
 		if($token->type == 'element_identifier'){
 			$element = $this->tokenStream->next();
-			/*$occurences = 1;
-			if($this->isTokenType('number')){
-				$occurences = (int) $this->tokenStream->next()->value;
-			}*/
 			return (object) ['type' => 'element', 'entry' => $element, 'occurences' => $this->findOccurences()];
 		}
 		if($chargeAllowed && $token->type == 'operator' && in_array($token->value, ['+', '-'], true)){
 			$chargeToken = $this->tokenStream->next();
-			/*$occurences = 1;
-			if($this->isTokenType('number')){
-				$occurences = (int) $this->tokenStream->next()->value;
-			}*/
 			$charge = (object) ['type' => 'charge', 'value' => $chargeToken->value, 'occurences' => $this->findOccurences()];
 			return $charge;
 		}

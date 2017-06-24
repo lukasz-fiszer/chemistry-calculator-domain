@@ -23,9 +23,14 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 		//$tokenStream = new TokenStream(new InputStream('test'));
 		//$tokenStream = new TokenStream(new InputStream('H2O'));
 		//$tokenStream = new TokenStream(new InputStream('H2O + Ab'));
-		$tokenStream = new TokenStream(new InputStream('H2O + Ab + Ab(Ab1Eg2)5 = Ab10 + Eg2'));
+		//$tokenStream = new TokenStream(new InputStream('H2O + Ab + Ab(Ab1Eg2)5 = Ab10 + Eg2'));
+		//$tokenStream = new TokenStream(new InputStream('Ab(Ab1Eg2)5'));
+		//$tokenStream = new TokenStream(new InputStream('Ab([Ab1Eg2])5'));
+		//$tokenStream = new TokenStream(new InputStream('H3O{+} Ab'));
+		$tokenStream = new TokenStream(new InputStream('H(N2)5'));
 		$parser = new Parser($tokenStream);
 		//var_dump($parser->parse());
-		print_r($parser->parse());
+		//print_r($parser->parse());
+		print_r($parser->parse()->nodes);
 	}
 }
