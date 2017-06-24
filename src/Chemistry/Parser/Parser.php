@@ -55,22 +55,6 @@ class Parser
 	protected function parseAtom(){
 		if($this->isMoleculeStart()){
 			return $this->parseMolecule();
-			/////////////
-			/*$token = $this->tokenStream->peek();
-			if($token->type == 'punctuation' && $token->mode == 'open'){
-				$this->tokenStream->next();
-				$molecule = $this->parseMolecule();
-				$this->skipTokenType('punctuation', $token->opposite);
-				if($this->isTokenType('number')){
-					$occurences = (int) $this->tokenStream->next()->value;
-					return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $occurences]]];
-				}
-			}
-			else{
-				$molecule = $this->parseMolecule();
-			}
-			return $molecule;*/
-			//////////////////
 		}
 		if($this->isTokenType('operator')){
 			$token = $this->tokenStream->peek();
@@ -88,17 +72,6 @@ class Parser
 	 * @return object parsed AST of the molecule
 	 */
 	protected function parseMolecule(bool $chargeAllowed = false){
-		/*$token = $this->tokenStream->peek();
-		if($token->type == 'punctuation' && $token->mode == 'open'){
-			$this->tokenStream->next();
-			$molecule = $this->parseMolecule(true);
-			$this->skipTokenType('punctuation', $token->opposite);
-			if($this->isTokenType('number')){
-				$occurences = (int) $this->tokenStream->next()->value;
-				return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $occurences]]];
-			}
-			return $molecule;
-		}*/
 		$entries = [];
 		$isChargeOperator = function(){
 			$token = $this->tokenStream->peek();
@@ -107,12 +80,11 @@ class Parser
 			}
 			return false;
 		};
-		//while($this->isMoleculeStart() && ($chargeAllowed === false || $isChargeOperator())){
-		//while($this->isMoleculeStart() || !($chargeAllowed === false || $isChargeOperator())){
 		while($this->isMoleculeStart() || ($chargeAllowed && $isChargeOperator())){
 			$entries[] = $this->parseMoleculeEntry($chargeAllowed);
 		}
-		return (object) ['type' => 'molecule', 'entries' => $entries];
+		//return (object) ['type' => 'molecule', 'entries' => $entries];
+		return (object) ['type' => 'molecule', 'entries' => $entries, 'occurences' => 1];
 	}
 
 	/**
@@ -127,7 +99,6 @@ class Parser
 			$this->tokenStream->next();
 			$molecule = $this->parseMolecule(true);
 			$this->skipTokenType('punctuation', $token->opposite);
-			//return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $this->findOccurences()]]];
 			$molecule->occurences = $this->findOccurences();
 			return $molecule;
 		}
@@ -140,9 +111,6 @@ class Parser
 			$charge = (object) ['type' => 'charge', 'value' => $chargeToken->value, 'occurences' => $this->findOccurences()];
 			return $charge;
 		}
-		/*if(!$this->isTokenType('element_identifier')){
-			$this->unexpectedToken();
-		}*/
 	}
 
 	/**
