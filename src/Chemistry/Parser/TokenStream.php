@@ -30,6 +30,7 @@ class TokenStream
 	 */
 	public function __construct(InputStream $inputStream){
 		$this->inputStream = $inputStream;
+		$this->punctuationCharacters = '()[]{}';
 	}
 
 	/**
@@ -94,10 +95,7 @@ class TokenStream
 		}*/
 		if($this->is_punctuation($character)){
 			$value = $this->inputStream->next();
-			$mode = strpos('([{', $value) !== false ? 'open' : 'close';
-			//$opposite = '()[]{}'[strpos('([{', $value)*2 + 1];
-			$opposite = '()[]{}'[($pos = strpos('()[]{}', $value)) % 2 == 0 ? $pos+1 : $pos-1];
-			return (object) ['type' => 'punctuation', 'value' => $value, 'mode' => $mode, 'opposite' => $opposite];
+			return (object) array_merge(['type' => 'punctuation', 'value' => $value], $this->punctuationData($value));
 		}
 		if($this->is_operator_character($character)){
 			return (object) ['type' => 'operator', 'value' => $this->readWhile([$this, 'is_operator_character'])];
@@ -137,6 +135,18 @@ class TokenStream
 			$string .= $this->inputStream->next();
 		}
 		return $string;
+	}
+
+	/**
+	 * Get mode and opposite character for punctuation bracket
+	 * 
+	 * @param  string $punctuation punctuation bracket character
+	 * @return array  array with mode and opposite character
+	 */
+	protected function punctuationData(string $punctuation){
+		$mode = strpos($this->punctuationCharacters, $punctuation) % 2 == 0 ? 'open' : 'close';
+		$opposite = $this->punctuationCharacters[($pos = strpos($this->punctuationCharacters, $punctuation)) % 2 == 0 ? $pos+1 : $pos-1];
+		return ['mode' => $mode, 'opposite' => $opposite];
 	}
 
 	/**
@@ -190,7 +200,7 @@ class TokenStream
 	 * @return bool               true if given character is punctuation
 	 */
 	protected function is_punctuation(string $character){
-		return strpos('()[]{}', $character) !== false;
+		return strpos($this->punctuationCharacters, $character) !== false;
 	}
 
 	/**
