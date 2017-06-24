@@ -21,8 +21,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 
 	public function testAbcd(){
 		//$tokenStream = new TokenStream(new InputStream('test'));
-		$tokenStream = new TokenStream(new InputStream('H2O'));
+		//$tokenStream = new TokenStream(new InputStream('H2O'));
 		//$tokenStream = new TokenStream(new InputStream('H2O + Ab'));
+		$tokenStream = new TokenStream(new InputStream('H2O + Ab + Ab(Ab1Eg2)5 = Ab10 + Eg2'));
 		$parser = new Parser($tokenStream);
 		//var_dump($parser->parse());
 		print_r($parser->parse());

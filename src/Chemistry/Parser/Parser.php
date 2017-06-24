@@ -53,16 +53,15 @@ class Parser
 	 * @return object atomic AST node parsed
 	 */
 	protected function parseAtom(){
-		//if($this->isTokenType(''))
 		if($this->isMoleculeStart()){
-			$token = $this->tokenStream->peek();
+			return $this->parseMolecule();
+			/////////////
+			/*$token = $this->tokenStream->peek();
 			if($token->type == 'punctuation' && $token->mode == 'open'){
 				$this->tokenStream->next();
 				$molecule = $this->parseMolecule();
-				//$this->tokenStream
 				$this->skipTokenType('punctuation', $token->opposite);
 				if($this->isTokenType('number')){
-					//$occurences = (int) $this->tokenStream->next()->value();
 					$occurences = (int) $this->tokenStream->next()->value;
 					return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $occurences]]];
 				}
@@ -70,16 +69,13 @@ class Parser
 			else{
 				$molecule = $this->parseMolecule();
 			}
-			return $molecule;
+			return $molecule;*/
+			//////////////////
 		}
 		if($this->isTokenType('operator')){
-			//return $this->tokenStream->next();
 			$token = $this->tokenStream->peek();
 			if(in_array($token->value, ['+', '=', '<-', '->', '<->'], true)){
 				return $this->tokenStream->next();
-			}
-			else{
-				$this->unexpectedToken();
 			}
 		}
 		$this->unexpectedToken();
@@ -87,66 +83,90 @@ class Parser
 
 	/**
 	 * Parse molecule
-	 * 
+	 *
+	 * @param bool $chargeAllowed true if charge identifiers are allowed
 	 * @return object parsed AST of the molecule
 	 */
-	protected function parseMolecule(){
-		$token = $this->tokenStream->peek();
+	protected function parseMolecule(bool $chargeAllowed = false){
+		/*$token = $this->tokenStream->peek();
 		if($token->type == 'punctuation' && $token->mode == 'open'){
 			$this->tokenStream->next();
-			$molecule = $this->parseMolecule();
+			$molecule = $this->parseMolecule(true);
 			$this->skipTokenType('punctuation', $token->opposite);
 			if($this->isTokenType('number')){
-				//$occurences = (int) $this->tokenStream->next()->value();
 				$occurences = (int) $this->tokenStream->next()->value;
 				return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $occurences]]];
 			}
 			return $molecule;
-			/*else{
-				return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => 1]]];
-			}*/
-		}
+		}*/
 		$entries = [];
-		while(!$this->tokenStream->eof()){
-			$entries[] = $this->parseMoleculeEntry();
+		$isChargeOperator = function(){
+			$token = $this->tokenStream->peek();
+			if($token->type == 'operator' && strpos('+-', $token->value) !== false){
+				return true;
+			}
+			return false;
+		};
+		//while($this->isMoleculeStart() && ($chargeAllowed === false || $isChargeOperator())){
+		//while($this->isMoleculeStart() || !($chargeAllowed === false || $isChargeOperator())){
+		while($this->isMoleculeStart() || ($chargeAllowed && $isChargeOperator())){
+		//while($this->isMoleculeStart()){
+			$entries[] = $this->parseMoleculeEntry($chargeAllowed);
 		}
 		return (object) ['type' => 'molecule', 'entries' => $entries];
 	}
 
 	/**
 	 * Parse molecule entry
-	 * 
+	 *
+	 * @param bool $chargeAllowed true if charge identifiers are allowed
 	 * @return array parsed molecule entry
 	 */
-	protected function parseMoleculeEntry(){
-		/*$token = $this->tokenStream->next();
-		if()*/
+	protected function parseMoleculeEntry(bool $chargeAllowed = false){
 		$token = $this->tokenStream->peek();
 		if($token->type == 'punctuation' && $token->mode == 'open'){
 			$this->tokenStream->next();
-			$molecule = $this->parseMolecule();
+			$molecule = $this->parseMolecule(true);
 			$this->skipTokenType('punctuation', $token->opposite);
+			/*$occurences = 1;
 			if($this->isTokenType('number')){
-				//$occurences = (int) $this->tokenStream->next()->value();
 				$occurences = (int) $this->tokenStream->next()->value;
-				return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $occurences]]];
-			}
-			return $molecule;
-			/*else{
-				return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => 1]]];
 			}*/
+			return (object) ['type' => 'molecule', 'entries' => [['entry' => $molecule, 'occurences' => $this->findOccurences()]]];
 		}
-
-		if(!$this->isTokenType('element_identifier')){
+		if($token->type == 'element_identifier'){
+			$element = $this->tokenStream->next();
+			/*$occurences = 1;
+			if($this->isTokenType('number')){
+				$occurences = (int) $this->tokenStream->next()->value;
+			}*/
+			return (object) ['type' => 'element', 'entry' => $element, 'occurences' => $this->findOccurences()];
+		}
+		if($chargeAllowed && $token->type == 'operator' && in_array($token->value, ['+', '-'], true)){
+			$chargeToken = $this->tokenStream->next();
+			/*$occurences = 1;
+			if($this->isTokenType('number')){
+				$occurences = (int) $this->tokenStream->next()->value;
+			}*/
+			$charge = (object) ['type' => 'charge', 'value' => $chargeToken->value, 'occurences' => $this->findOccurences()];
+			return $charge;
+		}
+		/*if(!$this->isTokenType('element_identifier')){
 			$this->unexpectedToken();
-		}
-		$element = $this->tokenStream->next();
+		}*/
+	}
+
+	/**
+	 * Find occurences in next number token or return 1 as default occurence number
+	 * 
+	 * @return int number of occurences found
+	 */
+	protected function findOccurences(){
 		$occurences = 1;
 		if($this->isTokenType('number')){
-			//$occurences = (int) $this->tokenStream->next()->value();
 			$occurences = (int) $this->tokenStream->next()->value;
 		}
-		return (object) ['entry' => $element, 'occurences' => $occurences];
+		return $occurences;
 	}
 
 	/**
@@ -155,10 +175,7 @@ class Parser
 	 * @return boolean true if token is molecule start token
 	 */
 	protected function isMoleculeStart(){
-		if($this->isTokenType('punctuation') && $this->tokenStream->peek()->mode == 'open'){
-			return true;
-		}
-		if($this->isTokenType('element_identifier')){
+		if($this->isTokenType('punctuation', null, ['mode' => 'open']) || $this->isTokenType('element_identifier')){
 			return true;
 		}
 		return false;
@@ -167,14 +184,15 @@ class Parser
 	/**
 	 * Check if next token is of given type and contains specified value
 	 * 
-	 * @param  string      $tokenType token type to check for
-	 * @param  string|null $value     optional value to check for
-	 * @return boolean                true if token matches type and value
+	 * @param  string      $tokenType  token type to check for
+	 * @param  string|null $value      optional value to check for
+	 * @param  array       $additional additional key-value pairs to check on token
+	 * @return boolean                 true if token matches type and value
 	 */
-	protected function isTokenType(string $tokenType, string $value = null){
+	protected function isTokenType(string $tokenType, string $value = null, array $additional = []){
 		$token = $this->tokenStream->peek();
-		//return $token && $token->type == $tokenType && (!$value || $token->value === $value);
-		return $token && $token->type == $tokenType && ($value === null || $token->value === $value);
+		$matchesTypeAndValue = $token && $token->type == $tokenType && ($value === null || $token->value === $value);
+		return $matchesTypeAndValue && array_intersect_assoc((array) $token, $additional) == $additional;
 	}
 
 	/**
