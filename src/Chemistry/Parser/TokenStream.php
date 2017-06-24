@@ -93,7 +93,11 @@ class TokenStream
 			return (object) ['type' => 'charge_identifier', 'value' => $this->inputStream->next()];
 		}*/
 		if($this->is_punctuation($character)){
-			return (object) ['type' => 'punctuation', 'value' => $this->inputStream->next()];
+			$value = $this->inputStream->next();
+			$mode = strpos('([{', $value) !== false ? 'open' : 'close';
+			//$opposite = '()[]{}'[strpos('([{', $value)*2 + 1];
+			$opposite = '()[]{}'[($pos = strpos('()[]{}', $value)) % 2 == 0 ? $pos+1 : $pos-1];
+			return (object) ['type' => 'punctuation', 'value' => $value, 'mode' => $mode, 'opposite' => $opposite];
 		}
 		if($this->is_operator_character($character)){
 			return (object) ['type' => 'operator', 'value' => $this->readWhile([$this, 'is_operator_character'])];

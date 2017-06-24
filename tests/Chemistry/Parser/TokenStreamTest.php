@@ -35,12 +35,14 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertNextToken($tokenStream, 'operator', '->');
 		$this->assertNextToken($tokenStream, 'element_identifier', 'He');
 		$this->assertNextToken($tokenStream, 'number', 2);
-		$this->assertNextToken($tokenStream, 'punctuation', '(');
+		//$this->assertNextToken($tokenStream, 'punctuation', '(');
+		$this->assertEquals((object) ['type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'], $tokenStream->next());
 		$this->assertNextToken($tokenStream, 'element_identifier', 'H');
 		$this->assertNextToken($tokenStream, 'number', 2);
 		$this->assertNextToken($tokenStream, 'element_identifier', 'Oa');
 		$this->assertNextToken($tokenStream, 'number', 5);
-		$this->assertNextToken($tokenStream, 'punctuation', ')');
+		//$this->assertNextToken($tokenStream, 'punctuation', ')');
+		$this->assertEquals((object) ['type' => 'punctuation', 'value' => ')', 'mode' => 'close', 'opposite' => '('], $tokenStream->next());
 		$this->assertNextToken($tokenStream, 'number', 10);
 		$this->assertTrue($tokenStream->eof());
 		$this->assertEquals(null, $tokenStream->next());
