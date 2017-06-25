@@ -4,6 +4,78 @@
 		"selected_items":
 		[
 			[
+				"parserE",
+				"parserExceptionMethodDataProvider"
+			],
+			[
+				"Parsr",
+				"ParserException"
+			],
+			[
+				"expec",
+				"expectedException"
+			],
+			[
+				"punc",
+				"punctuationCharacters"
+			],
+			[
+				"pun",
+				"punctuationData"
+			],
+			[
+				"charge",
+				"chargeAllowed"
+			],
+			[
+				"elem",
+				"element_identifier"
+			],
+			[
+				"array",
+				"array_intersect"
+			],
+			[
+				"match",
+				"matchesTypeAndValue"
+			],
+			[
+				"unec",
+				"unexpectedToken"
+			],
+			[
+				"token",
+				"tokenStream"
+			],
+			[
+				"toke",
+				"tokenValue"
+			],
+			[
+				"tok",
+				"tokenType"
+			],
+			[
+				"Token",
+				"TokenStream"
+			],
+			[
+				"ass",
+				"assert"
+			],
+			[
+				"Toke",
+				"TokenStream"
+			],
+			[
+				"is_punc",
+				"is_punctuation"
+			],
+			[
+				"To",
+				"TokenStream"
+			],
+			[
 				"Input",
 				"InputStream"
 			],
@@ -34,10 +106,6 @@
 			[
 				"In",
 				"InputStream"
-			],
-			[
-				"ass",
-				"assertEquals"
 			],
 			[
 				"input",
@@ -94,10 +162,6 @@
 			[
 				"assert",
 				"assertEquals"
-			],
-			[
-				"elem",
-				"elementMatcherMock"
 			],
 			[
 				"mol",
@@ -450,98 +514,25 @@
 			[
 				"photos",
 				"photosUpload"
-			],
-			[
-				"valid",
-				"validType"
-			],
-			[
-				"pare",
-				"parentPage"
-			],
-			[
-				"subcategor",
-				"subcategories"
-			],
-			[
-				"subcateo",
-				"subcategory"
-			],
-			[
-				"dis",
-				"disableTitle"
-			],
-			[
-				"par",
-				"parentId"
-			],
-			[
-				"bread",
-				"breadcrumb"
-			],
-			[
-				"Service",
-				"ServiceProvider"
-			],
-			[
-				"cur",
-				"currentTitlePl"
-			],
-			[
-				"tit",
-				"titlePlVal"
-			],
-			[
-				"chi",
-				"childPage"
-			],
-			[
-				"paren",
-				"parenPage"
-			],
-			[
-				"add",
-				"addAdminPages"
-			],
-			[
-				"gal",
-				"galleryPages"
-			],
-			[
-				"Page",
-				"PageTreeBuilder"
-			],
-			[
-				"chil",
-				"childrenObj"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
-			"settings":
-			{
-				"buffer_size": 2426,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
 			"settings":
 			{
-				"buffer_size": 5943,
+				"buffer_size": 6443,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
 			"settings":
 			{
-				"buffer_size": 2950,
+				"buffer_size": 5666,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -554,8 +545,8 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 227.0,
-		"last_filter": "getters",
+		"height": 354.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -624,29 +615,32 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/chemistry-calculator-domain",
-		"/C/xampp/htdocs/chemistry-calculator-domain/res",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/InvokesInaccessibleMethod.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/composer.json",
+		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Error/Error.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/res/PeriodicTableJSON.json",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/DataLoader/ElementDataLoaderTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/InvokesInaccessibleMethod.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/TestCase.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/MoleculeTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/ElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Molecule.php",
@@ -655,7 +649,6 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/Interface/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoaderInterface.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/ElementDataLoader.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/composer.json",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/bootstrap.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/.gitattributes",
 		"/C/xampp/htdocs/chemistry-calculator-domain/.gitignore",
@@ -755,10 +748,7 @@
 		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/HeaderComposer.php",
 		"/C/xampp/htdocs/photo2/.htaccess",
 		"/C/xampp/htdocs/photo2/server.php",
-		"/C/xampp/htdocs/photo2/public/test.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Foundation/Providers/ArtisanServiceProvider.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Foundation/Console/TinkerCommand.php",
-		"/C/xampp/htdocs/photo2/app/Console/Kernel.php"
+		"/C/xampp/htdocs/photo2/public/test.php"
 	],
 	"find":
 	{
@@ -779,6 +769,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"throw",
+			"character exception",
+			"character excepion",
+			"()[]{}",
+			"in_array",
+			"value()",
+			"in_array",
+			"}\n",
+			"\n\t\t",
+			"}\n",
 			"molecule",
 			"toElementData",
 			"Exception",
@@ -904,47 +904,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2426,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1768,
-								1460
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1035.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5943,
+						"buffer_size": 6443,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1306,
-								1306
+								2033,
+								2033
 							]
 						],
 						"settings":
@@ -952,27 +924,27 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 495.0,
+						"translation.y": 838.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2950,
+						"buffer_size": 5666,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2320,
-								2320
+								1155,
+								1155
 							]
 						],
 						"settings":
@@ -981,10 +953,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 418.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1038,6 +1010,66 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"parsertest",
+				"tests\\Chemistry\\Parser\\ParserTest.php"
+			],
+			[
+				"tokenstreamtest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"tokenstreatmest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"input",
+				"src\\Chemistry\\Parser\\InputStream.php"
+			],
+			[
+				"tokstretest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"toknstest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"parserex",
+				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
+			],
+			[
+				"matchesele",
+				"src\\Chemistry\\Entity\\MatchesElement.php"
+			],
+			[
+				"tokens",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"entitymol",
+				"src\\Chemistry\\Entity\\Molecule.php"
+			],
+			[
+				"invokes",
+				"tests\\InvokesInaccessibleMethod.php"
+			],
+			[
+				"composer",
+				"composer.json"
+			],
+			[
+				"phpun",
+				"phpunit.xml"
+			],
+			[
+				"comp",
+				"composer.json"
+			],
+			[
+				"compo",
+				"composer.json"
+			],
 			[
 				"inputstraemtest",
 				"tests\\Chemistry\\Parser\\InputStreamTest.php"
@@ -1193,10 +1225,6 @@
 			[
 				".env",
 				".env"
-			],
-			[
-				"composer",
-				"composer.json"
 			],
 			[
 				"layoutcompo",
@@ -1493,62 +1521,6 @@
 			[
 				"migphoto",
 				"database\\migrations\\2016_12_27_112816_create_photos_table.php"
-			],
-			[
-				"helper/gallery/",
-				"resources\\views\\helper\\gallery\\photos.blade.php"
-			],
-			[
-				"routegener",
-				"app\\Helper\\RouteGenerator.php"
-			],
-			[
-				"breadcrumbsadmin",
-				"routes\\breadcrumbs\\admin.php"
-			],
-			[
-				"admin/index",
-				"resources\\views\\admin\\index.blade.php"
-			],
-			[
-				"carbon",
-				"vendor\\nesbot\\carbon\\src\\Carbon\\Carbon.php"
-			],
-			[
-				"cachemana",
-				"app\\Helper\\CacheManager.php"
-			],
-			[
-				"admincontr",
-				"app\\Http\\Controllers\\AdminController.php"
-			],
-			[
-				"photoupload",
-				"app\\Helper\\PhotosUpload.php"
-			],
-			[
-				"eloqmodel",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php"
-			],
-			[
-				"migslides",
-				"database\\migrations\\2017_03_03_212815_create_slides_table.php"
-			],
-			[
-				"slidescontorller",
-				"app\\Http\\Controllers\\SlidesController.php"
-			],
-			[
-				"helper/slider",
-				"resources\\views\\helper\\slider.blade.php"
-			],
-			[
-				"slidercomposer",
-				"app\\Http\\ViewComposers\\Helper\\SliderComposer.php"
-			],
-			[
-				"routeg",
-				"app\\Helper\\RouteGenerator.php"
 			]
 		],
 		"width": 0.0
