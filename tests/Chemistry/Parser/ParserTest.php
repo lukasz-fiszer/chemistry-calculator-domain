@@ -56,7 +56,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 					['type' => 'element', 'occurences' => 1, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'O'
 					]],
-					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'delimited' => [
+						'type' => 'punctuation', 'value' => '{', 'mode' => 'open', 'opposite' => '}'
+					], 'entries' => [
 						['type' => 'charge', 'occurences' => 1, 'value' => '+'],
 					]],
 				]]
@@ -64,7 +66,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 
 			['{H3O+}', ['type' => 'top_level', 'nodes' => [
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-						['type' => 'molecule', 'occurences' => 1, 'entries' => [
+						['type' => 'molecule', 'occurences' => 1, 'delimited' => [
+							'type' => 'punctuation', 'value' => '{', 'mode' => 'open', 'opposite' => '}'
+						], 'entries' => [
 							['type' => 'element', 'occurences' => 3, 'entry' => [
 								'type' => 'element_identifier', 'value' => 'H'
 							]],
@@ -79,7 +83,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 
 			['(Ab1Ab2)20', ['type' => 'top_level', 'nodes' => [
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-						['type' => 'molecule', 'occurences' => 20, 'entries' => [
+						['type' => 'molecule', 'occurences' => 20, 'delimited' => [
+							'type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'
+						], 'entries' => [
 							['type' => 'element', 'occurences' => 1, 'entry' => [
 								'type' => 'element_identifier', 'value' => 'Ab'
 							]],
@@ -197,7 +203,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 				]],
 				['type' => 'operator', 'value' => '->', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'delimited' => [
+							'type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'
+						], 'entries' => [
 						['type' => 'element', 'occurences' => 2, 'entry' => [
 							'type' => 'element_identifier', 'value' => 'H'
 						]],
@@ -222,7 +230,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 				]],
 				['type' => 'operator', 'value' => '<=>', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'delimited' => [
+							'type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'
+						], 'entries' => [
 						['type' => 'element', 'occurences' => 2, 'entry' => [
 							'type' => 'element_identifier', 'value' => 'H'
 						]],
@@ -247,7 +257,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 				]],
 				['type' => 'operator', 'value' => '<=', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'delimited' => [
+							'type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'
+						], 'entries' => [
 						['type' => 'element', 'occurences' => 2, 'entry' => [
 							'type' => 'element_identifier', 'value' => 'H'
 						]],
@@ -272,7 +284,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 				]],
 				['type' => 'operator', 'value' => '=>', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'delimited' => [
+							'type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'
+						], 'entries' => [
 						['type' => 'element', 'occurences' => 2, 'entry' => [
 							'type' => 'element_identifier', 'value' => 'H'
 						]],
@@ -301,15 +315,21 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 					['type' => 'element', 'occurences' => 1, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'Ab'
 					]],
-					['type' => 'molecule', 'occurences' => 4, 'entries' => [
+					['type' => 'molecule', 'occurences' => 4, 'delimited' => [
+							'type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'
+						], 'entries' => [
 						['type' => 'element', 'occurences' => 1, 'entry' => [
 							'type' => 'element_identifier', 'value' => 'Ab'
 						]],
-						['type' => 'molecule', 'occurences' => 3, 'entries' => [
+						['type' => 'molecule', 'occurences' => 3, 'delimited' => [
+							'type' => 'punctuation', 'value' => '[', 'mode' => 'open', 'opposite' => ']'
+						], 'entries' => [
 							['type' => 'element', 'occurences' => 1, 'entry' => [
 								'type' => 'element_identifier', 'value' => 'Ab'
 							]],
-							['type' => 'molecule', 'occurences' => 2, 'entries' => [
+							['type' => 'molecule', 'occurences' => 2, 'delimited' => [
+								'type' => 'punctuation', 'value' => '{', 'mode' => 'open', 'opposite' => '}'
+							], 'entries' => [
 								['type' => 'charge', 'occurences' => 1, 'value' => '+'],
 							]],
 						]],
@@ -317,13 +337,17 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 				]],
 				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-					['type' => 'molecule', 'occurences' => 2, 'entries' => [
+					['type' => 'molecule', 'occurences' => 2, 'delimited' => [
+						'type' => 'punctuation', 'value' => '{', 'mode' => 'open', 'opposite' => '}'
+					], 'entries' => [
 						['type' => 'charge', 'occurences' => 1, 'value' => '-']
 					]]
 				]],
 				['type' => 'operator', 'value' => '=', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'delimited' => [
+						'type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'
+					], 'entries' => [
 						['type' => 'element', 'occurences' => 2, 'entry' => [
 							'type' => 'element_identifier', 'value' => 'H'
 						]],
@@ -334,13 +358,17 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 				]],
 				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-					['type' => 'molecule', 'occurences' => 5, 'entries' => [
+					['type' => 'molecule', 'occurences' => 5, 'delimited' => [
+						'type' => 'punctuation', 'value' => '{', 'mode' => 'open', 'opposite' => '}'
+					], 'entries' => [
 						['type' => 'charge', 'occurences' => 2, 'value' => '+']
 					]]
 				]],
 				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
-					['type' => 'molecule', 'occurences' => 5, 'entries' => [
+					['type' => 'molecule', 'occurences' => 5, 'delimited' => [
+						'type' => 'punctuation', 'value' => '{', 'mode' => 'open', 'opposite' => '}'
+					], 'entries' => [
 						['type' => 'element', 'occurences' => 1, 'entry' => [
 							'type' => 'element_identifier', 'value' => 'Ab'
 						]],

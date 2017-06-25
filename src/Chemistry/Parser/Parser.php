@@ -107,6 +107,7 @@ class Parser
 			$molecule = $this->parseMolecule(true);
 			$this->skipTokenType('punctuation', $token->opposite);
 			$molecule->occurences = $this->findOccurences();
+			$molecule->delimited = $token;
 			return $molecule;
 		}
 		if($token->type == 'element_identifier'){
