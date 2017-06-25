@@ -58,8 +58,15 @@ class Parser
 		}
 		if($this->isTokenType('operator')){
 			$token = $this->tokenStream->peek();
-			if(in_array($token->value, ['+', '=', '<-', '->', '<->'], true)){
-				return $this->tokenStream->next();
+			if(in_array($token->value, ['=', '<-', '->', '<->', '<=>', '<=', '=>'], true)){
+				$token = $this->tokenStream->next();
+				$token->mode = 'side_equality';
+				return $token;
+			}
+			if(in_array($token->value, ['+'], true)){
+				$token = $this->tokenStream->next();
+				$token->mode = 'plus';
+				return $token;
 			}
 		}
 		$this->unexpectedToken();

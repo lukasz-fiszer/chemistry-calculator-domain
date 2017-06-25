@@ -97,13 +97,13 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 						'type' => 'element_identifier', 'value' => 'H'
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'O'
 					]]
 				]],
-				['type' => 'operator', 'value' => '='],
+				['type' => 'operator', 'value' => '=', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'H'
@@ -120,13 +120,13 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 						'type' => 'element_identifier', 'value' => 'H'
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'O'
 					]]
 				]],
-				['type' => 'operator', 'value' => '<->'],
+				['type' => 'operator', 'value' => '<->', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'H'
@@ -143,13 +143,13 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 						'type' => 'element_identifier', 'value' => 'H'
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'O'
 					]]
 				]],
-				['type' => 'operator', 'value' => '<->'],
+				['type' => 'operator', 'value' => '<->', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'H'
@@ -166,13 +166,13 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 						'type' => 'element_identifier', 'value' => 'H'
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'O'
 					]]
 				]],
-				['type' => 'operator', 'value' => '<-'],
+				['type' => 'operator', 'value' => '<-', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'H'
@@ -189,13 +189,13 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 						'type' => 'element_identifier', 'value' => 'H'
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'O'
 					]]
 				]],
-				['type' => 'operator', 'value' => '->'],
+				['type' => 'operator', 'value' => '->', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'molecule', 'occurences' => 1, 'entries' => [
 						['type' => 'element', 'occurences' => 2, 'entry' => [
@@ -208,19 +208,95 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 				]],
 			]]],
 
+			['H2 + O2 <=> (H2O)', ['type' => 'top_level', 'nodes' => [
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'element', 'occurences' => 2, 'entry' => [
+						'type' => 'element_identifier', 'value' => 'H'
+					]]
+				]],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'element', 'occurences' => 2, 'entry' => [
+						'type' => 'element_identifier', 'value' => 'O'
+					]]
+				]],
+				['type' => 'operator', 'value' => '<=>', 'mode' => 'side_equality'],
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+						['type' => 'element', 'occurences' => 2, 'entry' => [
+							'type' => 'element_identifier', 'value' => 'H'
+						]],
+						['type' => 'element', 'occurences' => 1, 'entry' => [
+							'type' => 'element_identifier', 'value' => 'O'
+						]]
+					]]
+				]],
+			]]],
+
+			['H2 + O2 <= (H2O)', ['type' => 'top_level', 'nodes' => [
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'element', 'occurences' => 2, 'entry' => [
+						'type' => 'element_identifier', 'value' => 'H'
+					]]
+				]],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'element', 'occurences' => 2, 'entry' => [
+						'type' => 'element_identifier', 'value' => 'O'
+					]]
+				]],
+				['type' => 'operator', 'value' => '<=', 'mode' => 'side_equality'],
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+						['type' => 'element', 'occurences' => 2, 'entry' => [
+							'type' => 'element_identifier', 'value' => 'H'
+						]],
+						['type' => 'element', 'occurences' => 1, 'entry' => [
+							'type' => 'element_identifier', 'value' => 'O'
+						]]
+					]]
+				]],
+			]]],
+
+			['H2 + O2 => (H2O)', ['type' => 'top_level', 'nodes' => [
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'element', 'occurences' => 2, 'entry' => [
+						'type' => 'element_identifier', 'value' => 'H'
+					]]
+				]],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'element', 'occurences' => 2, 'entry' => [
+						'type' => 'element_identifier', 'value' => 'O'
+					]]
+				]],
+				['type' => 'operator', 'value' => '=>', 'mode' => 'side_equality'],
+				['type' => 'molecule', 'occurences' => 1, 'entries' => [
+					['type' => 'molecule', 'occurences' => 1, 'entries' => [
+						['type' => 'element', 'occurences' => 2, 'entry' => [
+							'type' => 'element_identifier', 'value' => 'H'
+						]],
+						['type' => 'element', 'occurences' => 1, 'entry' => [
+							'type' => 'element_identifier', 'value' => 'O'
+						]]
+					]]
+				]],
+			]]],
+
+
 			['H2 + O2 + Ab(Ab[Ab{+}2]3)4 + {-}2 = (H2O) + {+2}5 + {Ab-2}5 + Ab10', ['type' => 'top_level', 'nodes' => [
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'H'
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 2, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'O'
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 1, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'Ab'
@@ -239,13 +315,13 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 						]],
 					]],
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'molecule', 'occurences' => 2, 'entries' => [
 						['type' => 'charge', 'occurences' => 1, 'value' => '-']
 					]]
 				]],
-				['type' => 'operator', 'value' => '='],
+				['type' => 'operator', 'value' => '=', 'mode' => 'side_equality'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'molecule', 'occurences' => 1, 'entries' => [
 						['type' => 'element', 'occurences' => 2, 'entry' => [
@@ -256,13 +332,13 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 						]]
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'molecule', 'occurences' => 5, 'entries' => [
 						['type' => 'charge', 'occurences' => 2, 'value' => '+']
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'molecule', 'occurences' => 5, 'entries' => [
 						['type' => 'element', 'occurences' => 1, 'entry' => [
@@ -271,7 +347,7 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 						['type' => 'charge', 'occurences' => 2, 'value' => '-']
 					]]
 				]],
-				['type' => 'operator', 'value' => '+'],
+				['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
 				['type' => 'molecule', 'occurences' => 1, 'entries' => [
 					['type' => 'element', 'occurences' => 10, 'entry' => [
 						'type' => 'element_identifier', 'value' => 'Ab'
