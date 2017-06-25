@@ -6,6 +6,7 @@ use ChemCalc\Domain\Chemistry\Parser\InputStream;
 use Exception;
 use ChemCalc\Domain\Chemistry\Parser\TokenStream;
 use ChemCalc\Domain\Tests\InvokesInaccessibleMethod;
+use ChemCalc\Domain\Chemistry\Parser\ParserException;
 
 class TokenStreamTest extends \PHPUnit\Framework\TestCase
 {
@@ -109,5 +110,27 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 	public function testExceptionThrowing(){
 		$tokenStream = new TokenStream(new InputStream('test'));
 		$tokenStream->throwException();
+	}
+
+	/**
+	 * @dataProvider exceptionThrowingMessageDataProvider
+	 */
+	public function testExceptionThrowingMessage($input, $message){
+		$tokenStream = new TokenStream(new InputStream($input));
+		$this->expectException(ParserException::class);
+		$this->expectExceptionMessage($message);
+		while(!$tokenStream->eof()){
+			$tokenStream->next();
+		}
+	}
+
+	public function exceptionThrowingMessageDataProvider(){
+		return [
+			['test', 'Character exception t (line: 0, column: 0)'],
+			['test2', 'Character exception t (line: 0, column: 0)'],
+			['A + b', 'Character exception b (line: 0, column: 4)'],
+			['A + Ab2b', 'Character exception b (line: 0, column: 7)'],
+			['A + Abe2b20', 'Character exception b (line: 0, column: 8)'],
+		];
 	}
 }
