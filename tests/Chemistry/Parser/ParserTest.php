@@ -7,6 +7,7 @@ use Exception;
 use ChemCalc\Domain\Chemistry\Parser\TokenStream;
 use ChemCalc\Domain\Tests\InvokesInaccessibleMethod;
 use ChemCalc\Domain\Chemistry\Parser\Parser;
+use ChemCalc\Domain\Chemistry\Parser\ParserException;
 
 class ParserTest extends \PHPUnit\Framework\TestCase
 {
@@ -25,6 +26,41 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 	public function testParseMethod($input, $parsed){
 		$parser = new Parser(new TokenStream(new InputStream($input)));
 		$this->assertEquals(json_decode(json_encode($parsed)), $parser->parse());
+	}
+
+	/**
+	 * @dataProvider parserExceptionMethodDataProvider
+	 */
+	public function testParserException($input, $message){
+		$parser = new Parser(new TokenStream(new InputStream($input)));
+		$this->expectException(ParserException::class);
+		$this->expectExceptionMessage($message);
+		$parser->parse();
+	}
+
+	/**
+	 * @expectedException ChemCalc\Domain\Chemistry\Parser\ParserException
+	 */
+	public function testExceptionThrowing(){
+		$parser = new Parser(new TokenStream(new InputStream('test')));
+		$parser->parse();
+	}
+
+	public function parserExceptionMethodDataProvider(){
+		return [
+			['test', 'Character exception t (line: 0, column: 0)'],
+			['test2', 'Character exception t (line: 0, column: 0)'],
+			['H2O++++', 'Unexpected token: {"type":"operator","value":"++++"} (line: 0, column: 7)'],
+			['H2O++++Ab', 'Unexpected token: {"type":"operator","value":"++++"} (line: 0, column: 7)'],
+			//['(Ab]2', 'Expected token: {"type":"punctuation","value":"]"} (line: 0, column: 4)'],
+			['(Ab]2', 'Expected token of type: punctuation and value of: ) (line: 0, column: 4)'],
+			['H2O)', 'Unexpected token: {"type":"punctuation","value":")","mode":"close","opposite":"("} (line: 0, column: 4)'],
+			//['H2O(Ab=)5', 'Unexpected token: {"type":"operator","value"=")"} (line: 0, column: 7)'],
+			//['H2O(Ab->)5', 'Unexpected token: {"type":"operator","value"->")"} (line: 0, column: 8)'],
+			['H2O(Ab=)5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 7)'],
+			['H2O(Ab->)5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 8)'],
+			['H2O(Ab->]5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 8)'],
+		];
 	}
 
 	public function parseMethodDataProvider(){
@@ -383,13 +419,5 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 				]],
 			]]],
 		];
-	}
-
-	/**
-	 * @expectedException ChemCalc\Domain\Chemistry\Parser\ParserException
-	 */
-	public function testExceptionThrowing(){
-		$parser = new Parser(new TokenStream(new InputStream('test')));
-		$parser->parse();
 	}
 }
