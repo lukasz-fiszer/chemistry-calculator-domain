@@ -2,6 +2,9 @@
 
 namespace ChemCalc\Domain\Tests;
 
+use ChemCalc\Domain\Chemistry\Entity\Molecule;
+use ChemCalc\Domain\Chemistry\Entity\Element;
+
 return [
 	['input' => 'H',
 	'parsed' =>
@@ -11,6 +14,10 @@ return [
 					'type' => 'element_identifier', 'value' => 'H'
 				]]
 			]]
+		]],
+	'interpreted' =>
+		['type' => 'molecule', 'interpreted' => [
+			new Molecule([['element' => new Element('Hydrogen', 'H', 1.008, true, json_decode(file_get_contents(realpath(dirname(__FILE__)).'/../../res/PeriodicTableJSON.json'), true)['elements'][0]), 'occurences' => 1]], 'H')
 		]],
 	],
 

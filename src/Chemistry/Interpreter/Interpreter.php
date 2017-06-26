@@ -43,7 +43,7 @@ class Interpreter
 		$interpretedNodes = $this->interpretNodes($nodes);
 		list($interpreted, $plusCount, $sidesCount, $moleculesCount) = array_values($interpretedNodes);
 
-		if(count($interpretedNodes) == 1 && $moleculesCount == 1 && $plusCount == 0 && $sidesCount == 1){
+		if(count($interpreted) == 1 && $moleculesCount == 1 && $plusCount == 0 && $sidesCount == 1){
 			return (object) ['type' => 'molecule', 'interpreted' => $interpreted];
 		}
 		if($sidesCount == 2 && $moleculesCount > 1){
@@ -62,7 +62,7 @@ class Interpreter
 				return (object) ['type' => 'reaction_equation', 'interpreted' => $sides];
 			}
 			else{
-				$this->getUnknownResult('Missing molecules on either side of reaction equation');
+				return $this->getUnknownResult('Missing molecules on either side of reaction equation');
 			}
 		}
 		return $this->getUnknownResult('Nodes do not represent molecule or reaction equation');
@@ -85,7 +85,7 @@ class Interpreter
 				$interpretedNode->mode == 'plus' ? $plusCount++ : null;
 				$interpretedNode->mode == 'side_eqaulity' ? $sidesCount++ : null;
 			}
-			if($interpretNode instanceof Molecule){
+			if($interpretedNode instanceof Molecule){
 				$moleculesCount++;
 			}
 			$interpreted[] = $interpretedNode;
@@ -154,7 +154,7 @@ class Interpreter
 			if($entry->type == 'element'){
 				isset($elements[$entry->entry->value]) ? null : $elements[$entry->entry->value] = 0;
 				$elements[$entry->entry->value] += $entry->occurences;
-				$formula .= $entry->entry->value.$entry->occurences;
+				$formula .= $entry->occurences != 1 ? $entry->entry->value.$entry->occurences : $entry->entry->value;
 			}
 			else if($entry->type == 'charge'){
 				isset($elements[$entry->value]) ? null : $elements[$entry->value] = 0;
