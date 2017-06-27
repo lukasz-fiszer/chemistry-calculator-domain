@@ -8,6 +8,7 @@ use ChemCalc\Domain\Chemistry\Parser\TokenStream;
 use ChemCalc\Domain\Tests\InvokesInaccessibleMethod;
 use ChemCalc\Domain\Chemistry\Parser\Parser;
 use ChemCalc\Domain\Chemistry\Parser\ParserException;
+use ChemCalc\Domain\Tests\Res\ChemistryTestsData;
 
 class ParserTest extends \PHPUnit\Framework\TestCase
 {
@@ -66,7 +67,8 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function parseMethodDataProvider(){
-		$testsData = require realpath(dirname(__FILE__)).'/../../res/testsData.php';
+		$testsData = new ChemistryTestsData();
+		$testsData = $testsData->getInputParseTestsData();
 		/*$testsData = array_map(function($testEntry){
 			return [$testEntry['input'], $testEntry['parsed']];
 		}, $testsData);*/

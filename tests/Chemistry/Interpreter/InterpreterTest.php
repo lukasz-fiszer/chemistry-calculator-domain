@@ -3,6 +3,7 @@
 namespace ChemCalc\Domain\Tests\Chemistry\Interpreter;
 
 use ChemCalc\Domain\Chemistry\Interpreter\Interpreter;
+use ChemCalc\Domain\Tests\Res\ChemistryTestsData;
 
 
 class InterpreterTest extends \PHPUnit\Framework\TestCase
@@ -12,7 +13,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 			return;
 		}
 		$this->initialized = true;
-		$this->testsData = require realpath(dirname(__FILE__)).'/../../res/testsData.php';
+		$this->testsData = new ChemistryTestsData();
 	}
 
 	public function testConstructorPropertiesInjection(){
@@ -41,6 +42,6 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 		return [array_map(function($testEntry){
 			//return [json_decode(json_encode($testEntry['parsed'])), json_encode(json_decode($testEntry['interpreted']))];
 			return [json_decode(json_encode($testEntry['parsed'])), (object) $testEntry['interpreted']];
-		}, $this->testsData)[0]];
+		}, $this->testsData->getInputParseTestsData())[0]];
 	}
 }
