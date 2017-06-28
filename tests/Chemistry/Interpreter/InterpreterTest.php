@@ -39,9 +39,9 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 
 	public function interpretMethodDataProvider(){
 		$this->setUp();
-		return [array_map(function($testEntry){
+		return array_map(function($testEntry){
 			//return [json_decode(json_encode($testEntry['parsed'])), json_encode(json_decode($testEntry['interpreted']))];
 			return [json_decode(json_encode($testEntry['parsed'])), (object) $testEntry['interpreted']];
-		}, $this->testsData->getInputParseTestsData())[0]];
+		}, $this->testsData->getInputParseTestsData());
 	}
 }

@@ -4,9 +4,19 @@ namespace ChemCalc\Domain\Tests\Res;
 
 use ChemCalc\Domain\Chemistry\Entity\Molecule;
 use ChemCalc\Domain\Chemistry\Entity\Element;
+use ChemCalc\Domain\Chemistry\DataLoader\ElementDataLoader;
 
 class ChemistryTestsData
 {
+	public function __construct(){
+		$this->elementDataLoader = new ElementDataLoader();
+		$this->h = new Element('Hydrogen', 'H', 1.008, true, $this->elementDataLoader->getDataForElementBySymbol('H'));
+		$this->o = new Element('Oxygen', 'O', 15.999, true, $this->elementDataLoader->getDataForElementBySymbol('O'));
+		$this->chargePlus = new Element('unknown', '+', 0, false);
+		$this->chargeMinus = new Element('unknown', '-', 0, false);
+		$this->ab = new Element('unknown', 'Ab', 0, false);
+	}
+
 	public function getInputParseTestsData(){
 		return [
 			['input' => 'H',
@@ -36,6 +46,10 @@ class ChemistryTestsData
 						]],
 					]]
 				]],
+			'interpreted' => 
+				['type' => 'molecule', 'interpreted' => [
+					new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O')
+				]],
 			],
 
 			['input' => 'H3O{+}',
@@ -54,6 +68,10 @@ class ChemistryTestsData
 							['type' => 'charge', 'occurences' => 1, 'value' => '+'],
 						]],
 					]]
+				]],
+			'interpreted' => 
+				['type' => 'molecule', 'interpreted' => [
+					new Molecule([['element' => $this->h, 'occurences' => 3], ['element' => $this->o, 'occurences' => 1], ['element' => $this->chargePlus, 'occurences' => 1]], 'H3O{+}')
 				]],
 			],
 
@@ -75,6 +93,10 @@ class ChemistryTestsData
 						]
 					]
 				]],
+			'interpreted' => 
+				['type' => 'molecule', 'interpreted' => [
+					new Molecule([['element' => $this->h, 'occurences' => 3], ['element' => $this->o, 'occurences' => 1], ['element' => $this->chargePlus, 'occurences' => 1]], '{H3O+}')
+				]],
 			],
 
 			['input' => '(Ab1Ab2)20',
@@ -93,6 +115,10 @@ class ChemistryTestsData
 							]]
 						]
 					]
+				]],
+			'interpreted' => 
+				['type' => 'molecule', 'interpreted' => [
+					new Molecule([['element' => $this->ab, 'occurences' => 60]], '(AbAb2)20')
 				]],
 			],
 
@@ -120,6 +146,12 @@ class ChemistryTestsData
 						]]
 					]],
 				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O')]
+				]],
 			],
 
 			['input' => 'H2+O2<->H2O',
@@ -145,6 +177,12 @@ class ChemistryTestsData
 							'type' => 'element_identifier', 'value' => 'O'
 						]]
 					]],
+				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O')]
 				]],
 			],
 
@@ -172,6 +210,12 @@ class ChemistryTestsData
 						]]
 					]],
 				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O')]
+				]],
 			],
 
 			['input' => 'H2 + O2 <- H2O',
@@ -197,6 +241,12 @@ class ChemistryTestsData
 							'type' => 'element_identifier', 'value' => 'O'
 						]]
 					]],
+				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O')]
 				]],
 			],
 
@@ -228,6 +278,12 @@ class ChemistryTestsData
 						]]
 					]],
 				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], '(H2O)')]
+				]],
 			],
 
 			['input' => 'H2 + O2 <=> (H2O)',
@@ -257,6 +313,12 @@ class ChemistryTestsData
 							]]
 						]]
 					]],
+				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], '(H2O)')]
 				]],
 			],
 
@@ -288,6 +350,12 @@ class ChemistryTestsData
 						]]
 					]],
 				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], '(H2O)')]
+				]],
 			],
 
 			['input' => 'H2 + O2 => (H2O)',
@@ -317,6 +385,12 @@ class ChemistryTestsData
 							]]
 						]]
 					]],
+				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], '(H2O)')]
 				]],
 			],
 
@@ -406,6 +480,17 @@ class ChemistryTestsData
 							'type' => 'element_identifier', 'value' => 'Ab'
 						]]
 					]],
+				]],
+			'interpreted' => 
+				['type' => 'reaction_equation', 'interpreted' => [
+					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
+					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2'),
+					new Molecule([['element' => $this->ab, 'occurences' => 17], ['element' => $this->chargePlus, 'occurences' => 24]], 'Ab(Ab[Ab{+}2]3)4'),
+					new Molecule([['element' => $this->chargeMinus, 'occurences' => 2]], '{-}2')],
+					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], '(H2O)'),
+					new Molecule([['element' => $this->chargePlus, 'occurences' => 10]], '{+2}5'),
+					new Molecule([['element' => $this->ab, 'occurences' => 5], ['element' => $this->chargeMinus, 'occurences' => 10]], '{Ab-2}5'),
+					new Molecule([['element' => $this->ab, 'occurences' => 10]], 'Ab10')]
 				]],
 			],
 		];
