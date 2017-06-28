@@ -49,7 +49,7 @@ class Interpreter
 			return $this->getUnknownResult('No nodes');
 		}
 
-		$interpretedNodes = $this->interpretNodes($nodes);
+		/*$interpretedNodes = $this->interpretNodes($nodes);
 		list($interpreted, $plusCount, $sidesCount, $moleculesCount) = array_values($interpretedNodes);
 
 		if(count($interpreted) == 1 && $moleculesCount == 1 && $plusCount == 0 && $sidesCount == 1){
@@ -74,6 +74,41 @@ class Interpreter
 				return $this->getUnknownResult('Missing molecules on either side of reaction equation');
 			}
 		}
+		return $this->getUnknownResult('Nodes do not represent molecule or reaction equation');*/
+
+		$interpreted = $this->interpretNodes($nodes);
+
+		if(count($interpreted) == 1 && $interpreted[0] instanceof Molecule){
+			return (object) ['type' => 'molecule', 'interpreted' => $interpreted];
+		}
+
+		$sides = [[]];
+		$i = 0;
+		foreach($interpreted as $node){
+			if($node instanceof stdClass && $node->type == 'operator' && $node->mode == 'side_equality'){
+				/*$i++;
+				$sides[$i] = [];*/
+				$sides[++$i] = [];
+			}
+			if($node instanceof Molecule){
+				$sides[$i][] = $node;
+			}
+		}
+		/*if(count($sides) == 2 && count($sides[0]) > 0 && count($sides[1]) > 0){
+			return (object) ['type' => 'reaction_equation', 'interpreted' => $sides];
+		}
+		else{
+			return $this->getUnknownResult('Missing molecules on either side of reaction equation');
+		}*/
+		if(count($sides) == 2){
+			if(count($sides[0]) > 0 && count($sides[1]) > 0){
+				return (object) ['type' => 'reaction_equation', 'interpreted' => $sides];
+			}
+			else{
+				return $this->getUnknownResult('Missing molecules on either side of reaction equation');
+			}
+		}
+		
 		return $this->getUnknownResult('Nodes do not represent molecule or reaction equation');
 	}
 
@@ -84,7 +119,7 @@ class Interpreter
 	 * @return array  array of interpreted nodes, plus count and sides count
 	 */
 	protected function interpretNodes(array $nodes){
-		$interpreted = [];
+		/*$interpreted = [];
 		$plusCount = 0;
 		$sidesCount = 1;
 		$moleculesCount = 0;
@@ -99,7 +134,13 @@ class Interpreter
 			}
 			$interpreted[] = $interpretedNode;
 		}
-		return ['interpreted' => $interpreted, 'plusCount' => $plusCount, 'sidesCount' => $sidesCount, 'moleculesCount' => $moleculesCount];
+		return ['interpreted' => $interpreted, 'plusCount' => $plusCount, 'sidesCount' => $sidesCount, 'moleculesCount' => $moleculesCount];*/
+		/*$interpreted = [];
+		foreach($nodes as $node){
+			$interpreted[] = $this->interpretNode($node);
+		}
+		return $interpreted;*/
+		return array_map([$this, 'interpretNode'], $nodes);
 	}
 
 	/**
