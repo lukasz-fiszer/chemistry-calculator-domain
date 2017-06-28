@@ -121,7 +121,6 @@ class Interpreter
 		$elements = [];
 		foreach($extractedMolecule['elements'] as $symbol => $occurences){
 			$elements[] = ['element' => $this->makeElement($symbol), 'occurences' => $occurences];
-			//$elements[] = ['element' => $this->makeElement($symbol), 'occurences' => $occurences * $moleculeNode->occurences];
 		}
 		$molecule = new Molecule($elements, $extractedMolecule['formula']);
 		return $molecule;
@@ -146,7 +145,6 @@ class Interpreter
 	 * @throws InterpreterException exception thrown for unknown molecule node entry
 	 * @return array array of elements and their occurences and molecule string formula
 	 */
-	//protected function getElementsOccurencesForMolecule(stdClass $moleculeNode){
 	protected function extractMoleculeNode(stdClass $moleculeNode){
 		$elements = [];
 		$molecules = [];
@@ -154,14 +152,12 @@ class Interpreter
 		foreach($moleculeNode->entries as $entry){
 			if($entry->type == 'element'){
 				isset($elements[$entry->entry->value]) ? null : $elements[$entry->entry->value] = 0;
-				//$elements[$entry->entry->value] += $entry->occurences;
 				$elements[$entry->entry->value] += $entry->occurences * $moleculeNode->occurences;
 				$formula .= $entry->occurences != 1 ? $entry->entry->value.$entry->occurences : $entry->entry->value;
 			}
 			else if($entry->type == 'charge'){
 				isset($elements[$entry->value]) ? null : $elements[$entry->value] = 0;
 				$elements[$entry->value] += $entry->occurences * $moleculeNode->occurences;
-				//$formula .= $entry->value.$entry->occurences;
 				$formula .= $entry->occurences != 1 ? $entry->value.$entry->occurences : $entry->value;
 			}
 			else if($entry->type == 'molecule'){
@@ -176,13 +172,10 @@ class Interpreter
 		foreach($molecules as $molecule){
 			foreach($molecule as $element => $occurences){
 				isset($elements[$element]) ? null : $elements[$element] = 0;
-				//$elements[$element] += $occurences;
 				$elements[$element] += $occurences * $moleculeNode->occurences;
 			}
 		}
 		if(isset($moleculeNode->delimited)){
-		//if(isset($moleculeNode->delimited) && $moleculeNode->occurences != 1){
-			//$formula = $moleculeNode->delimited->value.$formula.$moleculeNode->delimited->opposite.$moleculeNode->occurences;
 			$formula = $moleculeNode->delimited->value.$formula.$moleculeNode->delimited->opposite.($moleculeNode->occurences != 1 ? $moleculeNode->occurences : null);
 		}
 		return ['elements' => $elements, 'formula' => $formula];
