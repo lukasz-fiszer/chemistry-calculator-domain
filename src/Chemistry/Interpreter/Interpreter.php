@@ -49,33 +49,6 @@ class Interpreter
 			return $this->getUnknownResult('No nodes');
 		}
 
-		/*$interpretedNodes = $this->interpretNodes($nodes);
-		list($interpreted, $plusCount, $sidesCount, $moleculesCount) = array_values($interpretedNodes);
-
-		if(count($interpreted) == 1 && $moleculesCount == 1 && $plusCount == 0 && $sidesCount == 1){
-			return (object) ['type' => 'molecule', 'interpreted' => $interpreted];
-		}
-		if($sidesCount == 2 && $moleculesCount > 1){
-			$sides = [];
-			$i = 0;
-			foreach($interpreted as $interpretedNode){
-				if($interpretedNode instanceof stdClass && $interpretedNode->type == 'operator' && $interpretedNode->mode == 'side_equality'){
-					$i++;
-				}
-				if($interpretedNode instanceof Molecule){
-					isset($sides[$i]) ? null : $sides[$i] = [];
-					$sides[$i][] = $interpretedNode;
-				}
-			}
-			if(count($sides) == 2 && count($sides[0]) > 0 && count($sides[1]) > 0){
-				return (object) ['type' => 'reaction_equation', 'interpreted' => $sides];
-			}
-			else{
-				return $this->getUnknownResult('Missing molecules on either side of reaction equation');
-			}
-		}
-		return $this->getUnknownResult('Nodes do not represent molecule or reaction equation');*/
-
 		$interpreted = $this->interpretNodes($nodes);
 
 		if(count($interpreted) == 1 && $interpreted[0] instanceof Molecule){
@@ -86,20 +59,12 @@ class Interpreter
 		$i = 0;
 		foreach($interpreted as $node){
 			if($node instanceof stdClass && $node->type == 'operator' && $node->mode == 'side_equality'){
-				/*$i++;
-				$sides[$i] = [];*/
 				$sides[++$i] = [];
 			}
 			if($node instanceof Molecule){
 				$sides[$i][] = $node;
 			}
 		}
-		/*if(count($sides) == 2 && count($sides[0]) > 0 && count($sides[1]) > 0){
-			return (object) ['type' => 'reaction_equation', 'interpreted' => $sides];
-		}
-		else{
-			return $this->getUnknownResult('Missing molecules on either side of reaction equation');
-		}*/
 		if(count($sides) == 2){
 			if(count($sides[0]) > 0 && count($sides[1]) > 0){
 				return (object) ['type' => 'reaction_equation', 'interpreted' => $sides];
@@ -119,27 +84,6 @@ class Interpreter
 	 * @return array  array of interpreted nodes, plus count and sides count
 	 */
 	protected function interpretNodes(array $nodes){
-		/*$interpreted = [];
-		$plusCount = 0;
-		$sidesCount = 1;
-		$moleculesCount = 0;
-		foreach($nodes as $node){
-			$interpretedNode = $this->interpretNode($node);
-			if($interpretedNode instanceof stdClass && $interpretedNode->type == 'operator'){
-				$interpretedNode->mode == 'plus' ? $plusCount++ : null;
-				$interpretedNode->mode == 'side_equality' ? $sidesCount++ : null;
-			}
-			if($interpretedNode instanceof Molecule){
-				$moleculesCount++;
-			}
-			$interpreted[] = $interpretedNode;
-		}
-		return ['interpreted' => $interpreted, 'plusCount' => $plusCount, 'sidesCount' => $sidesCount, 'moleculesCount' => $moleculesCount];*/
-		/*$interpreted = [];
-		foreach($nodes as $node){
-			$interpreted[] = $this->interpretNode($node);
-		}
-		return $interpreted;*/
 		return array_map([$this, 'interpretNode'], $nodes);
 	}
 
