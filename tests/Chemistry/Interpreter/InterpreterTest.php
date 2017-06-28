@@ -4,6 +4,8 @@ namespace ChemCalc\Domain\Tests\Chemistry\Interpreter;
 
 use ChemCalc\Domain\Chemistry\Interpreter\Interpreter;
 use ChemCalc\Domain\Tests\Res\ChemistryTestsData;
+use ChemCalc\Domain\Chemistry\Entity\ElementFactory;
+use ChemCalc\Domain\Chemistry\DataLoader\ElementDataLoader;
 
 
 class InterpreterTest extends \PHPUnit\Framework\TestCase
@@ -14,6 +16,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 		}
 		$this->initialized = true;
 		$this->testsData = new ChemistryTestsData();
+		$this->elementFactory = new ElementFactory(new ElementDataLoader());
 	}
 
 	public function testConstructorPropertiesInjection(){
@@ -24,7 +27,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 		]];
 		//$parsed = $this->testsData[0]['parsed'];
 		$parsed = json_decode(json_encode($parsed));
-		$interpreter = new Interpreter($parsed);
+		$interpreter = new Interpreter($parsed, $this->elementFactory);
 		$this->assertAttributeEquals($parsed, 'ast', $interpreter);
 		$this->assertEquals($parsed, $interpreter->getAst());
 	}
@@ -33,7 +36,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 	 * @dataProvider interpretMethodDataProvider
 	 */
 	public function testInterpretMethod($parsed, $interpreted){
-		$interpreter = new Interpreter($parsed);
+		$interpreter = new Interpreter($parsed, $this->elementFactory);
 		$this->assertEquals($interpreted, $interpreter->interpret());
 	}
 

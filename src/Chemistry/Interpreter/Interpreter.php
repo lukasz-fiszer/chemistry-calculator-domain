@@ -5,7 +5,7 @@ namespace ChemCalc\Domain\Chemistry\Interpreter;
 use stdClass;
 use ChemCalc\Domain\Chemistry\Entity\Molecule;
 use ChemCalc\Domain\Chemistry\Entity\Element;
-use ChemCalc\Domain\Chemistry\DataLoader\ElementDataLoader;
+use ChemCalc\Domain\Chemistry\Entity\ElementFactory;
 
 /**
  * Chemistry reaction equation
@@ -21,12 +21,21 @@ class Interpreter
 	protected $ast;
 
 	/**
+	 * Element factory used to make elements
+	 * 
+	 * @var ElementFactory
+	 */
+	protected $elementFactory;
+
+	/**
 	 * Construct new interpreter
 	 * 
-	 * @param stdClass $ast parsed AST for interpreter
+	 * @param stdClass       $ast            parsed AST for interpreter
+	 * @param ElementFactory $elementFactory element factory used to make elements
 	 */
-	public function __construct(stdClass $ast){
+	public function __construct(stdClass $ast, ElementFactory $elementFactory){
 		$this->ast = $ast;
+		$this->elementFactory = $elementFactory;
 	}
 
 	/**
@@ -133,9 +142,7 @@ class Interpreter
 	 * @return Element element object
 	 */
 	protected function makeElement(string $symbol){
-		$dataLoader = new ElementDataLoader();
-		$elementData = $dataLoader->getDataForElementBySymbol($symbol);
-		return $elementData === null ? new Element('unknown', $symbol, 0, false) : new Element($elementData['name'], $symbol, $elementData['atomic_mass'], true, $elementData);
+		return $this->elementFactory->makeElementBySymbol($symbol);
 	}
 
 	/**
