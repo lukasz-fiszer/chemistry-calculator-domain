@@ -4,6 +4,158 @@
 		"selected_items":
 		[
 			[
+				"F",
+				"Fic"
+			],
+			[
+				"ex",
+				"expected"
+			],
+			[
+				"mole",
+				"moleculeBuilder"
+			],
+			[
+				"ele",
+				"elementFactoryMock"
+			],
+			[
+				"form",
+				"formula"
+			],
+			[
+				"mol",
+				"moleculeBuilder"
+			],
+			[
+				"build",
+				"buildFormulaFragment"
+			],
+			[
+				"elem",
+				"elements"
+			],
+			[
+				"Ele",
+				"ElementFactory"
+			],
+			[
+				"inter",
+				"interpretNode"
+			],
+			[
+				"sides",
+				"sides"
+			],
+			[
+				"getD",
+				"getDataForElement"
+			],
+			[
+				"fic",
+				"ficSym"
+			],
+			[
+				"asserT",
+				"assertEquals"
+			],
+			[
+				"ee",
+				"elementDataLoader"
+			],
+			[
+				"E",
+				"Element"
+			],
+			[
+				"chrg",
+				"chargeMinus"
+			],
+			[
+				"charge",
+				"chargeMinus"
+			],
+			[
+				"charg",
+				"chargePlus"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"mo",
+				"moleculeNode"
+			],
+			[
+				"H",
+				"Hydrogen"
+			],
+			[
+				"test",
+				"testsData"
+			],
+			[
+				"Chemi",
+				"ChemistryTestsData"
+			],
+			[
+				"js",
+				"json_decode"
+			],
+			[
+				"interp",
+				"interpretedNodes"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"tets",
+				"testEntry"
+			],
+			[
+				"interpte",
+				"interpretedNodes"
+			],
+			[
+				"molecule",
+				"molecule"
+			],
+			[
+				"del",
+				"delimited"
+			],
+			[
+				"moe",
+				"moleculeNode"
+			],
+			[
+				"extrac",
+				"extractedMolecule"
+			],
+			[
+				"Intep",
+				"Interpreter"
+			],
+			[
+				"Interpret",
+				"Interpreter"
+			],
+			[
+				"sideSC",
+				"sidesCount"
+			],
+			[
+				"pl",
+				"plusCount"
+			],
+			[
+				"itnerp",
+				"interpretNode"
+			],
+			[
 				"parserE",
 				"parserExceptionMethodDataProvider"
 			],
@@ -22,14 +174,6 @@
 			[
 				"pun",
 				"punctuationData"
-			],
-			[
-				"charge",
-				"chargeAllowed"
-			],
-			[
-				"elem",
-				"element_identifier"
 			],
 			[
 				"array",
@@ -124,10 +268,6 @@
 				"getElementEntry"
 			],
 			[
-				"ele",
-				"elements"
-			],
-			[
 				"el",
 				"element"
 			],
@@ -156,16 +296,8 @@
 				"array_intersect_assoc"
 			],
 			[
-				"ex",
-				"expectedMatches"
-			],
-			[
 				"assert",
 				"assertEquals"
-			],
-			[
-				"mol",
-				"molecule2"
 			],
 			[
 				"for",
@@ -178,10 +310,6 @@
 			[
 				"data",
 				"dataJsonPath"
-			],
-			[
-				"Ele",
-				"ElementDataLoaderInterface"
 			],
 			[
 				"atom",
@@ -386,153 +514,25 @@
 			[
 				"Model",
 				"ModelLocale"
-			],
-			[
-				"Cache",
-				"CacheManager"
-			],
-			[
-				"rebuild",
-				"rebuildGalleryPages"
-			],
-			[
-				"gall",
-				"galleryPages"
-			],
-			[
-				"alt",
-				"alternateLinksTitles"
-			],
-			[
-				"route",
-				"routeName"
-			],
-			[
-				"curr",
-				"currentRouteName"
-			],
-			[
-				"canonical",
-				"canonicalLink"
-			],
-			[
-				"cano",
-				"canonicalLink"
-			],
-			[
-				"can",
-				"canonicalLink"
-			],
-			[
-				"met",
-				"meta\tTag"
-			],
-			[
-				"comp",
-				"composer"
-			],
-			[
-				"subc",
-				"subcategory"
-			],
-			[
-				"sub",
-				"subcategories"
-			],
-			[
-				"subcatge",
-				"subcategories"
-			],
-			[
-				"st",
-				"staticLinks"
-			],
-			[
-				"alternate",
-				"alternateLinks"
-			],
-			[
-				"link",
-				"linkLocale"
-			],
-			[
-				"att",
-				"attributes"
-			],
-			[
-				"pageA",
-				"pageAlternateLinkForLocale"
-			],
-			[
-				"alterna",
-				"alternateLinks"
-			],
-			[
-				"crea",
-				"createModels"
-			],
-			[
-				"saveM",
-				"saveMany"
-			],
-			[
-				"filen",
-				"filename_prefix"
-			],
-			[
-				"gu",
-				"guessedExt"
-			],
-			[
-				"phoo",
-				"photoModel"
-			],
-			[
-				"tagmode",
-				"tagModelsHaystack"
-			],
-			[
-				"photoT",
-				"photoTags"
-			],
-			[
-				"tags",
-				"tagsKeys"
-			],
-			[
-				"arraymer",
-				"array_merge"
-			],
-			[
-				"uplaod",
-				"uploaded"
-			],
-			[
-				"ge",
-				"generateFilename"
-			],
-			[
-				"photos",
-				"photosUpload"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/Interpreter.php",
 			"settings":
 			{
-				"buffer_size": 6443,
+				"buffer_size": 5760,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/AbcdTest.php",
 			"settings":
 			{
-				"buffer_size": 5666,
+				"buffer_size": 166,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,6 +550,10 @@
 		"selected_items":
 		[
 			[
+				"",
+				"Generate Getter for ..."
+			],
+			[
 				"getters",
 				"PHP: Generate Getters"
 			],
@@ -564,10 +568,6 @@
 			[
 				"generate ",
 				"PHP: Generate Getters"
-			],
-			[
-				"",
-				"Generate Getter for ..."
 			],
 			[
 				"markdown p",
@@ -617,35 +617,52 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser"
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/docs",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/test"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/InvokesInaccessibleMethod.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeBuilderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/composer.json",
-		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Error/Error.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/myclabs/deep-copy/composer.json",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MoleculeBuilder.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/res/PeriodicTableJSON.json",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementFactoryTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/ElementFactory.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/ChemistryTestsData.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Interpreter/InterpreterTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/tests/TextUI/report-useless-tests.phpt",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/DataLoader/ElementDataLoaderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/TestCase.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Assert.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Constraint/LogicalOr.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/Interfaces/ElementDataLoader.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/tests/_files/ParseTestMethodAnnotationsMock.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/res/testsData.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/InterpreterException.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/InvokesInaccessibleMethod.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
+		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Error/Error.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/MoleculeTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/ElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Molecule.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Element.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/Interfaces/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/Interface/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoaderInterface.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/ElementDataLoader.php",
@@ -733,22 +750,7 @@
 		"/C/xampp/htdocs/photo2/resources/lang/en/shared.php",
 		"/C/xampp/htdocs/photo2/resources/views/page/add.blade.php",
 		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Relation.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasOneOrMany.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasMany.php",
-		"/C/xampp/htdocs/photo2/app/Http/Controllers/SlidesController.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Database/QueryException.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/SliderComposer.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/slider.blade.php",
-		"/C/xampp/htdocs/photo2/config/database.php",
-		"/C/xampp/htdocs/photo2/database/seeds/RootPageTableSeeder.php",
-		"/C/xampp/htdocs/photo2/vendor/gzero/eloquent-tree/src/Gzero/EloquentTree/Model/Tree.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/gallery/photos.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/adminbar.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/header.blade.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/HeaderComposer.php",
-		"/C/xampp/htdocs/photo2/.htaccess",
-		"/C/xampp/htdocs/photo2/server.php",
-		"/C/xampp/htdocs/photo2/public/test.php"
+		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasOneOrMany.php"
 	],
 	"find":
 	{
@@ -769,6 +771,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"charge",
+			"5",
+			"logicalor",
+			"=> 3",
+			"3",
+			"dataloader",
+			"data",
+			"Element",
+			"= ",
+			"setup",
+			"());",
+			"var_dump",
 			"throw",
 			"character exception",
 			"character excepion",
@@ -904,47 +918,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/Interpreter.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6443,
+						"buffer_size": 5760,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2033,
-								2033
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 838.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5666,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1155,
-								1155
+								1083,
+								1083
 							]
 						],
 						"settings":
@@ -953,7 +939,35 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 418.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/AbcdTest.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 166,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1011,8 +1025,248 @@
 		"selected_items":
 		[
 			[
+				"composer",
+				"composer.json"
+			],
+			[
+				"copmposerjson",
+				"vendor\\myclabs\\deep-copy\\composer.json"
+			],
+			[
+				"period",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"elemenfac",
+				"tests\\Chemistry\\Entity\\ElementFactoryTest.php"
+			],
+			[
+				"mole",
+				"src\\Chemistry\\Entity\\Molecule.php"
+			],
+			[
+				"molecbui",
+				"src\\Chemistry\\Entity\\MoleculeBuilder.php"
+			],
+			[
+				"elemfac",
+				"src\\Chemistry\\Entity\\ElementFactory.php"
+			],
+			[
+				"elemfactest",
+				"tests\\Chemistry\\Entity\\ElementFactoryTest.php"
+			],
+			[
+				"elemen",
+				"tests\\Chemistry\\Entity\\ElementTest.php"
+			],
+			[
+				"molecule",
+				"src\\Chemistry\\Entity\\Molecule.php"
+			],
+			[
+				"token",
+				"src\\Chemistry\\Parser\\TokenStream.php"
+			],
+			[
+				"parser",
+				"src\\Chemistry\\Parser\\Parser.php"
+			],
+			[
+				"chemtestd",
+				"tests\\Res\\ChemistryTestsData.php"
+			],
+			[
+				"chemts",
+				"tests\\Res\\ChemistryTestsData.php"
+			],
+			[
+				"testsdata",
+				"tests\\Res\\ChemistryTestsData.php"
+			],
+			[
+				"inter",
+				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
+			],
+			[
+				"per",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"periodc",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"elem",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"interpretests",
+				"vendor\\phpunit\\phpunit\\tests\\TextUI\\report-useless-tests.phpt"
+			],
+			[
+				"peri",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"preiodic",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"matcheselemtest",
+				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
+			],
+			[
+				"datalodetest",
+				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
+			],
+			[
+				"logicalor",
+				"vendor\\phpunit\\phpunit\\src\\Framework\\Constraint\\LogicalOr.php"
+			],
+			[
+				"assert",
+				"vendor\\phpunit\\phpunit\\src\\Framework\\Assert.php"
+			],
+			[
+				"testcase",
+				"vendor\\phpunit\\phpunit\\src\\Framework\\TestCase.php"
+			],
+			[
+				"interpretertest",
+				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
+			],
+			[
+				"molectest",
+				"tests\\Chemistry\\Entity\\MoleculeTest.php"
+			],
+			[
+				"perio",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"peridoc",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"elementetst",
+				"tests\\Chemistry\\Entity\\ElementTest.php"
+			],
+			[
+				"elementtest",
+				"tests\\Chemistry\\Entity\\ElementTest.php"
+			],
+			[
+				"matchesele",
+				"src\\Chemistry\\Entity\\MatchesElement.php"
+			],
+			[
+				"matche",
+				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
+			],
+			[
+				"elemtest",
+				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
+			],
+			[
+				"ele",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"interpretetst",
+				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
+			],
+			[
 				"parsertest",
 				"tests\\Chemistry\\Parser\\ParserTest.php"
+			],
+			[
+				"elemdat",
+				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
+			],
+			[
+				"moleculetest",
+				"tests\\Chemistry\\Entity\\MoleculeTest.php"
+			],
+			[
+				"el",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"parstet",
+				"vendor\\phpunit\\phpunit\\tests\\_files\\ParseTestMethodAnnotationsMock.php"
+			],
+			[
+				"perodic",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"element",
+				"src\\Chemistry\\Entity\\Element.php"
+			],
+			[
+				"testdata",
+				"tests\\res\\testsData.php"
+			],
+			[
+				"elemdata",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"parsert",
+				"tests\\Chemistry\\Parser\\ParserTest.php"
+			],
+			[
+				"elemdatalod",
+				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
+			],
+			[
+				"elemedatalaod",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"dataloader",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"tokenstrtest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"interptet",
+				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
+			],
+			[
+				"molecue",
+				"src\\Chemistry\\Entity\\Molecule.php"
+			],
+			[
+				"elemendaa",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"molec",
+				"src\\Chemistry\\Entity\\Molecule.php"
+			],
+			[
+				"eleen",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"datalo",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"elementdata",
+				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
+			],
+			[
+				"parstest",
+				"tests\\Chemistry\\Parser\\ParserTest.php"
+			],
+			[
+				"parserttest",
+				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
 			],
 			[
 				"tokenstreamtest",
@@ -1039,10 +1293,6 @@
 				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
 			],
 			[
-				"matchesele",
-				"src\\Chemistry\\Entity\\MatchesElement.php"
-			],
-			[
 				"tokens",
 				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
 			],
@@ -1053,10 +1303,6 @@
 			[
 				"invokes",
 				"tests\\InvokesInaccessibleMethod.php"
-			],
-			[
-				"composer",
-				"composer.json"
 			],
 			[
 				"phpun",
@@ -1075,16 +1321,8 @@
 				"tests\\Chemistry\\Parser\\InputStreamTest.php"
 			],
 			[
-				"parser",
-				"src\\Chemistry\\Parser\\ParserException.php"
-			],
-			[
 				"parse",
 				"src\\Chemistry\\Parser\\ParserException.php"
-			],
-			[
-				"matche",
-				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
 			],
 			[
 				"matchesel",
@@ -1095,48 +1333,16 @@
 				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
 			],
 			[
-				"matcheselemtest",
-				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
-			],
-			[
-				"molec",
-				"tests\\Chemistry\\Entity\\MoleculeTest.php"
-			],
-			[
 				"dataloder",
 				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
-			],
-			[
-				"dataloader",
-				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
-			],
-			[
-				"moleculetest",
-				"tests\\Chemistry\\Entity\\MoleculeTest.php"
 			],
 			[
 				"phpunitframeworkerror",
 				"vendor\\phpunit\\phpunit\\src\\Framework\\Error\\Error.php"
 			],
 			[
-				"elemtest",
-				"tests\\Chemistry\\Entity\\ElementTest.php"
-			],
-			[
-				"perio",
-				"res\\PeriodicTableJSON.json"
-			],
-			[
-				"molectest",
-				"tests\\Chemistry\\Entity\\MoleculeTest.php"
-			],
-			[
 				"dataloadertet",
 				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
-			],
-			[
-				"elementtest",
-				"tests\\Chemistry\\Entity\\ElementTest.php"
 			],
 			[
 				"phpunit/framework/testcase",
@@ -1329,198 +1535,6 @@
 			[
 				"messagebag",
 				"vendor\\laravel\\framework\\src\\Illuminate\\Support\\MessageBag.php"
-			],
-			[
-				"validator",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php"
-			],
-			[
-				"lang/pl/search",
-				"resources\\lang\\pl\\search.php"
-			],
-			[
-				"lang/en/sear",
-				"resources\\lang\\en\\search.php"
-			],
-			[
-				"serchblade",
-				"resources\\views\\search.blade.php"
-			],
-			[
-				"viewfactory",
-				"vendor\\laravel\\framework\\src\\Illuminate\\View\\Factory.php"
-			],
-			[
-				"responsefactory",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ResponseFactory.php"
-			],
-			[
-				"controllers/",
-				"app\\Http\\Controllers\\TagsController.php"
-			],
-			[
-				"admincontroller",
-				"app\\Http\\Controllers\\AdminController.php"
-			],
-			[
-				"pageadd",
-				"resources\\views\\page\\add.blade.php"
-			],
-			[
-				"viewssearch",
-				"resources\\views\\search.blade.php"
-			],
-			[
-				"searchcontroller",
-				"app\\Http\\Controllers\\SearchController.php"
-			],
-			[
-				"photosupload",
-				"app\\Helper\\PhotosUpload.php"
-			],
-			[
-				"photosuplaod",
-				"app\\Helper\\PhotosUpload.php"
-			],
-			[
-				"relation",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Relations\\Relation.php"
-			],
-			[
-				"hason",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Relations\\HasOneOrMany.php"
-			],
-			[
-				"hasmany",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Relations\\HasMany.php"
-			],
-			[
-				"hasoneorman",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Relations\\HasOneOrMany.php"
-			],
-			[
-				"queryexception",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\QueryException.php"
-			],
-			[
-				"slidecontroller",
-				"app\\Http\\Controllers\\SlidesController.php"
-			],
-			[
-				"admincontrller",
-				"app\\Http\\Controllers\\AdminController.php"
-			],
-			[
-				"sliderc",
-				"app\\Http\\ViewComposers\\Helper\\SliderComposer.php"
-			],
-			[
-				"heleprslider",
-				"resources\\views\\helper\\slider.blade.php"
-			],
-			[
-				"configdatabase",
-				"config\\database.php"
-			],
-			[
-				"eloquenttree",
-				"vendor\\gzero\\eloquent-tree\\src\\Gzero\\EloquentTree\\Model\\Tree.php"
-			],
-			[
-				"photo",
-				"resources\\views\\helper\\gallery\\photos.blade.php"
-			],
-			[
-				"indexcon",
-				"app\\Http\\Controllers\\IndexController.php"
-			],
-			[
-				"routegene",
-				"app\\Helper\\RouteGenerator.php"
-			],
-			[
-				"routegenera",
-				"app\\Helper\\RouteGenerator.php"
-			],
-			[
-				"header",
-				"resources\\views\\helper\\header.blade.php"
-			],
-			[
-				"headercomposr",
-				"app\\Http\\ViewComposers\\Helper\\HeaderComposer.php"
-			],
-			[
-				"adminbar",
-				"resources\\views\\helper\\adminbar.blade.php"
-			],
-			[
-				"migrationstag",
-				"database\\migrations\\2016_12_27_123032_create_tags_table_with_photo_tag_pivot.php"
-			],
-			[
-				"consoletinkercom",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\TinkerCommand.php"
-			],
-			[
-				"artisan",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Providers\\ArtisanServiceProvider.php"
-			],
-			[
-				"consoleapplication",
-				"vendor\\symfony\\console\\Application.php"
-			],
-			[
-				"conosle/kernel",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php"
-			],
-			[
-				"consolekernel",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Contracts\\Console\\Kernel.php"
-			],
-			[
-				"htaces",
-				"public\\.htaccess"
-			],
-			[
-				"htaccess",
-				"public\\.htaccess"
-			],
-			[
-				"routegnee",
-				"app\\Helper\\RouteGenerator.php"
-			],
-			[
-				"urlgenerator",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php"
-			],
-			[
-				"facadesurl",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\URL.php"
-			],
-			[
-				"config/slugg",
-				"config\\sluggable.php"
-			],
-			[
-				"searchcontr",
-				"app\\Http\\Controllers\\SearchController.php"
-			],
-			[
-				"adminco",
-				"app\\Http\\Controllers\\AdminController.php"
-			],
-			[
-				"tagscontrller",
-				"app\\Http\\Controllers\\TagsController.php"
-			],
-			[
-				"tagsocno",
-				"app\\Http\\Controllers\\TagsController.php"
-			],
-			[
-				"migphoto",
-				"database\\migrations\\2016_12_27_112816_create_photos_table.php"
 			]
 		],
 		"width": 0.0

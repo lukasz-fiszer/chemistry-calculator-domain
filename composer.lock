@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4270edd826634068bc7b193af0bc6e9b",
-    "content-hash": "b4db3bfa4991f082f0aba59a5013e01c",
+    "hash": "7bcc71ef950396758652bffc78c2ade6",
+    "content-hash": "19ccc5e060e558961f1117b06a893504",
     "packages": [
         {
             "name": "arkitekto/math",
@@ -65,6 +65,376 @@
                 "rational"
             ],
             "time": "2016-05-28 18:05:46"
+        },
+        {
+            "name": "chippyash/assembly-builder",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chippyash/Assembly-Builder.git",
+                "reference": "bffdbe38b5c65c5f24a9db5103575b13a4bece23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chippyash/Assembly-Builder/zipball/bffdbe38b5c65c5f24a9db5103575b13a4bece23",
+                "reference": "bffdbe38b5c65c5f24a9db5103575b13a4bece23",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "chippyash/monad": "~1.5.0",
+                "chippyash/strong-type": "~3.0.0",
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "~4.7.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Assembler\\": "src\\chippyash"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL V3+"
+            ],
+            "authors": [
+                {
+                    "name": "Ashley Kitson",
+                    "email": "ashley@zf4.biz"
+                }
+            ],
+            "description": "Lightweight functional assembly builder pattern with Scala like For Comprehension",
+            "homepage": "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=assembler",
+            "keywords": [
+                "builder pattern",
+                "comprehension",
+                "for",
+                "functional"
+            ],
+            "time": "2017-05-24 18:25:53"
+        },
+        {
+            "name": "chippyash/math-matrix",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chippyash/Math-Matrix.git",
+                "reference": "138d5fb3c9faca500dffcb3cbdad6e54960c94af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chippyash/Math-Matrix/zipball/138d5fb3c9faca500dffcb3cbdad6e54960c94af",
+                "reference": "138d5fb3c9faca500dffcb3cbdad6e54960c94af",
+                "shasum": ""
+            },
+            "require": {
+                "chippyash/assembly-builder": "~1.2",
+                "chippyash/math-type-calculator": "~2.0",
+                "chippyash/matrix": "~2",
+                "chippyash/monad": "~1.2",
+                "chippyash/validation": "~1.1.0",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "clue/graph": "^0.9",
+                "codeclimate/php-test-reporter": "0.3.*",
+                "graphp/graphviz": "0.2.*",
+                "phpunit/phpunit": "~4.3.0"
+            },
+            "suggest": {
+                "clue/graph": "To use the DirectedGraph renderer",
+                "graphp/algorithms": "Extend your graph capabilities with easy to use algorithms",
+                "graphp/graphviz": "To use the DirectedGraph renderer"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chippyash\\Math\\Matrix\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL 3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ashley Kitson",
+                    "email": "ashley@zf4.biz"
+                }
+            ],
+            "description": "Matrix maths package",
+            "homepage": "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=mathmatrix",
+            "keywords": [
+                "determinant",
+                "elemination",
+                "gauss",
+                "inversion",
+                "jordan",
+                "laplace",
+                "markov",
+                "maths",
+                "matrix"
+            ],
+            "time": "2016-08-02 22:20:07"
+        },
+        {
+            "name": "chippyash/math-type-calculator",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chippyash/Math-Type-Calculator.git",
+                "reference": "4b7fa0d4c92a2c4369ddd558000716d3d93a9854"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chippyash/Math-Type-Calculator/zipball/4b7fa0d4c92a2c4369ddd558000716d3d93a9854",
+                "reference": "4b7fa0d4c92a2c4369ddd558000716d3d93a9854",
+                "shasum": ""
+            },
+            "require": {
+                "chippyash/strong-type": ">3,<4",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "~3.7.37"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chippyash\\Math\\Type\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ashley Kitson",
+                    "email": "ashley@zf4.biz"
+                }
+            ],
+            "description": "Calculators for the chippyash/strong-type numeric types",
+            "homepage": "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=typecalculator",
+            "keywords": [
+                "calculator",
+                "complex",
+                "maths",
+                "polar",
+                "type"
+            ],
+            "time": "2017-05-25 05:57:42"
+        },
+        {
+            "name": "chippyash/matrix",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chippyash/Matrix.git",
+                "reference": "b2f21057e68ccbc6a4a4a91e608d6726781c940c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chippyash/Matrix/zipball/b2f21057e68ccbc6a4a4a91e608d6726781c940c",
+                "reference": "b2f21057e68ccbc6a4a4a91e608d6726781c940c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "zendframework/zend-stdlib": "~2.3.1"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chippyash\\Matrix\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ashley Kitson",
+                    "email": "ashley@zf4.biz"
+                }
+            ],
+            "description": "PHP Matrix data structure support package",
+            "homepage": "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=matrix",
+            "keywords": [
+                "math",
+                "matrix"
+            ],
+            "time": "2017-03-21 23:13:23"
+        },
+        {
+            "name": "chippyash/monad",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chippyash/Monad.git",
+                "reference": "e213f163b7ddebc6a6de96c0eb4b72427fe44179"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chippyash/Monad/zipball/e213f163b7ddebc6a6de96c0eb4b72427fe44179",
+                "reference": "e213f163b7ddebc6a6de96c0eb4b72427fe44179",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "0.3.*",
+                "mikey179/vfsstream": "1.6.*",
+                "phpunit/phpunit": "~4.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Monad\\": "src\\chippyash"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL 3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ashley Kitson",
+                    "email": "ashley@zf4.biz"
+                }
+            ],
+            "description": "Functional programming Monad support",
+            "homepage": "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=monad",
+            "keywords": [
+                "Match",
+                "collection",
+                "functional",
+                "identity",
+                "monad",
+                "option",
+                "try"
+            ],
+            "time": "2016-06-15 18:17:13"
+        },
+        {
+            "name": "chippyash/strong-type",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chippyash/Strong-Type.git",
+                "reference": "334e6fd51ee5f419b16ad43b8b17bd132580af9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chippyash/Strong-Type/zipball/334e6fd51ee5f419b16ad43b8b17bd132580af9e",
+                "reference": "334e6fd51ee5f419b16ad43b8b17bd132580af9e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "~4.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chippyash\\Type\\": "src",
+                    "Chippyash\\Zend\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL 3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ashley Kitson",
+                    "email": "ashley@zf4.biz"
+                }
+            ],
+            "description": "Strong type support. For when you absolutely want to know what you are getting",
+            "homepage": "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=strongtype",
+            "keywords": [
+                "complex",
+                "declared",
+                "fractions",
+                "hard",
+                "maths",
+                "polar",
+                "rational",
+                "strong",
+                "types"
+            ],
+            "time": "2016-06-07 05:05:39"
+        },
+        {
+            "name": "chippyash/validation",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chippyash/Validation.git",
+                "reference": "361908b0ede8b9ce354c075ccbf0c43bc8443730"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chippyash/Validation/zipball/361908b0ede8b9ce354c075ccbf0c43bc8443730",
+                "reference": "361908b0ede8b9ce354c075ccbf0c43bc8443730",
+                "shasum": ""
+            },
+            "require": {
+                "chippyash/monad": "~1.3.0",
+                "chippyash/strong-type": "~3",
+                "php": ">=5.4",
+                "zendframework/zend-filter": ">=2,<=3",
+                "zendframework/zend-validator": ">=2,<=3"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "ext-intl": "*",
+                "mikey179/vfsstream": "1.6.*",
+                "phpunit/phpunit": "~4.3.0",
+                "zendframework/zend-i18n": "2.5.*"
+            },
+            "suggest": {
+                "ext-intl": "Required for most features of Zend\\I18n; included in default builds of PHP",
+                "zendframework/zend-i18n": "To use UK Post code and telephone number validation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chippyash\\Validation\\": "src/",
+                    "Chippyash\\Test\\Validation\\": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL 3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ashley Kitson",
+                    "email": "ashley@zf4.biz"
+                }
+            ],
+            "description": "comprehensive function based validation routines",
+            "homepage": "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=validation",
+            "keywords": [
+                "functional",
+                "json",
+                "validation"
+            ],
+            "time": "2016-12-07 16:01:39"
         },
         {
             "name": "markrogoyski/math-php",
@@ -130,6 +500,181 @@
                 "statistics"
             ],
             "time": "2017-05-20 20:33:53"
+        },
+        {
+            "name": "zendframework/zend-filter",
+            "version": "2.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-filter.git",
+                "reference": "5ab3e669491293b9dd150e588ce790424574c342"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/5ab3e669491293b9dd150e588ce790424574c342",
+                "reference": "5ab3e669491293b9dd150e588ce790424574c342",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.23",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "dev-master",
+                "zendframework/zend-crypt": "self.version",
+                "zendframework/zend-servicemanager": "self.version",
+                "zendframework/zend-uri": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-crypt": "Zend\\Crypt component",
+                "zendframework/zend-i18n": "Zend\\I18n component",
+                "zendframework/zend-servicemanager": "Zend\\ServiceManager component",
+                "zendframework/zend-uri": "Zend\\Uri component for UriNormalize filter"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev",
+                    "dev-develop": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Filter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a set of commonly needed data filters",
+            "homepage": "https://github.com/zendframework/zend-filter",
+            "keywords": [
+                "filter",
+                "zf2"
+            ],
+            "time": "2015-02-10 14:55:30"
+        },
+        {
+            "name": "zendframework/zend-stdlib",
+            "version": "2.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-stdlib.git",
+                "reference": "2acb22aaf926f5a1934c6622d596f0b14872c3cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/2acb22aaf926f5a1934c6622d596f0b14872c3cd",
+                "reference": "2acb22aaf926f5a1934c6622d596f0b14872c3cd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.23"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "dev-master",
+                "zendframework/zend-eventmanager": "self.version",
+                "zendframework/zend-filter": "self.version",
+                "zendframework/zend-serializer": "self.version",
+                "zendframework/zend-servicemanager": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-eventmanager": "To support aggregate hydrator usage",
+                "zendframework/zend-filter": "To support naming strategy hydrator usage",
+                "zendframework/zend-serializer": "Zend\\Serializer component",
+                "zendframework/zend-servicemanager": "To support hydrator plugin manager usage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev",
+                    "dev-develop": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Stdlib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "homepage": "https://github.com/zendframework/zend-stdlib",
+            "keywords": [
+                "stdlib",
+                "zf2"
+            ],
+            "time": "2015-02-10 14:55:30"
+        },
+        {
+            "name": "zendframework/zend-validator",
+            "version": "2.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-validator.git",
+                "reference": "c8f46ae5503a3d09c55b2808a39cf9d3c967e1ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/c8f46ae5503a3d09c55b2808a39cf9d3c967e1ee",
+                "reference": "c8f46ae5503a3d09c55b2808a39cf9d3c967e1ee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.23",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "dev-master",
+                "zendframework/zend-db": "self.version",
+                "zendframework/zend-filter": "self.version",
+                "zendframework/zend-i18n": "self.version",
+                "zendframework/zend-math": "self.version",
+                "zendframework/zend-servicemanager": "self.version",
+                "zendframework/zend-session": "self.version",
+                "zendframework/zend-uri": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-db": "Zend\\Db component",
+                "zendframework/zend-filter": "Zend\\Filter component, required by the Digits validator",
+                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages as well as to use the various Date validators",
+                "zendframework/zend-math": "Zend\\Math component",
+                "zendframework/zend-resources": "Translations of validator messages",
+                "zendframework/zend-servicemanager": "Zend\\ServiceManager component to allow using the ValidatorPluginManager and validator chains",
+                "zendframework/zend-session": "Zend\\Session component",
+                "zendframework/zend-uri": "Zend\\Uri component, required by the Uri and Sitemap\\Loc validators"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev",
+                    "dev-develop": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Validator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a set of commonly needed validators",
+            "homepage": "https://github.com/zendframework/zend-validator",
+            "keywords": [
+                "validator",
+                "zf2"
+            ],
+            "time": "2015-03-12 13:58:47"
         }
     ],
     "packages-dev": [
@@ -792,16 +1337,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.2.1",
+            "version": "6.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "16999a1e9a8a25d68f0ab8cc8ab818b043ad5374"
+                "reference": "f2786490399836d2a544a34785c4a8d3ab32cf0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/16999a1e9a8a25d68f0ab8cc8ab818b043ad5374",
-                "reference": "16999a1e9a8a25d68f0ab8cc8ab818b043ad5374",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f2786490399836d2a544a34785c4a8d3ab32cf0e",
+                "reference": "f2786490399836d2a544a34785c4a8d3ab32cf0e",
                 "shasum": ""
             },
             "require": {
@@ -872,7 +1417,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-02 12:24:37"
+            "time": "2017-06-13 14:07:07"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1096,16 +1641,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "02b6b2c7aefe2cdb1185b8dbf8718b0bcedf3ab3"
+                "reference": "74776f8dbc081cab9287c2a601c0c1d842568744"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/02b6b2c7aefe2cdb1185b8dbf8718b0bcedf3ab3",
-                "reference": "02b6b2c7aefe2cdb1185b8dbf8718b0bcedf3ab3",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/74776f8dbc081cab9287c2a601c0c1d842568744",
+                "reference": "74776f8dbc081cab9287c2a601c0c1d842568744",
                 "shasum": ""
             },
             "require": {
@@ -1142,7 +1687,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-05-18 10:10:00"
+            "time": "2017-06-20 16:25:05"
         },
         {
             "name": "sebastian/exporter",
