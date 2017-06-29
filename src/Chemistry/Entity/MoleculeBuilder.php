@@ -76,10 +76,7 @@ class MoleculeBuilder
 	public function withElement(string $symbol, int $occurences){
 		$new = clone $this;
 
-		if(!isset($new->elements[$symbol])){
-			$new->elements[$symbol] = 0;
-		}
-		$new->elements[$symbol] += $occurences;
+		$new = $this->addElement($new, $symbol, $occurences);
 		$new->formula .= $this->buildFormulaFragment($symbol, $occurences);
 
 		return $new;
@@ -96,7 +93,6 @@ class MoleculeBuilder
 		$new = clone $this;
 
 		$new->charge += $charge;
-		//$new->formula .= $this->buildFormulaFragment($symbol, $occurences);
 		$new->formula .= $this->buildFormulaFragment($symbol, abs($charge));
 
 		return $new;
@@ -112,16 +108,28 @@ class MoleculeBuilder
 		$new = clone $this;
 
 		foreach($moleculeBuilder->elements as $element => $occurences){
-			//$new = $new->withElement($element, $occurences);
-			if(!isset($new->elements[$element])){
-				$new->elements[$element] = 0;
-			}
-			$new->elements[$element] += $occurences;
+			$new = $this->addElement($new, $element, $occurences);
 		}
 		$new->charge += $moleculeBuilder->charge;
 		$new->formula .= $this->buildFormulaFragment($moleculeBuilder->formula);
 
 		return $new;
+	}
+
+	/**
+	 * Add element and its occurences to the builder instance
+	 * 
+	 * @param  self   $moleculeBuilder molecule builder instance
+	 * @param  string $symbol          element symbol
+	 * @param  int    $occurences      element occurences
+	 * @return self                    builder instance with element added
+	 */
+	protected function addElement(self $moleculeBuilder, string $symbol, int $occurences){
+		if(!isset($moleculeBuilder->elements[$symbol])){
+			$moleculeBuilder->elements[$symbol] = 0;
+		}
+		$moleculeBuilder->elements[$symbol] += $occurences;
+		return $moleculeBuilder;
 	}
 
 	/**
