@@ -15,7 +15,8 @@ class AbcdTest extends \PHPUnit\Framework\TestCase
 		//$a = microtime(true);
 		$dlu = new Lu();
 		//$ma = new RationalMatrix([[1, 2], [3, 4]]);
-		$ma = new RationalMatrix([[1, 2]]);
+		//$ma = new RationalMatrix([[1, 2]]);
+		$ma = new RationalMatrix([[2, 0, -2], [0, 2, -1]]);
 		//$ma = new RationalMatrix([[1, 2, 3], [3, 4, 5], [2, 5, 5]]);
 		$ma2 = new \MathPHP\LinearAlgebra\Matrix([[1, 2], [3, 4]]);
 		//$ma2 = new \MathPHP\LinearAlgebra\Matrix([[1, 2, 3], [3, 4, 5], [2, 5, 5]]);
@@ -51,7 +52,8 @@ class AbcdTest extends \PHPUnit\Framework\TestCase
 		//$b = [2, 4, 5];
 		//$bm = new RationalMatrix($b);
 		//$bm = new RationalMatrix([[2], [4]]);
-		$bm = new RationalMatrix([[2]]);
+		//$bm = new RationalMatrix([[2]]);
+		$bm = new RationalMatrix([[0, 0]]);
 		//$bm = new RationalMatrix([[2], [4]]);
 		$calc = new Calculator();
 
@@ -103,10 +105,13 @@ class AbcdTest extends \PHPUnit\Framework\TestCase
 
         //$ab = new \MathPHP\LinearAlgebra\Matrix([[1, 1], [0, 0]]);
         //$ab = new \MathPHP\LinearAlgebra\Matrix([[1, 1, 0], [0, 0, 0], [0, 0, 0]]);
-        $ab = new \MathPHP\LinearAlgebra\Matrix([[2, 3, -2], [5, 2, -4], [1, 1, -2]]);
+        //$ab = new \MathPHP\LinearAlgebra\Matrix([[2, 3, -2], [5, 2, -4], [1, 1, -2]]);
+        //$ab = new \MathPHP\LinearAlgebra\Matrix([[2, 0, -2], [0, 2, -1], [0, 0, 0]]);
+        //$ab = new \MathPHP\LinearAlgebra\Matrix([[2, 0, -2], [0, 2, -1]]);
         //$ab->rref();
         //var_dump($ab->solve([1, 0, 0]));
         //var_dump($ab->solve([0, 0, 0]));
+        //var_dump($ab->solve([0, 0]));
 
         //var_dump($x);
         //$this->printArray($this->rationalToArray($x));
