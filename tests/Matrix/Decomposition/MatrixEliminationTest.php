@@ -5,6 +5,7 @@ namespace ChemCalc\Domain\Tests\Matrix\Decomposition;
 use ChemCalc\Domain\Matrix\Decomposition\MatrixElimination;
 use Chippyash\Math\Matrix\NumericMatrix;
 use Chippyash\Math\Matrix\RationalMatrix;
+use ChemCalc\Domain\Tests\Res\MatrixTestsData;
 
 class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 {
@@ -14,6 +15,7 @@ class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 		}
 		$this->initialized = true;
 		$this->testNonSingular = [[-12,2,3], [4,5,6], [7,8,9]];
+		$this->matrixTestsData = new MatrixTestsData();
 	}
 
 	/**
@@ -32,148 +34,8 @@ class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function matrixEliminationDecomposeDataProvider(){
-		return [
-			[	
-				[[]],
-				[[]],
-				[],
-				[]
-			],
-			[	
-				[[0]],
-				[[0]],
-				[0],
-				[0]
-			],
-			[	
-				[[0]],
-				[[0]],
-				[[0]],
-				[[0]]
-			],
-			[	
-				[[1, 2, 3],
-				[1, 2, 3]],
-				[[0],
-				[0]],
-				[[1, 2, 3],
-				[0, 0, 0]],
-				[[0],
-				[0]]
-			],
-			[	
-				[[1, 2, 3],
-				[0, 0, 0]],
-				[[0],
-				[0]],
-				[[1, 2, 3],
-				[0, 0, 0]],
-				[[0],
-				[0]]
-			],
-			[	
-				[[2, 0, -2],
-				[0, 2, -1]],
-				[[0],
-				[0]],
-				[[1, 0, -1],
-				[0, 1, -1/2]],
-				[[0],
-				[0]]
-			],
-			[	
-				[[0, 2, -1],
-				[2, 0, -2]],
-				[[0],
-				[0]],
-				[[1, 0, -1],
-				[0, 1, -1/2]],
-				[[0],
-				[0]]
-			],
-			[	
-				[[1, 2, 0],
-				[1, 2, 0]],
-				[[0],
-				[0]],
-				[[1, 2, 0],
-				[0, 0, 0]],
-				[[0],
-				[0]]
-			],
-			[	
-				[[1, 2, 0],
-				[1, 2, 0]],
-				[[5],
-				[10]],
-				[[1, 2, 0],
-				[0, 0, 0]],
-				[[5],
-				[5]]
-			],
-			[	
-				[[1, 2, 3],
-				[4, 5, 6],
-				[7, 8, 9]],
-				[[0],
-				[0],
-				[0]],
-				[[1, 0, -1],
-				[0, 1, 2],
-				[0, 0, 0]],
-				[[0],
-				[0],
-				[0]]
-			],
-			[	
-				[[1, 2, -3],
-				[4, 5, -6],
-				[7, 8, -9]],
-				[[0],
-				[0],
-				[0]],
-				[[1, 0, 1],
-				[0, 1, -2],
-				[0, 0, 0]],
-				[[0],
-				[0],
-				[0]]
-			],
-			[	
-				[[-1, 2, 3],
-				[-4, 5, 6],
-				[-7, 8, 9]],
-				[[0],
-				[0],
-				[0]],
-				[[1, 0, 1],
-				[0, 1, 2],
-				[0, 0, 0]],
-				[[0],
-				[0],
-				[0]]
-			],
-			[	
-				[[2, 0, -1, 0],
-				[0, 2, 0, -1]],
-				[[0],
-				[0]],
-				[[1, 0, -1/2, 0],
-				[0, 1, 0, -1/2]],
-				[[0],
-				[0]]
-			],
-			[	
-				[[2, 0, -1, 0],
-				[0, 2, 0, -1]],
-				[[5],
-				[10]],
-				[[1, 0, -1/2, 0],
-				[0, 1, 0, -1/2]],
-				[[5/2],
-				[5]]
-			],
-		];
+		$this->setUp();
+		return $this->matrixTestsData->getMatrixEliminationTestsData();
 	}
 
 	/**
