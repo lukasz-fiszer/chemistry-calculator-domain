@@ -6,6 +6,7 @@ use Chippyash\Math\Matrix\RationalMatrix;
 use Chippyash\Math\Matrix\Decomposition\Lu;
 use Chippyash\Type\TypeFactory;
 use Chippyash\Math\Type\Calculator;
+use ChemCalc\Domain\Matrix\Decomposition\MatrixElimination;
 
 class AbcdTest extends \PHPUnit\Framework\TestCase
 {
@@ -121,6 +122,50 @@ class AbcdTest extends \PHPUnit\Framework\TestCase
 
 
 		//echo microtime(true) - $a;
+	}
+
+	public function testAb2(){
+		$this->assertTrue(true);
+
+		/*$r = TypeFactory::createRational(0, 0);
+		echo $r->__toString();*/
+		/*$r = TypeFactory::createRational(0);
+		echo $r;*/
+
+		//$ma = new RationalMatrix([[2, 0, -2], [0, 2, -1]]);
+		$el = new MatrixElimination();
+		//$mb = new RationalMatrix([[0], [0]]);
+		//$ma = new RationalMatrix([[0, 0], [0, 0]]);
+		//$mb = new RationalMatrix([[0], [0]]);
+		/*$ma = new RationalMatrix([[1, 2, 3], [1, 2, 3]]);
+		$mb = new RationalMatrix([[0], [0]]);*/
+		/*$ma = new RationalMatrix([[1, 2], [1, 2]]);
+		$mb = new RationalMatrix([[0], [0]]);*/
+		/*$ma = new RationalMatrix([[1, 2, 3]]);
+		$mb = new RationalMatrix([[0]]);*/
+		/*$ma = new RationalMatrix([[1, 0, 0], [0, 2, 0]]);
+		$mb = new RationalMatrix([[0], [0]]);*/
+		/*$ma = new RationalMatrix([[1, 2, 3], [1, 2, 3]]);
+		$mb = new RationalMatrix([[5], [10]]);*/
+		/*$ma = new RationalMatrix([[0, 0, 0], [0, 22, 0]]);
+		$mb = new RationalMatrix([[5], [2]]);*/
+		// $ma = new RationalMatrix([[0, 0, 0], [0, 22, 0]]);
+		// $mb = new RationalMatrix([[5], [2]]);
+		/*$ma = new RationalMatrix([[1, 2, 3], [1, 2, 3], [1, 2, 3]]);
+		$mb = new RationalMatrix([[0], [0], [0]]);*/
+		/*$ma = new RationalMatrix([[0, 0, 0], [1, 2, 3], [1, 2, 3]]);
+		$mb = new RationalMatrix([[0], [0], [0]]);*/
+		/*$ma = new RationalMatrix([[1, 2, 0], [1, 2, 0], [1, 2, 0]]);
+		$mb = new RationalMatrix([[0], [0], [0]]);*/
+		/*$ma = new RationalMatrix([[1, 2, 3], [2, 2, 3], [1, 2, 5]]);
+		$mb = new RationalMatrix([[0], [0], [0]]);*/
+		$ma = new RationalMatrix([[1, 2, 3], [1, 2, 3], [1, 2, 3]]);
+		$mb = new RationalMatrix([[0], [0], [0]]);
+		$dec = $ma->decompose($el, $mb);
+		//$dec = $ma->decompose(new \Chippyash\Math\Matrix\Decomposition\GaussJordanElimination(), $mb);
+
+		//$this->printArray($this->rationalToArray($dec->product('left')));
+		//$this->printArray($this->rationalToArray($dec->product('right')));
 	}
 
 	protected function rationalToArray($m){
