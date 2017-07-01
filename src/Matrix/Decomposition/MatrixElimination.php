@@ -74,32 +74,15 @@ class MatrixElimination extends GaussJordanElimination
         $indxr = array_fill(0, $rows, 0);
         $indxc = array_fill(0, $rows, 0);
 
-        $this->printArray = $printArray = function($a){
-            //echo "array print\n";
-            foreach($a as $aa){
-                foreach($aa as $abcd)
-                    echo $abcd.' ';
-                echo "\n";
-            }
-        };
-
         $currentRow = 0;
         for($i = 0; $i < $cols && $currentRow < $rows; $i++){
-            //echo "in loop, current col ".$i.", current row ".$currentRow."\n";
             $biggestIndex = $this->biggestNonZero($dA, $i, $currentRow);
             if($biggestIndex === false){
                 continue;
             }
             $this->swapBothRows($dA, $dB, $currentRow, $biggestIndex);
-            //echo "after swap\n";
-            //$printArray($dA);
             $this->multBothRow($dA, $dB, $currentRow, $this->calc->reciprocal($dA[$currentRow][$i]), $this->calc);
-            //echo "after divison\n";
-            //$printArray($dA);
             $this->reduceBothOtherRows($dA, $dB, $i, $currentRow);
-            //echo "after reduction\n";
-            //$printArray($dA);
-            //echo "-------------------\n";
 
             $currentRow++;
         }
@@ -142,28 +125,14 @@ class MatrixElimination extends GaussJordanElimination
      * @param  int    $rowNumber
      */
     protected function reduceBothOtherRows(array &$a1, array &$a2, int $column, int $rowNumber){
-        //$this->reduceOtherRows($a1, $column, $row);
-        //$this->reduceOtherRows($a2, $column, $row);
-        //echo "\treducing both other rows: column ".$column." row number ".$rowNumber."\n";
         foreach($a1 as $index => $row){
-        //for($index = 0; $index < count($a1); $index++){
             if($index != $rowNumber){
-                //echo "\t";
-                //echo "current index ".$index;
                 $multiplier = clone $a1[$index][$column];
                 $multiplier->negate();
-                //echo " current multiplier ".$multiplier;
-                /*$this->addMultipleOfOtherRowToRow($a1, $multiplier, $column, $index, $this->calc);
-                $this->addMultipleOfOtherRowToRow($a2, $multiplier, $column, $index, $this->calc);*/
-                //echo "\n\t before adding multiple\n";
-                //($this->printArray)($a1);
                 $this->addMultipleOfOtherRowToRow($a1, $multiplier, $rowNumber, $index, $this->calc);
                 $this->addMultipleOfOtherRowToRow($a2, $multiplier, $rowNumber, $index, $this->calc);
-                //echo "\n\t after adding multiple\n";
-                //($this->printArray)($a1);
             }
         }
-        //echo "\n";
     }
 
     /**
