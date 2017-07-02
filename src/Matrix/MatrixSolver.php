@@ -78,30 +78,20 @@ class MatrixSolver
 			if($free[$index]){
 				continue;
 			}
-			//$numberValue = TypeFactory::createRational($value->value);
 			$numberValue = TypeFactory::createRational($value->value, null);
-			//$numberValue = TypeFactory::createRational(clone $value->value, null);
 			foreach($value->addFree as $addFree){
 				$numberValue = $this->calc->add($numberValue, $this->calc->mul($addFree->multiplier, $values[$addFree->column]));
 			}
 			$value = $numberValue;
 		}
 
-		$lcm = 1;
-		//foreach($values as $value){
-		foreach($values as $value2){
-			//$lcm = Algebra::lcm($lcm, $value->denominator()->get());
-			$lcm = Algebra::lcm($lcm, $value2->denominator()->get());
-		}
+		$lcm = array_reduce($values, function($lcm, $entry){
+			return Algebra::lcm($lcm, $entry->denominator()->get());
+		}, 1);
 		$lcm = TypeFactory::createRational($lcm);
 		foreach($values as &$value){
-			//echo $value->numerator()->get().'/'.$value->denominator()->get()."\n";
 			$value = $this->calc->mul($value, $lcm);
-			//echo $value->numerator()->get().'/'.$value->denominator()->get()."\n";
 		}
-		/*$values = array_map(function($value) use($lcm){
-			return $this->calc->mul($value, $lcm);
-		}, $values);*/
 
 		return array_map(function($value){
 			return $value->numerator()->get();
