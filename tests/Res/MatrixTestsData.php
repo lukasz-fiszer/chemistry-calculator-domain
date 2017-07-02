@@ -18,6 +18,7 @@ class MatrixTestsData
 			'free' => [],
 			'consistent' => true,
 			'pivoted' => [null],
+			'found' => [],
 			],
 
 			['matrix_a' => [
@@ -32,6 +33,7 @@ class MatrixTestsData
 			'free' => [true],
 			'consistent' => true,
 			'pivoted' => [null],
+			'found' => [1],
 			],
 
 			['matrix_a' => [
@@ -46,6 +48,7 @@ class MatrixTestsData
 			'free' => [true],
 			'consistent' => true,
 			'pivoted' => [null],
+			'found' => [1],
 			],
 
 			['matrix_a' => [
@@ -74,6 +77,7 @@ class MatrixTestsData
 			'free' => [false, true, true],
 			'consistent' => true,
 			'pivoted' => [0, null],
+			'found' => [-5, 1, 1],
 			],
 
 			['matrix_a' => [
@@ -102,6 +106,7 @@ class MatrixTestsData
 			'free' => [false, true, true],
 			'consistent' => true,
 			'pivoted' => [0, null],
+			'found' => [-5, 1, 1],
 			],
 
 			['matrix_a' => [
@@ -131,6 +136,7 @@ class MatrixTestsData
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1],
+			'found' => [2, 1, 2],
 			],
 
 			['matrix_a' => [
@@ -160,6 +166,7 @@ class MatrixTestsData
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1],
+			'found' => [2, 1, 2],
 			],
 
 			['matrix_a' => [
@@ -187,6 +194,7 @@ class MatrixTestsData
 			'free' => [false, true, true],
 			'consistent' => true,
 			'pivoted' => [0, null],
+			'found' => [-2, 1, 1],
 			],
 
 			['matrix_a' => [
@@ -214,6 +222,7 @@ class MatrixTestsData
 			'free' => [false, true, true],
 			'consistent' => false,
 			'pivoted' => [0, null],
+			'found' => [],
 			],
 
 			['matrix_a' => [
@@ -248,6 +257,7 @@ class MatrixTestsData
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1, null],
+			'found' => [1, -2, 1],
 			],
 
 			['matrix_a' => [
@@ -282,6 +292,7 @@ class MatrixTestsData
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1, null],
+			'found' => [-1, 2, 1],
 			],
 
 			['matrix_a' => [
@@ -316,6 +327,7 @@ class MatrixTestsData
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1, null],
+			'found' => [-1, -2, 1],
 			],
 
 			['matrix_a' => [
@@ -346,6 +358,7 @@ class MatrixTestsData
 			'free' => [false, false, true, true],
 			'consistent' => true,
 			'pivoted' => [0, 1],
+			'found' => [1, 1, 2, 2],
 			],
 
 			['matrix_a' => [
@@ -376,6 +389,7 @@ class MatrixTestsData
 			'free' => [false, false, true, true],
 			'consistent' => true,
 			'pivoted' => [0, 1],
+			'found' => [6, 11, 2, 2],
 			],
 
 			['matrix_a' => [
@@ -418,6 +432,40 @@ class MatrixTestsData
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1, null, null, null],
+			'found' => [1, -2, 1],
+			],
+
+			['matrix_a' => [
+				[1, 2, 3],
+				[5, 10, 20],
+				[4, 8, 20],
+			],
+			'matrix_b' => [
+				[0],
+				[0],
+				[0],
+			],
+			'matrix_a_eliminated' => [
+				[1, 2, 0],
+				[0, 0, 1],
+				[0, 0, 0],
+			],
+			'matrix_b_eliminated' => [
+				[0],
+				[0],
+				[0],
+			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 1, 'multiplier' => -2],
+				]],
+				'free',
+				['value' => 0, 'add_free' => []]
+			],
+			'free' => [false, true, false],
+			'consistent' => true,
+			'pivoted' => [0, 2, null],
+			'found' => [-2, 1, 0],
 			],
 		];
 	}
