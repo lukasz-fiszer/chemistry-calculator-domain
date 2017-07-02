@@ -35,21 +35,16 @@ class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 		$this->assertEquals($free, $decomposed->product('free'));
 		$this->assertEquals($consistent, $decomposed->product('consistent'));
 		$this->assertEquals($pivoted, $decomposed->product('pivoted'));
+
 		$decVal = $decomposed->product('values');
 		$this->assertEquals(count($values), count($decVal));
 		foreach($values as $index => $value){
 			if(is_array($value)){
-				//$this->assertTrue($this->comp->eq($value['value'], $decVal[$index]['value']));
-				//$this->assertTrue($this->comp->eq($value['value'], $decVal[$index]->value));
 				$this->assertTrue($this->comp->eq(TypeFactory::createRational($value['value']), $decVal[$index]->value));
-				$this->assertEquals(count($value['add_free']), count($decVal[$index]->add_free));
+				$this->assertEquals(count($value['add_free']), count($decVal[$index]->addFree));
 				foreach($value['add_free'] as $j => $addFree){
-					// $this->assertTrue($this->comp->eq($addFree['multiplier'], $decVal[$index]['add_free']['multiplier']));
-					//$this->assertTrue($this->comp->eq($addFree['multiplier'], $decVal[$index]->add_free[$j]->multiplier));
-					$this->assertTrue($this->comp->eq(TypeFactory::createRational($addFree['multiplier']), $decVal[$index]->add_free[$j]->multiplier));
-					// $this->asserEquals($addFree['column'], $decVal[$index]['add_free']['column']);
-					//$this->asserEquals($addFree['column'], $decVal[$index]->add_free[$j]->column);
-					$this->assertEquals($addFree['column'], $decVal[$index]->add_free[$j]->column);
+					$this->assertTrue($this->comp->eq(TypeFactory::createRational($addFree['multiplier']), $decVal[$index]->addFree[$j]->multiplier));
+					$this->assertEquals($addFree['column'], $decVal[$index]->addFree[$j]->column);
 				}
 			}
 			else{

@@ -126,7 +126,6 @@ class MatrixElimination extends GaussJordanElimination
 
             $addFree = [];
             $row = array_search($i, $pivoted, true);
-            //for($j = $i; $j < count($mA[$row]); $j++){
             for($j = $i + 1; $j < count($mA[$row]); $j++){
                 if($this->comp->neq($mA[$row][$j], ($this->zero)())){
                     $multiplier = clone $mA[$row][$j];
@@ -134,7 +133,7 @@ class MatrixElimination extends GaussJordanElimination
                     $addFree[] = (object) ['multiplier' => $multiplier, 'column' => $j];
                 }
             }
-            $values[$i] = (object) ['value' => $mB[$row][0], 'add_free' => $addFree];
+            $values[$i] = (object) ['value' => $mB[$row][0], 'addFree' => $addFree];
         }
         return $values;
     }
