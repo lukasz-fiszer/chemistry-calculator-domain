@@ -78,8 +78,8 @@ class MatrixElimination extends GaussJordanElimination
 
         $rowsCount = $rows != 0 ? $rows : ($mA->is('empty') == true ? 1 : 0);
         $pivoted = array_fill(0, $rowsCount, null);
-        //$pivoted = array_fill(0, count($mA), null);
-        //$pivoted = array_fill(0, $rows, null);
+        $colsCount = $cols != 0 ? $cols : ($mA->is('empty') == true ? 1 : 0);
+        $free = array_fill(0, $cols, true);
 
         $currentRow = 0;
         for($i = 0; $i < $cols && $currentRow < $rows; $i++){
@@ -92,14 +92,16 @@ class MatrixElimination extends GaussJordanElimination
             $this->reduceBothOtherRows($dA, $dB, $i, $currentRow);
 
             $pivoted[$currentRow] = $i;
+            $free[$i] = false;
             $currentRow++;
         }
 
 
         $this->set('left', $this->createCorrectMatrixType($mA, $dA));
         $this->set('right', $this->createCorrectMatrixType($extra, $dB));
-        $this->set('pivoted', $pivoted);
+        $this->set('free', $free);
         $this->set('consistent', $this->checkConsistency($dA, $dB, $pivoted));
+        $this->set('pivoted', $pivoted);
 
         return clone $this;
     }
@@ -107,14 +109,11 @@ class MatrixElimination extends GaussJordanElimination
     /**
      * Check consitency of eliminated matrix
      *
-     * //@param NumbericMatrix $mA      matrix a to be checked
-     * //@param NumbericMatrix $mB      matrix b to be checked
      * @param array $mA      matrix a to be checked
      * @param array $mB      matrix b to be checked
      * @param array $pivoted array of pivoting data
      * @return bool true if matrix is consistent
      */
-    //protected function checkConsistency(NumericMatrix $mA, NumericMatrix $mb, array $pivoted = null){
     protected function checkConsistency(array $mA, array $mB, array $pivoted = null){
         $pivoted = $pivoted ?? $this->product('pivoted');
         foreach($mA as $index => $row){ //only unpivoted rows can be checked

@@ -14,8 +14,9 @@ class MatrixTestsData
 			],
 			'matrix_a_eliminated' => [],
 			'matrix_b_eliminated' => [],
+			'free' => [],
+			'consistent' => true,
 			'pivoted' => [null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -26,8 +27,9 @@ class MatrixTestsData
 			],
 			'matrix_a_eliminated' => [0],
 			'matrix_b_eliminated' => [0],
+			'free' => [true],
+			'consistent' => true,
 			'pivoted' => [null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -38,8 +40,9 @@ class MatrixTestsData
 			],
 			'matrix_a_eliminated' => [[0]],
 			'matrix_b_eliminated' => [[0]],
+			'free' => [true],
+			'consistent' => true,
 			'pivoted' => [null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -58,8 +61,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, true, true],
+			'consistent' => true,
 			'pivoted' => [0, null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -78,8 +82,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, true, true],
+			'consistent' => true,
 			'pivoted' => [0, null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -98,8 +103,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, false, true],
+			'consistent' => true,
 			'pivoted' => [0, 1],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -118,8 +124,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, false, true],
+			'consistent' => true,
 			'pivoted' => [0, 1],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -138,8 +145,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, true, true],
+			'consistent' => true,
 			'pivoted' => [0, null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -158,8 +166,9 @@ class MatrixTestsData
 				[5],
 				[5]
 			],
+			'free' => [false, true, true],
+			'consistent' => false,
 			'pivoted' => [0, null],
-			'consistent' => false
 			],
 
 			['matrix_a' => [
@@ -182,8 +191,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, false, true],
+			'consistent' => true,
 			'pivoted' => [0, 1, null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -206,8 +216,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, false, true],
+			'consistent' => true,
 			'pivoted' => [0, 1, null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -230,8 +241,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, false, true],
+			'consistent' => true,
 			'pivoted' => [0, 1, null],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -250,8 +262,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, false, true, true],
+			'consistent' => true,
 			'pivoted' => [0, 1],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -270,8 +283,9 @@ class MatrixTestsData
 				[5/2],
 				[5]
 			],
+			'free' => [false, false, true, true],
+			'consistent' => true,
 			'pivoted' => [0, 1],
-			'consistent' => true
 			],
 
 			['matrix_a' => [
@@ -302,8 +316,9 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'free' => [false, false, true],
+			'consistent' => true,
 			'pivoted' => [0, 1, null, null, null],
-			'consistent' => true
 			],
 		];
 	}
