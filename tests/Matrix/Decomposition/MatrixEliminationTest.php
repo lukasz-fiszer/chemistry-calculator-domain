@@ -6,6 +6,8 @@ use ChemCalc\Domain\Matrix\Decomposition\MatrixElimination;
 use Chippyash\Math\Matrix\NumericMatrix;
 use Chippyash\Math\Matrix\RationalMatrix;
 use ChemCalc\Domain\Tests\Res\MatrixTestsData;
+use Chippyash\Math\Type\Comparator;
+use Chippyash\Type\TypeFactory;
 
 class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 {
@@ -16,22 +18,44 @@ class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 		$this->initialized = true;
 		$this->testNonSingular = [[-12,2,3], [4,5,6], [7,8,9]];
 		$this->matrixTestsData = new MatrixTestsData();
+		$this->comp = new Comparator();
 	}
 
 	/**
 	 * @dataProvider matrixEliminationDecomposeDataProvider
 	 */
-	public function testMatrixEliminationDecomposeMethod(array $a, array $b, array $left, array $right, array $free, bool $consistent, array $pivoted, $values = null){
+	public function testMatrixEliminationDecomposeMethod(array $a, array $b, array $left, array $right, array $values, array $free, bool $consistent, array $pivoted){
 		$elimination = new MatrixElimination();
 		$ma = new RationalMatrix($a);
 		$mb = new RationalMatrix($b);
 		$decomposed = $ma->decompose($elimination, $mb);
 		$this->assertEquals(new RationalMatrix($left), $decomposed->product('left'));
 		$this->assertEquals(new RationalMatrix($right), $decomposed->product('right'));
-		$this->assertEquals($values, $decomposed->product('values'));
+		//$this->assertEquals($values, $decomposed->product('values'));
 		$this->assertEquals($free, $decomposed->product('free'));
 		$this->assertEquals($consistent, $decomposed->product('consistent'));
 		$this->assertEquals($pivoted, $decomposed->product('pivoted'));
+		$decVal = $decomposed->product('values');
+		$this->assertEquals(count($values), count($decVal));
+		foreach($values as $index => $value){
+			if(is_array($value)){
+				//$this->assertTrue($this->comp->eq($value['value'], $decVal[$index]['value']));
+				//$this->assertTrue($this->comp->eq($value['value'], $decVal[$index]->value));
+				$this->assertTrue($this->comp->eq(TypeFactory::createRational($value['value']), $decVal[$index]->value));
+				$this->assertEquals(count($value['add_free']), count($decVal[$index]->add_free));
+				foreach($value['add_free'] as $j => $addFree){
+					// $this->assertTrue($this->comp->eq($addFree['multiplier'], $decVal[$index]['add_free']['multiplier']));
+					//$this->assertTrue($this->comp->eq($addFree['multiplier'], $decVal[$index]->add_free[$j]->multiplier));
+					$this->assertTrue($this->comp->eq(TypeFactory::createRational($addFree['multiplier']), $decVal[$index]->add_free[$j]->multiplier));
+					// $this->asserEquals($addFree['column'], $decVal[$index]['add_free']['column']);
+					//$this->asserEquals($addFree['column'], $decVal[$index]->add_free[$j]->column);
+					$this->assertEquals($addFree['column'], $decVal[$index]->add_free[$j]->column);
+				}
+			}
+			else{
+				$this->assertEquals($value, $decVal[$index]);
+			}
+		}
 	}
 
 	public function matrixEliminationDecomposeDataProvider(){

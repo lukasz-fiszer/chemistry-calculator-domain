@@ -14,6 +14,7 @@ class MatrixTestsData
 			],
 			'matrix_a_eliminated' => [],
 			'matrix_b_eliminated' => [],
+			'values' => [],
 			'free' => [],
 			'consistent' => true,
 			'pivoted' => [null],
@@ -27,6 +28,7 @@ class MatrixTestsData
 			],
 			'matrix_a_eliminated' => [0],
 			'matrix_b_eliminated' => [0],
+			'values' => ['free'],
 			'free' => [true],
 			'consistent' => true,
 			'pivoted' => [null],
@@ -40,6 +42,7 @@ class MatrixTestsData
 			],
 			'matrix_a_eliminated' => [[0]],
 			'matrix_b_eliminated' => [[0]],
+			'values' => ['free'],
 			'free' => [true],
 			'consistent' => true,
 			'pivoted' => [null],
@@ -61,6 +64,13 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 1, 'multiplier' => -2],
+					['column' => 2, 'multiplier' => -3],
+				]],
+				'free', 'free'
+			],
 			'free' => [false, true, true],
 			'consistent' => true,
 			'pivoted' => [0, null],
@@ -81,6 +91,13 @@ class MatrixTestsData
 			'matrix_b_eliminated' => [
 				[0],
 				[0]
+			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 1, 'multiplier' => -2],
+					['column' => 2, 'multiplier' => -3],
+				]],
+				'free', 'free'
 			],
 			'free' => [false, true, true],
 			'consistent' => true,
@@ -103,6 +120,14 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => 1],
+				]],
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => 1/2],
+				]], 'free'
+			],
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1],
@@ -124,6 +149,14 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => 1],
+				]],
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => 1/2],
+				]], 'free'
+			],
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1],
@@ -145,6 +178,12 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 1, 'multiplier' => -2],
+				]],
+				'free', 'free'
+			],
 			'free' => [false, true, true],
 			'consistent' => true,
 			'pivoted' => [0, null],
@@ -165,6 +204,12 @@ class MatrixTestsData
 			'matrix_b_eliminated' => [
 				[5],
 				[5]
+			],
+			'values' => [
+				['value' => 5, 'add_free' => [
+					['column' => 1, 'multiplier' => -2],
+				]],
+				'free', 'free'
 			],
 			'free' => [false, true, true],
 			'consistent' => false,
@@ -191,6 +236,15 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => 1],
+				]],
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => -2],
+				]],
+				'free'
+			],
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1, null],
@@ -215,6 +269,15 @@ class MatrixTestsData
 				[0],
 				[0],
 				[0]
+			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => -1],
+				]],
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => 2],
+				]],
+				'free'
 			],
 			'free' => [false, false, true],
 			'consistent' => true,
@@ -241,6 +304,15 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => -1],
+				]],
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => -2],
+				]],
+				'free'
+			],
 			'free' => [false, false, true],
 			'consistent' => true,
 			'pivoted' => [0, 1, null],
@@ -262,6 +334,15 @@ class MatrixTestsData
 				[0],
 				[0]
 			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => 1/2],
+				]],
+				['value' => 0, 'add_free' => [
+					['column' => 3, 'multiplier' => 1/2],
+				]],
+				'free', 'free'
+			],
 			'free' => [false, false, true, true],
 			'consistent' => true,
 			'pivoted' => [0, 1],
@@ -282,6 +363,15 @@ class MatrixTestsData
 			'matrix_b_eliminated' => [
 				[5/2],
 				[5]
+			],
+			'values' => [
+				['value' => 5/2, 'add_free' => [
+					['column' => 2, 'multiplier' => 1/2],
+				]],
+				['value' => 5, 'add_free' => [
+					['column' => 3, 'multiplier' => 1/2],
+				]],
+				'free', 'free'
 			],
 			'free' => [false, false, true, true],
 			'consistent' => true,
@@ -315,6 +405,15 @@ class MatrixTestsData
 				[0],
 				[0],
 				[0]
+			],
+			'values' => [
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => 1],
+				]],
+				['value' => 0, 'add_free' => [
+					['column' => 2, 'multiplier' => -2],
+				]],
+				'free'
 			],
 			'free' => [false, false, true],
 			'consistent' => true,

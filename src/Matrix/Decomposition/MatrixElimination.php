@@ -99,11 +99,44 @@ class MatrixElimination extends GaussJordanElimination
 
         $this->set('left', $this->createCorrectMatrixType($mA, $dA));
         $this->set('right', $this->createCorrectMatrixType($extra, $dB));
+        $this->set('values', $this->buildValues($dA, $dB, $pivoted, $free));
         $this->set('free', $free);
         $this->set('consistent', $this->checkConsistency($dA, $dB, $pivoted));
         $this->set('pivoted', $pivoted);
 
         return clone $this;
+    }
+
+    /**
+     * Build values for given columns with array of free variables to add
+     * 
+     * @param  array  $mA      matrix a
+     * @param  array  $mB      matrix b
+     * @param  array  $pivoted array of pivoting data
+     * @param  array  $free    array of free values data
+     * @return array           array with values for given column
+     */
+    protected function buildValues(array $mA, array $mB, array $pivoted, array $free){
+        $cols = count($mA[0]);
+        $values = array_fill(0, $cols, 'free');
+        for($i = 0; $i < $cols; $i++){
+            if($free[$i]){
+                continue;
+            }
+
+            $addFree = [];
+            $row = array_search($i, $pivoted, true);
+            //for($j = $i; $j < count($mA[$row]); $j++){
+            for($j = $i + 1; $j < count($mA[$row]); $j++){
+                if($this->comp->neq($mA[$row][$j], ($this->zero)())){
+                    $multiplier = clone $mA[$row][$j];
+                    $multiplier->negate();
+                    $addFree[] = (object) ['multiplier' => $multiplier, 'column' => $j];
+                }
+            }
+            $values[$i] = (object) ['value' => $mB[$row][0], 'add_free' => $addFree];
+        }
+        return $values;
     }
 
     /**
