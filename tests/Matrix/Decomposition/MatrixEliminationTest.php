@@ -21,7 +21,7 @@ class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 	/**
 	 * @dataProvider matrixEliminationDecomposeDataProvider
 	 */
-	public function testMatrixEliminationDecomposeMethod(array $a, array $b, array $left, array $right, array $pivoted, $values = null, $free = null, $consistent = null){
+	public function testMatrixEliminationDecomposeMethod(array $a, array $b, array $left, array $right, array $pivoted, bool $consistent = null, $values = null, $free = null){
 		$elimination = new MatrixElimination();
 		$ma = new RationalMatrix($a);
 		$mb = new RationalMatrix($b);

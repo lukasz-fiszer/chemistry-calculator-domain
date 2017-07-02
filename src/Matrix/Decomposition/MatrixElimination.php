@@ -76,7 +76,10 @@ class MatrixElimination extends GaussJordanElimination
         $indxr = array_fill(0, $rows, 0);
         $indxc = array_fill(0, $rows, 0);
 
-        $pivoted = array_fill(0, $rows, null);
+        $rowsCount = $rows != 0 ? $rows : ($mA->is('empty') == true ? 1 : 0);
+        $pivoted = array_fill(0, $rowsCount, null);
+        //$pivoted = array_fill(0, count($mA), null);
+        //$pivoted = array_fill(0, $rows, null);
 
         $currentRow = 0;
         for($i = 0; $i < $cols && $currentRow < $rows; $i++){
@@ -96,8 +99,51 @@ class MatrixElimination extends GaussJordanElimination
         $this->set('left', $this->createCorrectMatrixType($mA, $dA));
         $this->set('right', $this->createCorrectMatrixType($extra, $dB));
         $this->set('pivoted', $pivoted);
+        $this->set('consistent', $this->checkConsistency($dA, $dB, $pivoted));
 
         return clone $this;
+    }
+
+    /**
+     * Check consitency of eliminated matrix
+     *
+     * //@param NumbericMatrix $mA      matrix a to be checked
+     * //@param NumbericMatrix $mB      matrix b to be checked
+     * @param array $mA      matrix a to be checked
+     * @param array $mB      matrix b to be checked
+     * @param array $pivoted array of pivoting data
+     * @return bool true if matrix is consistent
+     */
+    //protected function checkConsistency(NumericMatrix $mA, NumericMatrix $mb, array $pivoted = null){
+    protected function checkConsistency(array $mA, array $mB, array $pivoted = null){
+        $pivoted = $pivoted ?? $this->product('pivoted');
+        foreach($mA as $index => $row){ //only unpivoted rows can be checked
+            if($pivoted[$index] !== null){
+                continue;
+            }
+            //if there was no pivoting there, then the row should have only 0 there
+            $onlyZeros = $this->isOnlyZeroRow($row);
+            $onlyZerosB = $this->isOnlyZeroRow($mB[$index]);
+            if($onlyZeros && !$onlyZerosB){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Check if given row has only zeros
+     * 
+     * @param  array   $row row to check
+     * @return boolean      true if it has only zeros
+     */
+    protected function isOnlyZeroRow(array $row){
+        foreach($row as $entry){
+            if($this->comp->neq($entry, ($this->zero)())){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
