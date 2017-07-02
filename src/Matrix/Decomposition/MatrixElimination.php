@@ -30,6 +30,7 @@ class MatrixElimination extends GaussJordanElimination
      * - values : array of found variables
      * - free : array of indexes in values that are free variables
      * - consistent : bool, true if matrix is consistent
+     * - pivoted : array with index of row number and value of column where the pivot was
      *
      * @var array [productName => mixed,...]
      */
@@ -38,7 +39,8 @@ class MatrixElimination extends GaussJordanElimination
         'right' => null,
         'values' => null,
         'free' => null,
-        'consistent' => null
+        'consistent' => null,
+        'pivoted' => null
     );
 
     /**
@@ -74,6 +76,8 @@ class MatrixElimination extends GaussJordanElimination
         $indxr = array_fill(0, $rows, 0);
         $indxc = array_fill(0, $rows, 0);
 
+        $pivoted = array_fill(0, $rows, null);
+
         $currentRow = 0;
         for($i = 0; $i < $cols && $currentRow < $rows; $i++){
             $biggestIndex = $this->biggestNonZero($dA, $i, $currentRow);
@@ -84,12 +88,14 @@ class MatrixElimination extends GaussJordanElimination
             $this->multBothRow($dA, $dB, $currentRow, $this->calc->reciprocal($dA[$currentRow][$i]), $this->calc);
             $this->reduceBothOtherRows($dA, $dB, $i, $currentRow);
 
+            $pivoted[$currentRow] = $i;
             $currentRow++;
         }
 
 
         $this->set('left', $this->createCorrectMatrixType($mA, $dA));
         $this->set('right', $this->createCorrectMatrixType($extra, $dB));
+        $this->set('pivoted', $pivoted);
 
         return clone $this;
     }

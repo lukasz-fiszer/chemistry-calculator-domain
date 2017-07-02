@@ -21,7 +21,7 @@ class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 	/**
 	 * @dataProvider matrixEliminationDecomposeDataProvider
 	 */
-	public function testMatrixEliminationDecomposeMethod(array $a, array $b, array $left, array $right, $values = null, $free = null, $consistent = null){
+	public function testMatrixEliminationDecomposeMethod(array $a, array $b, array $left, array $right, array $pivoted, $values = null, $free = null, $consistent = null){
 		$elimination = new MatrixElimination();
 		$ma = new RationalMatrix($a);
 		$mb = new RationalMatrix($b);
@@ -31,6 +31,7 @@ class MatrixEliminationTest extends \PHPUnit\Framework\TestCase
 		$this->assertEquals($values, $decomposed->product('values'));
 		$this->assertEquals($free, $decomposed->product('free'));
 		$this->assertEquals($consistent, $decomposed->product('consistent'));
+		$this->assertEquals($pivoted, $decomposed->product('pivoted'));
 	}
 
 	public function matrixEliminationDecomposeDataProvider(){
