@@ -6,7 +6,7 @@ use ChemCalc\Domain\Chemistry\Entity\Molecule;
 use ChemCalc\Domain\Chemistry\Entity\Element;
 use ChemCalc\Domain\Chemistry\Solver\MoleculeSolver;
 
-class MoleculeTest extends \PHPUnit\Framework\TestCase
+class MoleculeSolverTest extends \PHPUnit\Framework\TestCase
 {
 	public function setUp(){
 		if(isset($this->initialized) && $this->initialized == true){
