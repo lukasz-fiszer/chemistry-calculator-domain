@@ -51,12 +51,6 @@ class ReactionEquationSolver
 	 */
 	protected function extractReactionMatrix(){
 		$elementsSymbols = $this->extractElementsSymbols();
-		/*$moleculesCount = array_reduce($this->reactionSides, function($count, $side){
-			return $count + count($side);
-		}, 0);
-		$emptyRow = array_fill(0, $moleculesCount, 0);
-		$emptyMatrix = array_fill(0, count($elementsSymbols), $emptyRow);
-		foreach()*/
 		$reactionMatrix = array_fill(0, count($elementsSymbols), []);
 		foreach($this->reactionSides as $i => $side){
 			$sideMatrix = $this->buildSideMatrix($side, $elementsSymbols);
@@ -68,8 +62,6 @@ class ReactionEquationSolver
 				}
 			}
 			foreach($sideMatrix as $index => $row){
-				//$reactionMatrix[$index][] = $row;
-				//$reactionMatrix[$index][] = array_merge($reactionMatrix[$index], $row);
 				$reactionMatrix[$index] = array_merge($reactionMatrix[$index], $row);
 			}
 		}
