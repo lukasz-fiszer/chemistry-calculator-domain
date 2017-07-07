@@ -134,5 +134,21 @@ class MoleculeBuilderTest extends \PHPUnit\Framework\TestCase
 		$builtMolecule = $moleculeBuilder->build();
 		$expected = new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1], ['element' => $nEl, 'occurences' => 2]], 'H2ON2');
 		$this->assertEquals($expected, $builtMolecule);
+
+		$elementFactoryMock = $this->createMock(ElementFactory::class);
+		$elementFactoryMock->expects($this->at(0))->method('makeElementBySymbol')->willReturn($this->h);
+		$elementFactoryMock->expects($this->at(1))->method('makeElementBySymbol')->willReturn($this->o);
+		$moleculeBuilder = new MoleculeBuilder($elementFactoryMock, ['H' => 2, 'O' => 1], 'H2O{-2}', -2);
+		$builtMolecule = $moleculeBuilder->build();
+		$expected = new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O{-2}', -2);
+		$this->assertEquals($expected, $builtMolecule);
+
+		$elementFactoryMock = $this->createMock(ElementFactory::class);
+		$elementFactoryMock->expects($this->at(0))->method('makeElementBySymbol')->willReturn($this->h);
+		$elementFactoryMock->expects($this->at(1))->method('makeElementBySymbol')->willReturn($this->o);
+		$moleculeBuilder = new MoleculeBuilder($elementFactoryMock, ['H' => 2, 'O' => 1], 'H2O{+2}', 2);
+		$builtMolecule = $moleculeBuilder->build();
+		$expected = new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O{+2}', 2);
+		$this->assertEquals($expected, $builtMolecule);
 	}
 }

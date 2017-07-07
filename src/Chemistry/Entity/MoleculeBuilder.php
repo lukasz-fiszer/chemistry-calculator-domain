@@ -63,7 +63,7 @@ class MoleculeBuilder
 		foreach($this->elements as $symbol => $occurences){
 			$elementEntries[] = ['element' => $this->elementFactory->makeElementBySymbol($symbol), 'occurences' => $occurences];
 		}
-		return new Molecule($elementEntries, $this->formula);
+		return new Molecule($elementEntries, $this->formula, $this->charge);
 	}
 
 	/**
