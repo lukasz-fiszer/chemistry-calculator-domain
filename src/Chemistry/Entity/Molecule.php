@@ -27,6 +27,13 @@ class Molecule
 	protected $formula;
 
 	/**
+	 * Molecule charge
+	 * 
+	 * @var int
+	 */
+	protected $charge;
+
+	/**
 	 * Molecule atomic mass
 	 * 
 	 * @var float
@@ -48,14 +55,23 @@ class Molecule
 	protected $toElementData;
 
 	/**
+	 * Electron mass in atomic mass units
+	 * 
+	 * @var float
+	 */
+	protected $electronMass = 0.000548579909;
+
+	/**
 	 * Construct new immutable molecule object
 	 * 
 	 * @param array  $elements array of molecule elements and their occurences
 	 * @param string $formula  molecule formula
+	 * @param int    $charge   molecule charge
 	 */
-	public function __construct(array $elements, string $formula){
+	public function __construct(array $elements, string $formula, int $charge = 0){
 		$this->elements = $elements;
 		$this->formula = $formula;
+		$this->charge = $charge;
 		$this->isReal = $this->checkIfIsReal();
 		$this->atomicMass = $this->calculateAtomicMass();
 		$this->toElementData  = function($elementEntry){
@@ -87,6 +103,7 @@ class Molecule
 		foreach($this->elements as $elementEntry){
 			$mass += $elementEntry['element']->getAtomicMass() * $elementEntry['occurences'];
 		}
+		$mass += $this->electronMass * $this->charge * (-1);
 		return $mass;
 	}
 
@@ -168,5 +185,15 @@ class Molecule
     public function getAtomicMass()
     {
         return $this->atomicMass;
+    }
+
+    /**
+     * Gets the Molecule charge
+     * 
+     * @return int
+     */
+    public function getCharge()
+    {
+        return $this->charge;
     }
 }
