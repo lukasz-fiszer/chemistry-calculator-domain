@@ -22,42 +22,49 @@ class ParserException extends Exception
 	 * 
 	 * @var integer
 	 */
-	protected $parserPosition = 0;
+	protected $parserPosition;
 
 	/**
 	 * Current line in the parser stream where exception was thrown
 	 * 
 	 * @var integer
 	 */
-	protected $parserLine = 0;
+	protected $parserLine;
 
 	/**
 	 * Current column in the parser stream where exception was thrown
 	 * 
 	 * @var integer
 	 */
-	protected $parserColumn = 0;
+	protected $parserColumn;
+
+	/**
+	 * Parser context, has input, line, column and position
+	 * 
+	 * @var object
+	 */
+	protected $parserContext;
 
 
 	/**
 	 * Construct new parser exception
 	 * 
 	 * @param string|null    $message  exception message
-	 * @param string         $input    parser input
-	 * @param integer        $position parser position
-	 * @param integer        $line     parser line
-	 * @param integer        $column   parser column
-	 * @param integer        $code     exception code
+	 * @param string|null    $input    parser input
+	 * @param integer|null   $position parser position
+	 * @param integer|null   $line     parser line
+	 * @param integer|null   $column   parser column
+	 * @param integer|null   $code     exception code
 	 * @param Exception|null $previous previous exception
 	 */
-	public function __construct(string $message = null, string $input = '', int $position = 0, int $line = 0, int $column = 0, int $code = 0, Exception $previous = null){
-		//$message = $message === null ? $message.sprintf(' (line: %d, column: %d)', $line, $column) : null;
+	public function __construct(string $message = null, string $input = null, int $position = null, int $line = null, int $column = null, int $code = 0, Exception $previous = null){
 		$message = $message !== null ? $message.sprintf(' (line: %d, column: %d)', $line, $column) : null;
 		parent::__construct($message, $code, $previous);
 		$this->parserInput = $input;
 		$this->parserPosition = $position;
 		$this->parserLine = $line;
 		$this->parserColumn = $column;
+		$this->parserContext = (object) ['input' => $input, 'position' => $position, 'line' => $line, 'column' => $column];
 	}
 
     /**
@@ -98,5 +105,15 @@ class ParserException extends Exception
     public function getParserColumn()
     {
         return $this->parserColumn;
+    }
+
+    /**
+     * Gets the Parser context, has input, line, column and position
+     * 
+     * @return object
+     */
+    public function getParserContext()
+    {
+        return $this->parserContext;
     }
 }
