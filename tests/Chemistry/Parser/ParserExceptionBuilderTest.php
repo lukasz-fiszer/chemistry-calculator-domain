@@ -72,6 +72,15 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 		$this->assertAttributeEquals(4, 'code', $builder2);
 	}
 
+	/**
+	 * @expectedException Exception
+	 * @expectedExceptionMessage Unknown code key unknown code key
+	 */
+	public function testWithCodeByKeyException(){
+		$builder = new ParserExceptionBuilder();
+		$builder = $builder->withCodeByKey('unknown code key');
+	}
+
 	public function testWithPreviousException(){
 		$builder = new ParserExceptionBuilder();
 		$ex1 = new Exception();
