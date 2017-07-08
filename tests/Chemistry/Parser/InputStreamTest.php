@@ -13,11 +13,13 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertAttributeEquals(0, 'position', $inputStream);
 		$this->assertAttributeEquals(0, 'line', $inputStream);
 		$this->assertAttributeEquals(0, 'column', $inputStream);
+		$this->assertEquals($this->buildInputContext('test', 0, 0, 0), $inputStream->getContext());
 	}
 
 	public function testStreamMethods(){
 		$inputStream = new InputStream("abcd\nabcd\ntest\n\t ab");
 		$this->assertAttributeEquals("abcd\nabcd\ntest\n\t ab", 'input', $inputStream);
+		$this->assertEquals($this->buildInputContext("abcd\nabcd\ntest\n\t ab", 0, 0, 0), $inputStream->getContext());
 
 		$this->assertEquals('a', $inputStream->peek());
 		$this->assertEquals('a', $inputStream->next());
@@ -26,6 +28,7 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertAttributeEquals(0, 'line', $inputStream);
 		$this->assertAttributeEquals(1, 'column', $inputStream);
 		$this->assertEquals(false, $inputStream->eof());
+		$this->assertEquals($this->buildInputContext("abcd\nabcd\ntest\n\t ab", 1, 0, 1), $inputStream->getContext());
 
 		$this->assertEquals('bcd', $inputStream->next().$inputStream->next().$inputStream->next());
 		$this->assertEquals("\n", $inputStream->peek());
@@ -33,6 +36,7 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertAttributeEquals(5, 'position', $inputStream);
 		$this->assertAttributeEquals(1, 'line', $inputStream);
 		$this->assertAttributeEquals(0, 'column', $inputStream);
+		$this->assertEquals($this->buildInputContext("abcd\nabcd\ntest\n\t ab", 5, 1, 0), $inputStream->getContext());
 
 		for($i = 0; $i < 10; $i++){
 			$inputStream->next();
@@ -49,6 +53,7 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertAttributeEquals(19, 'position', $inputStream);
 		$this->assertAttributeEquals(3, 'line', $inputStream);
 		$this->assertAttributeEquals(4, 'column', $inputStream);
+		$this->assertEquals($this->buildInputContext("abcd\nabcd\ntest\n\t ab", 19, 3, 4), $inputStream->getContext());
 	}
 
 	public function testExceptionThrown(){
@@ -68,6 +73,10 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		if(!$catched){
 			$this->fail('Input stream had to throw exception');
 		}
+	}
+
+	protected function buildInputContext($input, $pos, $line, $col){
+		return (object) ['input' => $input, 'position' => $pos, 'line' => $line, 'column' => $col];
 	}
 
 	/**

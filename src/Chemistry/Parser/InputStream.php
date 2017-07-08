@@ -95,6 +95,15 @@ class InputStream
 		throw new ParserException($message, $this->input, $this->position, $this->line, $this->column);
 	}
 
+	/**
+	 * Get input context, input and current position, line and column
+	 * 
+	 * @return object input stream context
+	 */
+	public function getContext(){
+		return (object) ['input' => $this->input, 'position' => $this->position, 'line' => $this->line, 'column' => $this->column];
+	}
+
     /**
      * Gets the Input to the stream.
      *
