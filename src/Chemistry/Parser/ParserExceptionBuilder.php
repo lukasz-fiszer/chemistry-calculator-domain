@@ -65,7 +65,9 @@ class ParserExceptionBuilder
 	 * @var array
 	 */
 	protected $codes = [
-
+		'tokenizer_unrecognized_character' => 1,
+		'parser_unexpected_token' => 2,
+		'parser_expected_other_token' => 4,
 	];
 
 	/**
@@ -143,7 +145,7 @@ class ParserExceptionBuilder
 	public function withCodeByKey(string $key){
 		$new = clone $this;
 		if(!isset($this->codes[$key])){
-			throw new Exception('Unknown code key '.$key);
+			throw new Exception('Unknown code key: \''.$key.'\'');
 		}
 		$new->code = $this->codes[$key];
 		return $new;

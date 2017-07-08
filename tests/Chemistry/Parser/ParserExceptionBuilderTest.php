@@ -64,17 +64,18 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testWithCodeByKey(){
-		$this->markTestIncomplete();
 		$builder = new ParserExceptionBuilder();
-		$builder = $builder->withCode(2);
-		$this->assertAttributeEquals(2, 'code', $builder);
-		$builder2 = $builder->withCode(4);
-		$this->assertAttributeEquals(4, 'code', $builder2);
+		$builder = $builder->withCodeByKey('tokenizer_unrecognized_character');
+		$this->assertAttributeEquals(1, 'code', $builder);
+		$builder2 = $builder->withCodeByKey('parser_unexpected_token');
+		$this->assertAttributeEquals(2, 'code', $builder2);
+
+		$this->assertAttributeEquals(['tokenizer_unrecognized_character' => 1, 'parser_unexpected_token' => 2, 'parser_expected_other_token' => 4], 'codes', $builder);
 	}
 
 	/**
 	 * @expectedException Exception
-	 * @expectedExceptionMessage Unknown code key unknown code key
+	 * @expectedExceptionMessage Unknown code key: 'unknown code key'
 	 */
 	public function testWithCodeByKeyException(){
 		$builder = new ParserExceptionBuilder();
