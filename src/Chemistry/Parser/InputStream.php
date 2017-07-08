@@ -51,7 +51,6 @@ class InputStream
 	 * @return string next character
 	 */
 	public function next(){
-		//$character = isset($this->input[$this->position]) ? $this->input[$this->position++] : null;
 		if(!isset($this->input[$this->position])){
 			return null;
 		}
@@ -88,10 +87,11 @@ class InputStream
 	 * Throw new parser exception
 	 * 
 	 * @param  string $message exception message
+	 * @param  string $codeKey exception code key
 	 * @throws ParserException parser exception
 	 * @return void
 	 */
-	public function throwException(string $message = ''){
+	public function throwException(string $message = '', string $codeKey = null){
 		throw new ParserException($message, $this->input, $this->position, $this->line, $this->column);
 	}
 

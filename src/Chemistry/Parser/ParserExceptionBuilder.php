@@ -46,7 +46,7 @@ class ParserExceptionBuilder
 	protected $message;
 
 	/**
-	 * Exception ode
+	 * Exception code
 	 * 
 	 * @var int
 	 */
