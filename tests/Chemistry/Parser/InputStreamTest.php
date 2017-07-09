@@ -4,20 +4,22 @@ namespace ChemCalc\Domain\Tests\Chemistry\Parser;
 
 use ChemCalc\Domain\Chemistry\Parser\InputStream;
 use Exception;
+use ChemCalc\Domain\Chemistry\Parser\ParserExceptionBuilder;
 
 class InputStreamTest extends \PHPUnit\Framework\TestCase
 {
 	public function testConstructorPropertiesInjection(){
-		$inputStream = new InputStream('test');
+		$inputStream = new InputStream('test', $exBuilderMock = $this->createMock(ParserExceptionBuilder::class));
 		$this->assertAttributeEquals('test', 'input', $inputStream);
 		$this->assertAttributeEquals(0, 'position', $inputStream);
 		$this->assertAttributeEquals(0, 'line', $inputStream);
 		$this->assertAttributeEquals(0, 'column', $inputStream);
 		$this->assertEquals($this->buildInputContext('test', 0, 0, 0), $inputStream->getContext());
+		$this->assertAttributeEquals($exBuilderMock, 'parserExceptionBuilder', $inputStream);
 	}
 
 	public function testStreamMethods(){
-		$inputStream = new InputStream("abcd\nabcd\ntest\n\t ab");
+		$inputStream = new InputStream("abcd\nabcd\ntest\n\t ab", $this->createMock(ParserExceptionBuilder::class));
 		$this->assertAttributeEquals("abcd\nabcd\ntest\n\t ab", 'input', $inputStream);
 		$this->assertEquals($this->buildInputContext("abcd\nabcd\ntest\n\t ab", 0, 0, 0), $inputStream->getContext());
 
@@ -57,7 +59,7 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testExceptionThrown(){
-		$inputStream = new InputStream('test');
+		$inputStream = new InputStream('test', new ParserExceptionBuilder());
 		$catched = false;
 		try{
 			$inputStream->throwException('message');
@@ -83,7 +85,7 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 	 * @expectedException ChemCalc\Domain\Chemistry\Parser\ParserException
 	 */
 	public function testExceptionThrowing(){
-		$inputStream = new InputStream('test');
+		$inputStream = new InputStream('test', new ParserExceptionBuilder());
 		$inputStream->throwException();
 	}
 }

@@ -7,20 +7,29 @@ use Exception;
 use ChemCalc\Domain\Chemistry\Parser\TokenStream;
 use ChemCalc\Domain\Tests\InvokesInaccessibleMethod;
 use ChemCalc\Domain\Chemistry\Parser\ParserException;
+use ChemCalc\Domain\Chemistry\Parser\ParserExceptionBuilder;
 
 class TokenStreamTest extends \PHPUnit\Framework\TestCase
 {
 	use InvokesInaccessibleMethod;
 
+	public function setUp(){
+		if(isset($this->initialized) && $this->initialized == true){
+			return;
+		}
+		$this->initialized = true;
+		$this->exBuilderMock = $this->createMock(ParserExceptionBuilder::class);
+	}
+
 	public function testConstructorPropertiesInjection(){
-		$tokenStream = new TokenStream(new InputStream('test'));
-		$this->assertAttributeEquals(new InputStream('test'), 'inputStream', $tokenStream);
+		$tokenStream = new TokenStream(new InputStream('test', $this->exBuilderMock));
+		$this->assertAttributeEquals(new InputStream('test', $this->exBuilderMock), 'inputStream', $tokenStream);
 		$this->assertAttributeEquals(null, 'current', $tokenStream);
 	}
 
 	public function testStreamMethods(){
 		//$tokenStream = new TokenStream(new InputStream('H2+4O + He2(H2Oa5)10'));
-		$tokenStream = new TokenStream(new InputStream('H2+4O -> He2(H2Oa5)10'));
+		$tokenStream = new TokenStream(new InputStream('H2+4O -> He2(H2Oa5)10', $this->exBuilderMock));
 
 		$token = (object) ['type' => 'element_identifier', 'value' => 'H'];
 		$this->assertEquals($token, $tokenStream->peek());
@@ -58,7 +67,7 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testPredicates(){
-		$tokenStream = new TokenStream(new InputStream('test'));
+		$tokenStream = new TokenStream(new InputStream('test', $this->exBuilderMock));
 
 		$this->assertTrue($this->invokeMethod($tokenStream, 'is_digit', ['12345']));
 		$this->assertTrue($this->invokeMethod($tokenStream, 'is_digit', ['1234567890789056786']));
@@ -86,7 +95,7 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testExceptionThrown(){
-		$tokenStream = new TokenStream(new InputStream('test'));
+		$tokenStream = new TokenStream(new InputStream('test', new ParserExceptionBuilder()));
 		$catched = false;
 		try{
 			$tokenStream->throwException('message');
@@ -108,7 +117,7 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 	 * @expectedException ChemCalc\Domain\Chemistry\Parser\ParserException
 	 */
 	public function testExceptionThrowing(){
-		$tokenStream = new TokenStream(new InputStream('test'));
+		$tokenStream = new TokenStream(new InputStream('test', new ParserExceptionBuilder()));
 		$tokenStream->throwException();
 	}
 
@@ -116,7 +125,7 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 	 * @dataProvider exceptionThrowingMessageDataProvider
 	 */
 	public function testExceptionThrowingMessage($input, $message){
-		$tokenStream = new TokenStream(new InputStream($input));
+		$tokenStream = new TokenStream(new InputStream($input, new ParserExceptionBuilder()));
 		$this->expectException(ParserException::class);
 		$this->expectExceptionMessage($message);
 		while(!$tokenStream->eof()){

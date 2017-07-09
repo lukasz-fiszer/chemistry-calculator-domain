@@ -37,12 +37,21 @@ class InputStream
 	protected $column = 0;
 
 	/**
+	 * Parser exception builder, used when exception is thrown from input stream
+	 * 
+	 * @var ParserExceptionBuilder
+	 */
+	protected $parserExceptionBuilder;
+
+	/**
 	 * Construct new input stream
 	 * 
 	 * @param string $input input to the stream
+	 * @param ParserExceptionBuilder $parserExceptionBuilder parser exception builder used to build thrown exceptions
 	 */
-	public function __construct(string $input){
+	public function __construct(string $input, ParserExceptionBuilder $parserExceptionBuilder){
 		$this->input = $input;
+		$this->parserExceptionBuilder = $parserExceptionBuilder;
 	}
 
 	/**

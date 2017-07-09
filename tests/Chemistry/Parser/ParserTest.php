@@ -9,13 +9,22 @@ use ChemCalc\Domain\Tests\InvokesInaccessibleMethod;
 use ChemCalc\Domain\Chemistry\Parser\Parser;
 use ChemCalc\Domain\Chemistry\Parser\ParserException;
 use ChemCalc\Domain\Tests\Res\ChemistryTestsData;
+use ChemCalc\Domain\Chemistry\Parser\ParserExceptionBuilder;
 
 class ParserTest extends \PHPUnit\Framework\TestCase
 {
 	use InvokesInaccessibleMethod;
 
+	public function setUp(){
+		if(isset($this->initialized) && $this->initialized == true){
+			return;
+		}
+		$this->initialized = true;
+		$this->exBuilderMock = $this->createMock(ParserExceptionBuilder::class);
+	}
+
 	public function testConstructorPropertiesInjection(){
-		$tokenStream = new TokenStream(new InputStream('test'));
+		$tokenStream = new TokenStream(new InputStream('test', $this->exBuilderMock));
 		$parser = new Parser($tokenStream);
 		$this->assertAttributeEquals($tokenStream, 'tokenStream', $parser);
 		$this->assertEquals($tokenStream, $parser->getTokenStream());
@@ -25,7 +34,7 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 	 * @dataProvider parseMethodDataProvider
 	 */
 	public function testParseMethod($input, $parsed){
-		$parser = new Parser(new TokenStream(new InputStream($input)));
+		$parser = new Parser(new TokenStream(new InputStream($input, $this->exBuilderMock)));
 		$this->assertEquals(json_decode(json_encode($parsed)), $parser->parse());
 	}
 
@@ -33,7 +42,7 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 	 * @dataProvider parserExceptionMethodDataProvider
 	 */
 	public function testParserException($input, $message){
-		$parser = new Parser(new TokenStream(new InputStream($input)));
+		$parser = new Parser(new TokenStream(new InputStream($input, new ParserExceptionBuilder())));
 		$this->expectException(ParserException::class);
 		$this->expectExceptionMessage($message);
 		$parser->parse();
@@ -43,7 +52,7 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 	 * @expectedException ChemCalc\Domain\Chemistry\Parser\ParserException
 	 */
 	public function testExceptionThrowing(){
-		$parser = new Parser(new TokenStream(new InputStream('test')));
+		$parser = new Parser(new TokenStream(new InputStream('test', new ParserExceptionBuilder())));
 		$parser->parse();
 	}
 
