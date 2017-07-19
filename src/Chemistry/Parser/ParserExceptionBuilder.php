@@ -3,6 +3,7 @@
 namespace ChemCalc\Domain\Chemistry\Parser;
 
 use Exception;
+use stdClass;
 
 /**
  * Chemistry reaction equation
@@ -37,6 +38,13 @@ class ParserExceptionBuilder
 	 * @var integer
 	 */
 	protected $parserColumn;
+
+	/**
+	 * Parser context, has input, line, column and position, on when exception was thrown
+	 * 
+	 * @var object
+	 */
+	protected $parserContext;
 
 	/**
 	 * Exception message
@@ -90,7 +98,9 @@ class ParserExceptionBuilder
 	 */
 	public function build(){
 		$message = $this->buildMessage();
-		return new ParserException($message, $this->parserInput, $this->parserPosition, $this->parserLine, $this->parserColumn, $this->code, $this->previous);
+		$parserContext = (object) array_merge((array) $this->parserContext, ['input' => $this->parserInput, 'position' => $this->parserPosition, 'line' => $this->parserLine, 'column' => $this->parserColumn]);
+		//$parserContext = $parserContext == new stdClass() ? null : $parserContext;
+		return new ParserException($message, $parserContext, $this->code, $this->previous);
 	}
 
 	/**
@@ -209,6 +219,18 @@ class ParserExceptionBuilder
 	public function withParserColumn(int $column){
 		$new = clone $this;
 		$new->parserColumn = $column;
+		return $new;
+	}
+
+	/**
+	 * Return new builder instance with parser context
+	 * 
+	 * @param  object $parserContext parser context
+	 * @return self new exception builder instance
+	 */
+	public function withParserContext(stdClass $parserContext){
+		$new = clone $this;
+		$new->parserContext = $parserContext;
 		return $new;
 	}
 }
