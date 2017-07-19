@@ -123,4 +123,14 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 		$builder2 = $builder->withParserColumn(40);
 		$this->assertAttributeEquals(40, 'parserColumn', $builder2);
 	}
+
+	public function testWithParserContext(){
+		$builder = new ParserExceptionBuilder();
+		$c1 = (object) ['input' => null, 'position' => null, 'line' => null, 'column' => null];
+		$c2 = (object) ['input' => 'test input', 'position' => 5, 'line' => 1, 'column' => 4];
+		$builder = $builder->withParserContext($c1);
+		$this->assertAttributeEquals($c1, 'parserContext', $builder);
+		$builder2 = $builder->withParserContext($c2);
+		$this->assertAttributeEquals($c2, 'parserContext', $builder2);
+	}
 }

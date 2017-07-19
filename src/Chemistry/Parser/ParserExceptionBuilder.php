@@ -100,7 +100,21 @@ class ParserExceptionBuilder
 		$message = $this->buildMessage();
 		$parserContext = (object) array_merge((array) $this->parserContext, ['input' => $this->parserInput, 'position' => $this->parserPosition, 'line' => $this->parserLine, 'column' => $this->parserColumn]);
 		//$parserContext = $parserContext == new stdClass() ? null : $parserContext;
+		$parserContext = $this->buildParserContext();
 		return new ParserException($message, $parserContext, $this->code, $this->previous);
+	}
+
+	/**
+	 * Build parser context, merge parser input, position, line and column with parser context object
+	 * 
+	 * @return object parser context
+	 */
+	protected function buildParserContext(){
+		$mergeContext = ['input' => $this->parserInput, 'position' => $this->parserPosition, 'line' => $this->parserLine, 'column' => $this->parserColumn];
+		$mergeContext = array_filter($mergeContext, function($entry){
+			return $entry !== null;
+		});
+		return (object) array_merge((array) $this->parserContext, $mergeContext);
 	}
 
 	/**
@@ -118,7 +132,11 @@ class ParserExceptionBuilder
 		$implode = array_filter($implode, function($entry){
 			return $entry !== null;
 		});
-		return $this->message.' ('.implode(', ', $implode).')';
+		$append = '';
+		if(count($implode) > 0){
+			$append = ' ('.implode(', ', $implode).')';
+		}
+		return $this->message.$append;
 	}
 
 	/**
