@@ -67,10 +67,12 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		catch(Exception $e){
 			$catched = true;
 			$this->assertAttributeEquals('message (line: 0, column: 0)', 'message', $e);
-			$this->assertAttributeEquals('test', 'parserInput', $e);
+			/*$this->assertAttributeEquals('test', 'parserInput', $e);
 			$this->assertAttributeEquals(0, 'parserPosition', $e);
 			$this->assertAttributeEquals(0, 'parserLine', $e);
-			$this->assertAttributeEquals(0, 'parserColumn', $e);
+			$this->assertAttributeEquals(0, 'parserColumn', $e);*/
+			$c = (object) ['input' => 'test', 'position' => 0, 'line' => 0, 'column' => 0];
+			$this->assertAttributeEquals($c, 'parserContext', $e);
 		}
 		if(!$catched){
 			$this->fail('Input stream had to throw exception');
