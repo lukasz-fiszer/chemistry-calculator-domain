@@ -31,19 +31,27 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 		$builder2 = new ParserExceptionBuilder('message', 0, $prev);
 		$builder2 = $builder2->withMessage('new msg')->withCode(2)->withParserInput('parser input')->withParserLine(1)->withParserColumn(2);
 		$exBuild2 = $builder2->build();
-		$ex2 = new ParserException('new msg (line: 1, column: 2)', 'parser input', null, 1, 2, 2, $prev);
+		//$c = (object) ['input' => 'parser input', 'position' => null, 'line' => 1, 'column' => 2];
+		$c = (object) ['input' => 'parser input', 'line' => 1, 'column' => 2];
+		$ex2 = new ParserException('new msg (line: 1, column: 2)', $c, 2, $prev);
 		$this->assertEquals($ex2, $exBuild2);
 
 		$builder2 = new ParserExceptionBuilder();
 		$builder2 = $builder2->withMessage('new msg')->withParserLine(1);
 		$exBuild2 = $builder2->build();
-		$ex2 = new ParserException('new msg (line: 1)', null, null, 1);
+		//$c = (object) ['input' => null, 'position' => null, 'line' => 1, 'column' => null];
+		$c = (object) ['line' => 1];
+		//$ex2 = new ParserException('new msg (line: 1)', null, null, 1);
+		$ex2 = new ParserException('new msg (line: 1)', $c);
 		$this->assertEquals($ex2, $exBuild2);
 
 		$builder2 = new ParserExceptionBuilder();
 		$builder2 = $builder2->withMessage('new msg')->withParserColumn(2);
 		$exBuild2 = $builder2->build();
-		$ex2 = new ParserException('new msg (column: 2)', null, null, null, 2);
+		//$c = (object) ['input' => null, 'position' => null, 'line' => null, 'column' => 2];
+		$c = (object) ['column' => 2];
+		//$ex2 = new ParserException('new msg (column: 2)', null, null, null, 2);
+		$ex2 = new ParserException('new msg (column: 2)', $c);
 		$this->assertEquals($ex2, $exBuild2);
 	}
 

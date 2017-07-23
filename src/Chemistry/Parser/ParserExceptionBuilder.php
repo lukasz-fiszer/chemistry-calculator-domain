@@ -98,9 +98,8 @@ class ParserExceptionBuilder
 	 */
 	public function build(){
 		$message = $this->buildMessage();
-		$parserContext = (object) array_merge((array) $this->parserContext, ['input' => $this->parserInput, 'position' => $this->parserPosition, 'line' => $this->parserLine, 'column' => $this->parserColumn]);
-		//$parserContext = $parserContext == new stdClass() ? null : $parserContext;
 		$parserContext = $this->buildParserContext();
+		$parserContext = empty((array) $parserContext) ? null : $parserContext;
 		return new ParserException($message, $parserContext, $this->code, $this->previous);
 	}
 
