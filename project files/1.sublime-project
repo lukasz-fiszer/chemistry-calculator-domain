@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "C:\\xampp\\htdocs\\chemistry-calculator-domain"
+			"path": "C:\\xampp\\htdocs\\chemistry-calculator-domain",
+			"folder_exclude_patterns": ["coverage.html"]
 		}
-	]
+	],
 }

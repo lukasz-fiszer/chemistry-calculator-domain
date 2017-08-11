@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"exce",
+				"exceptionBuilder"
+			],
+			[
+				"ex",
+				"exceptionBuilder"
+			],
+			[
+				"code",
+				"codeKey"
+			],
+			[
 				"null",
 				"null"
 			],
@@ -22,10 +34,6 @@
 			[
 				"parserC",
 				"parserContext"
-			],
-			[
-				"ex",
-				"exception2"
 			],
 			[
 				"asser",
@@ -506,14 +514,6 @@
 			[
 				"Route",
 				"RouteGenerator"
-			],
-			[
-				"respo",
-				"responseFactory"
-			],
-			[
-				"res",
-				"responseFactory"
 			]
 		]
 	},
@@ -538,28 +538,10 @@
 			}
 		},
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
-			"settings":
-			{
-				"buffer_size": 5997,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionBuilderTest.php",
-			"settings":
-			{
-				"buffer_size": 5392,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
 			"settings":
 			{
-				"buffer_size": 3068,
+				"buffer_size": 3389,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -568,16 +550,16 @@
 			"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
 			"settings":
 			{
-				"buffer_size": 3973,
+				"buffer_size": 4118,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+			"file": "1.sublime-project",
 			"settings":
 			{
-				"buffer_size": 6492,
-				"line_ending": "Windows"
+				"buffer_size": 137,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -701,15 +683,24 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain/src",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Matrix",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Matrix/Decomposition",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/chemistry-calculator-domain/project files/1.sublime-project",
+		"/C/xampp/htdocs/chemistry-calculator-domain/docs/chemistry.md",
+		"/C/xampp/htdocs/chemistry-calculator-domain/docs/readme.md",
+		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
+		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown (Standard).sublime-settings",
+		"/C/xampp/htdocs/chemistry-calculator-domain/.gitignore",
+		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionBuilderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/TestCase.php",
@@ -717,20 +708,15 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementFactoryTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeBuilderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/DataLoader/ElementDataLoaderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Interpreter/InterpreterTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionBuilderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/sebastian/diff/src/Parser.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MoleculeBuilder.php",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/PHP Companion/PHP Companion.sublime-settings",
-		"/C/xampp/htdocs/chemistry-calculator-domain/docs/chemistry.md",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
@@ -738,21 +724,18 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Matrix/MatrixSolver.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/MatrixTestsData.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Matrix/Decomposition/MatrixElimination.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/docs/readme.md",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/method_item.html.dist",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit-mock-objects/tests/Generator/return_type_declarations_object_method.phpt",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Matrix/Decomposition/MatrixEliminationTest.php",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/User/MultiMarkdown.sublime-settings",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
-		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown (Standard).sublime-settings",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/src/Chippyash/Math/Matrix/Formatter/AsciiNumeric.php",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/PHP Getters and Setters/php-getters-setters.sublime-settings",
 		"/C/xampp/htdocs/chemistry-calculator-domain/res/PeriodicTableJSON.json",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Solver/ReactionEquationSolverTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/ElementFactory.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Matrix/MatrixSolverTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/src/Chippyash/Math/Matrix/RationalMatrix.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/matrix/src/Chippyash/Matrix/Matrix.php",
@@ -818,7 +801,6 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/bootstrap.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/.gitattributes",
-		"/C/xampp/htdocs/chemistry-calculator-domain/.gitignore",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/app/Http/Controllers/IndexController.php",
 		"/C/xampp/htdocs/chemistry-calculator/composer.json",
@@ -834,9 +816,7 @@
 		"/C/xampp/htdocs/chemistry-calculator/routes/web.php",
 		"/C/xampp/htdocs/chemistry-calculator/server.php",
 		"/C/xampp/htdocs/photo2/.gitignore",
-		"/C/xampp/htdocs/chemistry-calculator/composer.lock",
-		"/C/xampp/htdocs/chemistry-calculator/.env",
-		"/C/xampp/htdocs/photo2/resources/views/layout.blade.php"
+		"/C/xampp/htdocs/chemistry-calculator/composer.lock"
 	],
 	"find":
 	{
@@ -857,6 +837,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"merge",
+			"with",
+			"parser",
 			"$c2",
 			"40",
 			"parserColumn",
@@ -981,10 +964,7 @@
 			"latest",
 			"with",
 			"latest",
-			"hydrate",
-			"input",
-			"routegener",
-			"messages"
+			"hydrate"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1005,7 +985,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1034,7 +1014,7 @@
 						"translation.y": 1710.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1063,53 +1043,52 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5997,
+						"buffer_size": 3389,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2718,
-								2718
+								1346,
+								1346
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionBuilderTest.php",
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5392,
+						"buffer_size": 4118,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1003,
-								1003
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1126,92 +1105,34 @@
 				},
 				{
 					"buffer": 4,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
+					"file": "1.sublime-project",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3068,
+						"buffer_size": 137,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2027,
-								2027
+								88,
+								88
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 990.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3973,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3815,
-								3815
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 450.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6492,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1494,
-								1494
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 1215.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
 					"semi_transient": false,
 					"settings":
@@ -1232,11 +1153,11 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
 						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1290,6 +1211,38 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"input",
+				"tests\\Chemistry\\Parser\\InputStreamTest.php"
+			],
+			[
+				"gitignore",
+				".gitignore"
+			],
+			[
+				"paraserec",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
+			[
+				"excebuilder",
+				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"excenuilder",
+				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"pare",
+				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"parserexce",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
+			[
+				"parserexcep",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
 			[
 				"parserec",
 				"src\\Chemistry\\Parser\\ParserException.php"
@@ -1392,10 +1345,6 @@
 			],
 			[
 				"",
-				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
-			],
-			[
-				"excebuilder",
 				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
 			],
 			[
@@ -1773,34 +1722,6 @@
 			[
 				"rational",
 				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\RationalType.php"
-			],
-			[
-				"abstractdec",
-				"vendor\\chippyash\\math-matrix\\src\\Chippyash\\Math\\Matrix\\Decomposition\\AbstractDecomposition.php"
-			],
-			[
-				"rationtypefac",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\RationalTypeFactory.php"
-			],
-			[
-				"numericinterfa",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Interfaces\\NumericTypeInterface.php"
-			],
-			[
-				"comparatornative",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Comparator\\Native.php"
-			],
-			[
-				"comaprator",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Comparator.php"
-			],
-			[
-				"assertpara",
-				"vendor\\chippyash\\matrix\\src\\Chippyash\\Matrix\\Traits\\AssertParameterIsMatrix.php"
-			],
-			[
-				"asbtractrationaltype",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\AbstractRationalType.php"
 			]
 		],
 		"width": 0.0

@@ -4,13 +4,14 @@ namespace ChemCalc\Domain\Tests\Chemistry\Parser;
 
 use ChemCalc\Domain\Chemistry\Parser\ParserException;
 use Exception;
+use stdClass;
 
 class ParserExceptionTest extends \PHPUnit\Framework\TestCase
 {
 	public function testConstructorPropertiesInjection(){
 		$exception = new ParserException();
 		$this->assertAttributeEquals(null, 'message', $exception);
-		$this->assertAttributeEquals(null, 'parserContext', $exception);
+		$this->assertAttributeEquals(new stdClass(), 'parserContext', $exception);
 		$this->assertAttributeEquals(0, 'code', $exception);
 		$this->assertAttributeEquals(null, 'previous', $exception);
 
