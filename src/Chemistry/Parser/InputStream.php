@@ -102,7 +102,6 @@ class InputStream
 	 */
 	public function throwException(string $message = '', string $codeKey = null){
 		$exceptionBuilder = $this->parserExceptionBuilder->withMessage($message)->withParserContext($this->getContext());
-		$exceptionBuilder = $exceptionBuilder->withParserInput($this->input)->withParserPosition($this->position)->withParserLine($this->line)->withParserColumn($this->column);
 		if($codeKey !== null){
 			$exceptionBuilder = $exceptionBuilder->withCodeByKey($codeKey);
 		}
