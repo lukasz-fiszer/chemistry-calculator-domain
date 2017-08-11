@@ -172,7 +172,6 @@ class ParserExceptionBuilder
 	 */
 	public function withParserInput(string $input){
 		$new = clone $this;
-		// $new->parserContext['input'] = $input;
 		$new->parserContext->input = $input;
 		return $new;
 	}
@@ -185,7 +184,6 @@ class ParserExceptionBuilder
 	 */
 	public function withParserPosition(int $position){
 		$new = clone $this;
-		// $new->parserContext['position'] = $position;
 		$new->parserContext->position = $position;
 		return $new;
 	}
@@ -198,7 +196,6 @@ class ParserExceptionBuilder
 	 */
 	public function withParserLine(int $line){
 		$new = clone $this;
-		// $new->parserContext['line'] = $line;
 		$new->parserContext->line = $line;
 		return $new;
 	}
@@ -211,7 +208,6 @@ class ParserExceptionBuilder
 	 */
 	public function withParserColumn(int $column){
 		$new = clone $this;
-		// $new->parserContext['column'] = $column;
 		$new->parserContext->column = $column;
 		return $new;
 	}

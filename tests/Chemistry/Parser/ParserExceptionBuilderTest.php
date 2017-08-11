@@ -31,31 +31,29 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 		$this->assertEquals($ex, $exBuild);
 
 		$prev = new Exception('previous msg');
-		$builder2 = new ParserExceptionBuilder('message', 0, $prev);
-		$builder2 = $builder2->withMessage('new msg')->withCode(2)->withParserInput('parser input')->withParserLine(1)->withParserColumn(2);
-		$exBuild2 = $builder2->build();
+		$builder = new ParserExceptionBuilder('message', 0, $prev);
+		$builder = $builder->withMessage('new msg')->withCode(2)->withParserInput('parser input')->withParserLine(1)->withParserColumn(2);
+		$exBuild = $builder->build();
 		//$c = (object) ['input' => 'parser input', 'position' => null, 'line' => 1, 'column' => 2];
 		$c = (object) ['input' => 'parser input', 'line' => 1, 'column' => 2];
-		$ex2 = new ParserException('new msg (line: 1, column: 2)', $c, 2, $prev);
-		$this->assertEquals($ex2, $exBuild2);
+		$ex = new ParserException('new msg (line: 1, column: 2)', $c, 2, $prev);
+		$this->assertEquals($ex, $exBuild);
 
-		$builder2 = new ParserExceptionBuilder();
-		$builder2 = $builder2->withMessage('new msg')->withParserLine(1);
-		$exBuild2 = $builder2->build();
+		$builder = new ParserExceptionBuilder();
+		$builder = $builder->withMessage('new msg')->withParserLine(1);
+		$exBuild = $builder->build();
 		//$c = (object) ['input' => null, 'position' => null, 'line' => 1, 'column' => null];
 		$c = (object) ['line' => 1];
-		//$ex2 = new ParserException('new msg (line: 1)', null, null, 1);
-		$ex2 = new ParserException('new msg (line: 1)', $c);
-		$this->assertEquals($ex2, $exBuild2);
+		$ex = new ParserException('new msg (line: 1)', $c);
+		$this->assertEquals($ex, $exBuild);
 
-		$builder2 = new ParserExceptionBuilder();
-		$builder2 = $builder2->withMessage('new msg')->withParserColumn(2);
-		$exBuild2 = $builder2->build();
+		$builder = new ParserExceptionBuilder();
+		$builder = $builder->withMessage('new msg')->withParserColumn(2);
+		$exBuild = $builder->build();
 		//$c = (object) ['input' => null, 'position' => null, 'line' => null, 'column' => 2];
 		$c = (object) ['column' => 2];
-		//$ex2 = new ParserException('new msg (column: 2)', null, null, null, 2);
-		$ex2 = new ParserException('new msg (column: 2)', $c);
-		$this->assertEquals($ex2, $exBuild2);
+		$ex = new ParserException('new msg (column: 2)', $c);
+		$this->assertEquals($ex, $exBuild);
 	}
 
 	public function testWithMessage(){
@@ -67,13 +65,17 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testWithCodeByKey(){
-		$builder = new ParserExceptionBuilder();
-		$builder = $builder->withCodeByKey('tokenizer_unrecognized_character');
-		$this->assertAttributeEquals(1, 'code', $builder);
-		$builder2 = $builder->withCodeByKey('parser_unexpected_token');
-		$this->assertAttributeEquals(2, 'code', $builder2);
+		$tmp1 = $builder1 = new ParserExceptionBuilder();
+		$tmp2 = $builder2 = $builder1->withCodeByKey('tokenizer_unrecognized_character');
+		$builder3 = $builder2->withCodeByKey('parser_unexpected_token');
 
-		$this->assertAttributeEquals(['tokenizer_unrecognized_character' => 1, 'parser_unexpected_token' => 2, 'parser_expected_other_token' => 4], 'codes', $builder);
+		$this->assertEquals($tmp1, $builder1);
+		$this->assertEquals($tmp2, $builder2);
+
+		$this->assertAttributeEquals(1, 'code', $builder2);
+		$this->assertAttributeEquals(2, 'code', $builder3);
+
+		$this->assertAttributeEquals(['tokenizer_unrecognized_character' => 1, 'parser_unexpected_token' => 2, 'parser_expected_other_token' => 4], 'codes', $builder1);
 	}
 
 	/**
@@ -93,14 +95,12 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 
 	public function testWithParserContextHelpers(){
 		$tmp1 = $builder1 = new ParserExceptionBuilder();
-		// $tmp2 = $builder2 = $builder1->withParserInput(null)->withParserPosition(null)->withParserLine(null)->withParserColumn(null);
 		$tmp2 = $builder2 = $builder1->withParserInput('')->withParserPosition(0)->withParserLine(0)->withParserColumn(0);
 		$builder3 = $builder2->withParserInput('parser input')->withParserPosition(10)->withParserLine(2)->withParserColumn(4);
 
 		$this->assertEquals($tmp1, $builder1);
 		$this->assertEquals($tmp2, $builder2);
 
-		// $this->assertAttributeEquals((object) ['input' => null, 'position' => null, 'line' => null, 'column' => null], 'parserContext', $builder2);
 		$this->assertAttributeEquals((object) ['input' => '', 'position' => 0, 'line' => 0, 'column' => 0], 'parserContext', $builder2);
 		$this->assertAttributeEquals((object) ['input' => 'parser input', 'position' => 10, 'line' => 2, 'column' => 4], 'parserContext', $builder3);
 	}
