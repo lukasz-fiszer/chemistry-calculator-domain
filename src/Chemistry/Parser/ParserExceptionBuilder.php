@@ -12,34 +12,6 @@ use stdClass;
 class ParserExceptionBuilder
 {
 	/**
-	 * Input to the parser stream
-	 * 
-	 * @var string
-	 */
-	protected $parserInput;
-
-	/**
-	 * Current position in the parser stream where exception was thrown
-	 * 
-	 * @var integer
-	 */
-	protected $parserPosition;
-
-	/**
-	 * Current line in the parser stream where exception was thrown
-	 * 
-	 * @var integer
-	 */
-	protected $parserLine;
-
-	/**
-	 * Current column in the parser stream where exception was thrown
-	 * 
-	 * @var integer
-	 */
-	protected $parserColumn;
-
-	/**
 	 * Parser context, has input, line, column and position, on when exception was thrown
 	 * 
 	 * @var object
@@ -89,6 +61,14 @@ class ParserExceptionBuilder
 		$this->message = $message;
 		$this->code = $code;
 		$this->previous = $previous;
+		$this->parserContext = new stdClass();
+	}
+
+	/**
+	 * Clone parser exception builder with its parser context, make deep copy
+	 */
+	public function __clone(){
+		$this->parserContext = clone $this->parserContext;
 	}
 
 	/**
@@ -98,22 +78,7 @@ class ParserExceptionBuilder
 	 */
 	public function build(){
 		$message = $this->buildMessage();
-		$parserContext = $this->buildParserContext();
-		$parserContext = empty((array) $parserContext) ? null : $parserContext;
-		return new ParserException($message, $parserContext, $this->code, $this->previous);
-	}
-
-	/**
-	 * Build parser context, merge parser input, position, line and column with parser context object
-	 * 
-	 * @return object parser context
-	 */
-	protected function buildParserContext(){
-		$mergeContext = ['input' => $this->parserInput, 'position' => $this->parserPosition, 'line' => $this->parserLine, 'column' => $this->parserColumn];
-		$mergeContext = array_filter($mergeContext, function($entry){
-			return $entry !== null;
-		});
-		return (object) array_merge((array) $this->parserContext, $mergeContext);
+		return new ParserException($message, $this->parserContext, $this->code, $this->previous);
 	}
 
 	/**
@@ -125,8 +90,16 @@ class ParserExceptionBuilder
 		if($this->message === null){
 			return $this->message;
 		}
-		$line = $this->parserLine !== null ? 'line: '.$this->parserLine : null;
-		$column = $this->parserColumn !== null ? 'column: '.$this->parserColumn : null;
+		//$line = $this->parserContext->line !== null ? 'line: '.$this->parserContext->line : null;
+		//$column = $this->parserContext->column !== null ? 'column: '.$this->parserContext->column : null;
+		$line = null;
+		if(isset($this->parserContext->line)){
+			$line = 'line: '.$this->parserContext->line;
+		}
+		$column = null;
+		if(isset($this->parserContext->column)){
+			$column = 'column: '.$this->parserContext->column;
+		}
 		$implode = [$line, $column];
 		$implode = array_filter($implode, function($entry){
 			return $entry !== null;
@@ -192,50 +165,54 @@ class ParserExceptionBuilder
 	}
 
 	/**
-	 * Return new builder instance with parser input
+	 * Return new builder instance with parser input in parser context
 	 * 
 	 * @param  string $input parser input
 	 * @return self new exception builder instance
 	 */
 	public function withParserInput(string $input){
 		$new = clone $this;
-		$new->parserInput = $input;
+		// $new->parserContext['input'] = $input;
+		$new->parserContext->input = $input;
 		return $new;
 	}
 
 	/**
-	 * Return new builder instance with parser position
+	 * Return new builder instance with parser position in parser context
 	 * 
 	 * @param  int $position parser position
 	 * @return self new exception builder instance
 	 */
 	public function withParserPosition(int $position){
 		$new = clone $this;
-		$new->parserPosition = $position;
+		// $new->parserContext['position'] = $position;
+		$new->parserContext->position = $position;
 		return $new;
 	}
 
 	/**
-	 * Return new builder instance with parser line
+	 * Return new builder instance with parser line in parser context
 	 * 
 	 * @param  int $line parser line
 	 * @return self new exception builder instance
 	 */
 	public function withParserLine(int $line){
 		$new = clone $this;
-		$new->parserLine = $line;
+		// $new->parserContext['line'] = $line;
+		$new->parserContext->line = $line;
 		return $new;
 	}
 
 	/**
-	 * Return new builder instance with parser column
+	 * Return new builder instance with parser column in parser context
 	 * 
 	 * @param  int $column parser column
 	 * @return self new exception builder instance
 	 */
 	public function withParserColumn(int $column){
 		$new = clone $this;
-		$new->parserColumn = $column;
+		// $new->parserContext['column'] = $column;
+		$new->parserContext->column = $column;
 		return $new;
 	}
 

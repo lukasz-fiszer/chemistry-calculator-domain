@@ -5,6 +5,7 @@ namespace ChemCalc\Domain\Tests\Chemistry\Parser;
 use ChemCalc\Domain\Chemistry\Parser\ParserException;
 use ChemCalc\Domain\Chemistry\Parser\ParserExceptionBuilder;
 use Exception;
+use stdClass;
 
 class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 {
@@ -13,12 +14,14 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 		$this->assertAttributeEquals(null, 'message', $builder);
 		$this->assertAttributeEquals(0, 'code', $builder);
 		$this->assertAttributeEquals(null, 'previous', $builder);
+		$this->assertAttributeEquals(new stdClass(), 'parserContext', $builder);
 
 		$prev = new Exception();
 		$builder = new ParserExceptionBuilder('exception message', 10, $prev);
 		$this->assertAttributeEquals('exception message', 'message', $builder);
 		$this->assertAttributeEquals(10, 'code', $builder);
 		$this->assertAttributeEquals($prev, 'previous', $builder);
+		$this->assertAttributeEquals(new stdClass(), 'parserContext', $builder);
 	}
 
 	public function testBuildMethod(){
@@ -56,19 +59,11 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testWithMessage(){
-		$builder = new ParserExceptionBuilder();
-		$builder = $builder->withMessage('msg');
-		$this->assertAttributeEquals('msg', 'message', $builder);
-		$builder2 = $builder->withMessage('msg 2');
-		$this->assertAttributeEquals('msg 2', 'message', $builder2);
+		$this->withMethodTest('withMessage', 'message', 'msg', 'msg 2');
 	}
 
 	public function testWithCode(){
-		$builder = new ParserExceptionBuilder();
-		$builder = $builder->withCode(2);
-		$this->assertAttributeEquals(2, 'code', $builder);
-		$builder2 = $builder->withCode(4);
-		$this->assertAttributeEquals(4, 'code', $builder2);
+		$this->withMethodTest('withCode', 'code', 2, 4);
 	}
 
 	public function testWithCodeByKey(){
@@ -91,54 +86,40 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testWithPreviousException(){
-		$builder = new ParserExceptionBuilder();
 		$ex1 = new Exception();
 		$ex2 = new Exception('previous');
-		$builder = $builder->withPreviousException($ex1);
-		$this->assertAttributeEquals($ex1, 'previous', $builder);
-		$builder2 = $builder->withPreviousException($ex2);
-		$this->assertAttributeEquals($ex2, 'previous', $builder2);
+		$this->withMethodTest('withPreviousException', 'previous', $ex1, $ex2);
 	}
 
-	public function testWithParserInput(){
-		$builder = new ParserExceptionBuilder();
-		$builder = $builder->withParserInput('parser input 1');
-		$this->assertAttributeEquals('parser input 1', 'parserInput', $builder);
-		$builder2 = $builder->withParserInput('parser input 2');
-		$this->assertAttributeEquals('parser input 2', 'parserInput', $builder2);
-	}
+	public function testWithParserContextHelpers(){
+		$tmp1 = $builder1 = new ParserExceptionBuilder();
+		// $tmp2 = $builder2 = $builder1->withParserInput(null)->withParserPosition(null)->withParserLine(null)->withParserColumn(null);
+		$tmp2 = $builder2 = $builder1->withParserInput('')->withParserPosition(0)->withParserLine(0)->withParserColumn(0);
+		$builder3 = $builder2->withParserInput('parser input')->withParserPosition(10)->withParserLine(2)->withParserColumn(4);
 
-	public function testWithParserPosition(){
-		$builder = new ParserExceptionBuilder();
-		$builder = $builder->withParserPosition(10);
-		$this->assertAttributeEquals(10, 'parserPosition', $builder);
-		$builder2 = $builder->withParserPosition(20);
-		$this->assertAttributeEquals(20, 'parserPosition', $builder2);
-	}
+		$this->assertEquals($tmp1, $builder1);
+		$this->assertEquals($tmp2, $builder2);
 
-	public function testWithParserLine(){
-		$builder = new ParserExceptionBuilder();
-		$builder = $builder->withParserLine(100);
-		$this->assertAttributeEquals(100, 'parserLine', $builder);
-		$builder2 = $builder->withParserLine(200);
-		$this->assertAttributeEquals(200, 'parserLine', $builder2);
-	}
-
-	public function testWithParserColumn(){
-		$builder = new ParserExceptionBuilder();
-		$builder = $builder->withParserColumn(5);
-		$this->assertAttributeEquals(5, 'parserColumn', $builder);
-		$builder2 = $builder->withParserColumn(40);
-		$this->assertAttributeEquals(40, 'parserColumn', $builder2);
+		// $this->assertAttributeEquals((object) ['input' => null, 'position' => null, 'line' => null, 'column' => null], 'parserContext', $builder2);
+		$this->assertAttributeEquals((object) ['input' => '', 'position' => 0, 'line' => 0, 'column' => 0], 'parserContext', $builder2);
+		$this->assertAttributeEquals((object) ['input' => 'parser input', 'position' => 10, 'line' => 2, 'column' => 4], 'parserContext', $builder3);
 	}
 
 	public function testWithParserContext(){
-		$builder = new ParserExceptionBuilder();
 		$c1 = (object) ['input' => null, 'position' => null, 'line' => null, 'column' => null];
 		$c2 = (object) ['input' => 'test input', 'position' => 5, 'line' => 1, 'column' => 4];
-		$builder = $builder->withParserContext($c1);
-		$this->assertAttributeEquals($c1, 'parserContext', $builder);
-		$builder2 = $builder->withParserContext($c2);
-		$this->assertAttributeEquals($c2, 'parserContext', $builder2);
+		$this->withMethodTest('withParserContext', 'parserContext', $c1, $c2);
+	}
+
+	protected function withMethodTest($method, $attribute, $value1, $value2){
+		$tmp1 = $builder1 = new ParserExceptionBuilder();
+		$tmp2 = $builder2 = $builder1->{$method}($value1);
+		$builder3 = $builder2->{$method}($value2);
+
+		$this->assertEquals($tmp1, $builder1);
+		$this->assertEquals($tmp2, $builder2);
+
+		$this->assertAttributeEquals($value1, $attribute, $builder2);
+		$this->assertAttributeEquals($value2, $attribute, $builder3);
 	}
 }
