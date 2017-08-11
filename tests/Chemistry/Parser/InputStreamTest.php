@@ -58,20 +58,32 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		$this->streamValuesTest("abcd\nabcd\ntest\n\t ab", 19, 3, 4, true, $inputStream);
 	}
 
-	public function testExceptionThrown(){
-		$inputStream = new InputStream('test', new ParserExceptionBuilder());
+	/**
+	 * @dataProvider exceptionThrownDataProvider
+	 */
+	public function testExceptionThrown($input, $message, $codeKey, $code){
+		$inputStream = new InputStream($input, new ParserExceptionBuilder());
 		$catched = false;
 		try{
-			$inputStream->throwException('message');
+			$inputStream->throwException($message, $codeKey);
 		}
 		catch(Exception $e){
 			$catched = true;
-			$this->assertAttributeEquals('message (line: 0, column: 0)', 'message', $e);
-			$this->assertAttributeEquals($this->buildInputContext('test', 0, 0, 0), 'parserContext', $e);
+			$this->assertAttributeEquals($message.' (line: 0, column: 0)', 'message', $e);
+			$this->assertAttributeEquals($this->buildInputContext($input, 0, 0, 0), 'parserContext', $e);
+			$this->assertAttributeEquals($code, 'code', $e);
+			$this->assertAttributeEquals(null, 'previous', $e);
 		}
 		if(!$catched){
 			$this->fail('Input stream had to throw exception');
 		}
+	}
+
+	public function exceptionThrownDataProvider(){
+		return [
+			['test', 'message', null, null],
+			['test', 'message', 'tokenizer_unrecognized_character', 1],
+		];
 	}
 
 	protected function streamValuesTest($input, $pos, $line, $col, $eof, $stream){
