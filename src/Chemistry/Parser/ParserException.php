@@ -12,7 +12,7 @@ use stdClass;
 class ParserException extends Exception
 {
 	/**
-	 * Parser context, has input, line, column and position
+	 * Parser context, has input, line, column and position, with possible additional merged key-value pairs
 	 * 
 	 * @var object
 	 */
