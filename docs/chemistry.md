@@ -38,11 +38,11 @@ The tokens are:
   `[type: 'element_identifier', value: 'H']`
   `[type: 'element_identifier', value: 'He']`
   `[type: 'element_identifier', value: 'Abc']`
-* Punctuation token (one of ()[]{} brackets in pairs)
+* Punctuation token (one of `()[]{}` brackets in pairs)
   `[type: 'punctuation', value: '(', 'mode' => 'open', 'opposite' => ')']`
   `[type: 'punctuation', value: ')', 'mode' => 'close', 'opposite' => '(']`
-* Operator token (string of +=<-> characters)
+* Operator token (string of `+=<->` characters)
   `[type: 'operator', value: '+']`
   `[type: 'operator', value: '<->']`
 
-The tokenizer peeks only one character ahead and because of its simple structure it allows for uncregonized operators (that are still a string of +=<-> characters) and plus character indicating positive charge (allowed for such purpose inside brackets) is treated as plus operator. Both issues are addressed by parser later on.
+The tokenizer peeks only one character ahead and because of its simple structure it allows for uncregonized operators (that are still a string of `+=<->` characters) and plus character indicating positive charge (allowed for such purpose inside brackets) is treated as plus operator. Both issues are addressed by parser later on.
