@@ -2,6 +2,8 @@
 
 namespace ChemCalc\Domain\Chemistry\Parser;
 
+use stdClass;
+
 /**
  * Chemistry reaction equation
  * Parser input stream
@@ -97,11 +99,15 @@ class InputStream
 	 * 
 	 * @param  string $message exception message
 	 * @param  string $codeKey exception code key
+	 * @param  object $mergeContext exception context to be merged in
 	 * @throws ParserException parser exception
 	 * @return void
 	 */
-	public function throwException(string $message = '', string $codeKey = null){
+	public function throwException(string $message = '', string $codeKey = null, stdClass $mergeContext = null){
 		$exceptionBuilder = $this->parserExceptionBuilder->withMessage($message)->withParserContext($this->getContext());
+		if($mergeContext !== null){
+			$exceptionBuilder = $exceptionBuilder->withMergeParserContext($mergeContext);
+		}
 		if($codeKey !== null){
 			$exceptionBuilder = $exceptionBuilder->withCodeByKey($codeKey);
 		}

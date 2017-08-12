@@ -61,17 +61,17 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 	/**
 	 * @dataProvider exceptionThrownDataProvider
 	 */
-	public function testExceptionThrown($input, $message, $codeKey, $code){
+	public function testExceptionThrown($input, $message, $codeKey, $code, $mergeContext){
 		$inputStream = new InputStream($input, new ParserExceptionBuilder());
 		$catched = false;
 		try{
-			$inputStream->throwException($message, $codeKey);
+			$inputStream->throwException($message, $codeKey, (object) $mergeContext);
 		}
 		catch(Exception $e){
 			$catched = true;
 			$this->assertEquals('ChemCalc\Domain\Chemistry\Parser\ParserException', get_class($e));
 			$this->assertAttributeEquals($message.' (line: 0, column: 0)', 'message', $e);
-			$this->assertAttributeEquals($this->buildInputContext($input, 0, 0, 0), 'parserContext', $e);
+			$this->assertAttributeEquals((object) array_merge((array) $this->buildInputContext($input, 0, 0, 0), $mergeContext), 'parserContext', $e);
 			$this->assertAttributeEquals($code, 'code', $e);
 			$this->assertAttributeEquals(null, 'previous', $e);
 		}
@@ -82,8 +82,10 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 
 	public function exceptionThrownDataProvider(){
 		return [
-			['test', 'message', null, null],
-			['test', 'message', 'tokenizer_unrecognized_character', 1],
+			['test', 'message', null, null, []],
+			['test', 'message', 'tokenizer_unrecognized_character', 1, []],
+			['test', 'message', 'tokenizer_unrecognized_character', 1, ['character' => 'b']],
+			['test', 'message', 'tokenizer_unrecognized_character', 1, ['character' => 'b', 'position' => 10]],
 		];
 	}
 
