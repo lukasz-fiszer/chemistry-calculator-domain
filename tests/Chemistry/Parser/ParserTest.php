@@ -15,16 +15,20 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 {
 	use InvokesInaccessibleMethod;
 
+	static $exceptionBuilderMock;
+
 	public function setUp(){
-		if(isset($this->initialized) && $this->initialized == true){
-			return;
+		if(self::$exceptionBuilderMock === null){
+			self::$exceptionBuilderMock = $this->createMock(ParserExceptionBuilder::class);
 		}
-		$this->initialized = true;
-		$this->exBuilderMock = $this->createMock(ParserExceptionBuilder::class);
+	}
+
+	public static function tearDownAfterClass(){
+		self::$exceptionBuilderMock = null;
 	}
 
 	public function testConstructorPropertiesInjection(){
-		$tokenStream = new TokenStream(new InputStream('test', $this->exBuilderMock));
+		$tokenStream = new TokenStream(new InputStream('test', self::$exceptionBuilderMock));
 		$parser = new Parser($tokenStream);
 		$this->assertAttributeEquals($tokenStream, 'tokenStream', $parser);
 		$this->assertEquals($tokenStream, $parser->getTokenStream());
@@ -34,7 +38,7 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 	 * @dataProvider parseMethodDataProvider
 	 */
 	public function testParseMethod($input, $parsed){
-		$parser = new Parser(new TokenStream(new InputStream($input, $this->exBuilderMock)));
+		$parser = new Parser(new TokenStream(new InputStream($input, self::$exceptionBuilderMock)));
 		$this->assertEquals(json_decode(json_encode($parsed)), $parser->parse());
 	}
 
@@ -72,6 +76,7 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 			['H2O(Ab=)5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 7)'],
 			['H2O(Ab->)5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 8)'],
 			['H2O(Ab->]5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 8)'],
+			['H2O(AbAb]5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 9)'],
 		];
 	}
 
