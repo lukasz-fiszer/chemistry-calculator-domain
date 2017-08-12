@@ -223,4 +223,18 @@ class ParserExceptionBuilder
 		$new->parserContext = $parserContext;
 		return $new;
 	}
+
+	/**
+	 * Return new builder instance with merged parser context
+	 * 
+	 * @param  object $parserContext parser context to be merged
+	 * @return self new exception builder instance
+	 */
+	public function withMergeParserContext(stdClass $parserContext){
+		$new = clone $this;
+		foreach($parserContext as $key => $value){
+			$new->parserContext->$key = $value;
+		}
+		return $new;
+	}
 }

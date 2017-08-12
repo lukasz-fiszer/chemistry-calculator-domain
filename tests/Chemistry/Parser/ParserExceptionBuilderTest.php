@@ -111,6 +111,22 @@ class ParserExceptionBuilderTest extends \PHPUnit\Framework\TestCase
 		$this->withMethodTest('withParserContext', 'parserContext', $c1, $c2);
 	}
 
+	public function testWithMergeParserContext(){
+		$c1 = (object) ['input' => null, 'position' => null, 'line' => null, 'column' => null];
+		$c2 = (object) ['input' => 'test input', 'position' => 5, 'line' => 1, 'column' => 4];
+		$this->withMethodTest('withMergeParserContext', 'parserContext', $c1, $c2);
+
+		$tmp1 = $builder1 = new ParserExceptionBuilder();
+		$tmp2 = $builder2 = $builder1->withMergeParserContext($c2);
+		$builder3 = $builder2->withMergeParserContext((object) ['column' => 20, 'character' => 'b']);
+
+		$this->assertEquals($tmp1, $builder1);
+		$this->assertEquals($tmp2, $builder2);
+
+		$this->assertAttributeEquals($c2, 'parserContext', $builder2);
+		$this->assertAttributeEquals((object) ['input' => 'test input', 'position' => 5, 'line' => 1, 'column' => 20, 'character' => 'b'], 'parserContext', $builder3);
+	}
+
 	protected function withMethodTest($method, $attribute, $value1, $value2){
 		$tmp1 = $builder1 = new ParserExceptionBuilder();
 		$tmp2 = $builder2 = $builder1->{$method}($value1);
