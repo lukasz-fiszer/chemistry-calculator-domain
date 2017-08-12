@@ -24,13 +24,19 @@ class TokenStream
 	protected $current = null;
 
 	/**
+	 * List of punctuation characters, brackets in pairs
+	 * 
+	 * @var string
+	 */
+	protected $punctuationCharacters = '()[]{}';
+
+	/**
 	 * Construct new token stream
 	 * 
 	 * @param InputStream  $inputStream  input stream used by tokenizer
 	 */
 	public function __construct(InputStream $inputStream){
 		$this->inputStream = $inputStream;
-		$this->punctuationCharacters = '()[]{}';
 	}
 
 	/**
@@ -66,11 +72,12 @@ class TokenStream
 	 * Throw new parser exception on token stream
 	 * 
 	 * @param  string $message exception message
+	 * @param  string $codeKey exception code key
 	 * @throws ParserException parser exception
 	 * @return void
 	 */
-	public function throwException(string $message = ''){
-		return $this->inputStream->throwException($message);
+	public function throwException(string $message = '', string $codeKey = null){
+		return $this->inputStream->throwException($message, $codeKey);
 	}
 
 	/**
@@ -100,7 +107,7 @@ class TokenStream
 		if($this->is_operator_character($character)){
 			return (object) ['type' => 'operator', 'value' => $this->readWhile([$this, 'is_operator_character'])];
 		}
-		$this->throwException('Character exception '.$character);
+		$this->throwException('Character exception: \''.$character.'\'', 'tokenizer_unrecognized_character');
 	}
 
 	/**

@@ -69,6 +69,7 @@ class InputStreamTest extends \PHPUnit\Framework\TestCase
 		}
 		catch(Exception $e){
 			$catched = true;
+			$this->assertEquals('ChemCalc\Domain\Chemistry\Parser\ParserException', get_class($e));
 			$this->assertAttributeEquals($message.' (line: 0, column: 0)', 'message', $e);
 			$this->assertAttributeEquals($this->buildInputContext($input, 0, 0, 0), 'parserContext', $e);
 			$this->assertAttributeEquals($code, 'code', $e);

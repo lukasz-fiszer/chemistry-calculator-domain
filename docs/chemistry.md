@@ -28,3 +28,21 @@ Parser namespace contains input and token streams, parser itself and parser exce
 `ParserExceptionBuilder` is an immutable builder of parser exceptions. It manages exception message, code, previous exception and parser context. In addition it manages parser exception codes by their code keys and builds exception messages with additional context data append `(line: {line}, column: {column})` if given.
 
 `ParserException` is exception thrown within parser namespace. It contains additional parser context object that if null is given is set to empty object.
+
+`TokenStream` is constructed with `InputStream` that is given to be tokenized. Has helper method `throwException()` that delegates to the `InputStream`. Allows for peeking one token ahead. Throws `tokenizer_unrecognized_character` parser exception when it meets character exception of unrecognized character. Tokens returned are objects of scheme: `[type: {string}, value: {string}]` with possible additional key-value pairs. Whitespace is ignored (when in between of tokens).
+The tokens are:
+
+* Number token (all digits)
+  `[type: 'number', value: '123']`
+* Element identifier (uppercase letter and possible lowercase letters)
+  `[type: 'element_identifier', value: 'H']`
+  `[type: 'element_identifier', value: 'He']`
+  `[type: 'element_identifier', value: 'Abc']`
+* Punctuation token (one of ()[]{} brackets in pairs)
+  `[type: 'punctuation', value: '(', 'mode' => 'open', 'opposite' => ')']`
+  `[type: 'punctuation', value: ')', 'mode' => 'close', 'opposite' => '(']`
+* Operator token (string of +=<-> characters)
+  `[type: 'operator', value: '+']`
+  `[type: 'operator', value: '<->']`
+
+The tokenizer peeks only one character ahead and because of its simple structure it allows for uncregonized operators (that are still a string of +=<-> characters) and plus character indicating positive charge (allowed for such purpose inside brackets) is treated as plus operator. Both issues are addressed by parser later on.

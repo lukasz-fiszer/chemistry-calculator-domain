@@ -58,10 +58,10 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 
 	public function parserExceptionMethodDataProvider(){
 		return [
-			['test', 'Character exception t (line: 0, column: 0)'],
-			['test2', 'Character exception t (line: 0, column: 0)'],
-			['Ab + test2', 'Character exception t (line: 0, column: 5)'],
-			['Ab12  +   test2', 'Character exception t (line: 0, column: 10)'],
+			['test', 'Character exception: \'t\' (line: 0, column: 0)'],
+			['test2', 'Character exception: \'t\' (line: 0, column: 0)'],
+			['Ab + test2', 'Character exception: \'t\' (line: 0, column: 5)'],
+			['Ab12  +   test2', 'Character exception: \'t\' (line: 0, column: 10)'],
 			['H2O++++', 'Unexpected token: {"type":"operator","value":"++++"} (line: 0, column: 7)'],
 			['H2O++++Ab', 'Unexpected token: {"type":"operator","value":"++++"} (line: 0, column: 7)'],
 			//['(Ab]2', 'Expected token: {"type":"punctuation","value":"]"} (line: 0, column: 4)'],

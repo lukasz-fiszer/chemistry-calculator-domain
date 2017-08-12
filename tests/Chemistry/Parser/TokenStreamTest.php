@@ -13,23 +13,28 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 {
 	use InvokesInaccessibleMethod;
 
+	static $exceptionBuilderMock;
+
 	public function setUp(){
-		if(isset($this->initialized) && $this->initialized == true){
-			return;
+		if(self::$exceptionBuilderMock === null){
+			self::$exceptionBuilderMock = $this->createMock(ParserExceptionBuilder::class);
 		}
-		$this->initialized = true;
-		$this->exBuilderMock = $this->createMock(ParserExceptionBuilder::class);
+	}
+
+	public static function tearDownAfterClass(){
+		self::$exceptionBuilderMock = null;
 	}
 
 	public function testConstructorPropertiesInjection(){
-		$tokenStream = new TokenStream(new InputStream('test', $this->exBuilderMock));
-		$this->assertAttributeEquals(new InputStream('test', $this->exBuilderMock), 'inputStream', $tokenStream);
+		$tokenStream = new TokenStream(new InputStream('test', self::$exceptionBuilderMock));
+		$this->assertAttributeEquals(new InputStream('test', self::$exceptionBuilderMock), 'inputStream', $tokenStream);
 		$this->assertAttributeEquals(null, 'current', $tokenStream);
+		$this->assertAttributeEquals('()[]{}', 'punctuationCharacters', $tokenStream);
 	}
 
 	public function testStreamMethods(){
 		//$tokenStream = new TokenStream(new InputStream('H2+4O + He2(H2Oa5)10'));
-		$tokenStream = new TokenStream(new InputStream('H2+4O -> He2(H2Oa5)10', $this->exBuilderMock));
+		$tokenStream = new TokenStream(new InputStream('H2+4O -> He2(H2Oa5)10', self::$exceptionBuilderMock));
 
 		$token = (object) ['type' => 'element_identifier', 'value' => 'H'];
 		$this->assertEquals($token, $tokenStream->peek());
@@ -45,14 +50,12 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertNextToken($tokenStream, 'operator', '->');
 		$this->assertNextToken($tokenStream, 'element_identifier', 'He');
 		$this->assertNextToken($tokenStream, 'number', 2);
-		//$this->assertNextToken($tokenStream, 'punctuation', '(');
-		$this->assertEquals((object) ['type' => 'punctuation', 'value' => '(', 'mode' => 'open', 'opposite' => ')'], $tokenStream->next());
+		$this->assertNextToken($tokenStream, 'punctuation', '(', ['mode' => 'open', 'opposite' => ')']);
 		$this->assertNextToken($tokenStream, 'element_identifier', 'H');
 		$this->assertNextToken($tokenStream, 'number', 2);
 		$this->assertNextToken($tokenStream, 'element_identifier', 'Oa');
 		$this->assertNextToken($tokenStream, 'number', 5);
-		//$this->assertNextToken($tokenStream, 'punctuation', ')');
-		$this->assertEquals((object) ['type' => 'punctuation', 'value' => ')', 'mode' => 'close', 'opposite' => '('], $tokenStream->next());
+		$this->assertNextToken($tokenStream, 'punctuation', ')', ['mode' => 'close', 'opposite' => '(']);
 		$this->assertNextToken($tokenStream, 'number', 10);
 		$this->assertTrue($tokenStream->eof());
 		$this->assertEquals(null, $tokenStream->next());
@@ -62,12 +65,12 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertEquals(null, $tokenStream->peek());
 	}
 
-	protected function assertNextToken(TokenStream $tokenStream, $type, $value){
-		$this->assertEquals((object) ['type' => $type, 'value' => $value], $tokenStream->next());
+	protected function assertNextToken(TokenStream $tokenStream, $type, $value, $merge = []){
+		$this->assertEquals((object) array_merge(['type' => $type, 'value' => $value], $merge), $tokenStream->next());
 	}
 
 	public function testPredicates(){
-		$tokenStream = new TokenStream(new InputStream('test', $this->exBuilderMock));
+		$tokenStream = new TokenStream(new InputStream('test', self::$exceptionBuilderMock));
 
 		$this->assertTrue($this->invokeMethod($tokenStream, 'is_digit', ['12345']));
 		$this->assertTrue($this->invokeMethod($tokenStream, 'is_digit', ['1234567890789056786']));
@@ -94,6 +97,24 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 		$this->assertFalse($this->invokeMethod($tokenStream, 'is_punctuation', ['abcd1234']));
 	}
 
+	/**
+	 * @dataProvider throwExceptionDataProvider
+	 */
+	public function testThrowException($message, $codeKey){
+		$inputStreamMock = $this->createMock(InputStream::class);
+		$inputStreamMock->expects($this->once())->method('throwException')->with($message, $codeKey);
+		$tokenStream = new TokenStream($inputStreamMock);
+		$tokenStream->throwException($message, $codeKey);
+	}
+
+	public function throwExceptionDataProvider(){
+		return [
+			['message', null],
+			['message', 'code key'],
+			['test message', 'tokenizer_unrecognized_character'],
+		];
+	}
+
 	public function testExceptionThrown(){
 		$tokenStream = new TokenStream(new InputStream('test', new ParserExceptionBuilder()));
 		$catched = false;
@@ -102,11 +123,8 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 		}
 		catch(Exception $e){
 			$catched = true;
+			$this->assertEquals('ChemCalc\Domain\Chemistry\Parser\ParserException', get_class($e));
 			$this->assertAttributeEquals('message (line: 0, column: 0)', 'message', $e);
-			/*$this->assertAttributeEquals('test', 'parserInput', $e);
-			$this->assertAttributeEquals(0, 'parserPosition', $e);
-			$this->assertAttributeEquals(0, 'parserLine', $e);
-			$this->assertAttributeEquals(0, 'parserColumn', $e);*/
 			$c = (object) ['input' => 'test', 'position' => 0, 'line' => 0, 'column' => 0];
 			$this->assertAttributeEquals($c, 'parserContext', $e);
 		}
@@ -137,11 +155,11 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 
 	public function exceptionThrowingMessageDataProvider(){
 		return [
-			['test', 'Character exception t (line: 0, column: 0)'],
-			['test2', 'Character exception t (line: 0, column: 0)'],
-			['A + b', 'Character exception b (line: 0, column: 4)'],
-			['A + Ab2b', 'Character exception b (line: 0, column: 7)'],
-			['A + Abe2b20', 'Character exception b (line: 0, column: 8)'],
+			['test', 'Character exception: \'t\' (line: 0, column: 0)'],
+			['test2', 'Character exception: \'t\' (line: 0, column: 0)'],
+			['A + b', 'Character exception: \'b\' (line: 0, column: 4)'],
+			['A + Ab2b', 'Character exception: \'b\' (line: 0, column: 7)'],
+			['A + Abe2b20', 'Character exception: \'b\' (line: 0, column: 8)'],
 		];
 	}
 }
