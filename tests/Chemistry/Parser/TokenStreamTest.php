@@ -100,18 +100,19 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 	/**
 	 * @dataProvider throwExceptionDataProvider
 	 */
-	public function testThrowException($message, $codeKey){
+	public function testThrowException($message, $codeKey, $mergeContext){
 		$inputStreamMock = $this->createMock(InputStream::class);
-		$inputStreamMock->expects($this->once())->method('throwException')->with($message, $codeKey);
+		$inputStreamMock->expects($this->once())->method('throwException')->with($message, $codeKey, $mergeContext);
 		$tokenStream = new TokenStream($inputStreamMock);
-		$tokenStream->throwException($message, $codeKey);
+		$tokenStream->throwException($message, $codeKey, $mergeContext);
 	}
 
 	public function throwExceptionDataProvider(){
 		return [
-			['message', null],
-			['message', 'code key'],
-			['test message', 'tokenizer_unrecognized_character'],
+			['message', null, null],
+			['message', 'code key', null],
+			['test message', 'tokenizer_unrecognized_character', null],
+			['test message', 'tokenizer_unrecognized_character', (object) ['character' => 'b']],
 		];
 	}
 

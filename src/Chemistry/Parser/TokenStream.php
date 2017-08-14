@@ -2,6 +2,7 @@
 
 namespace ChemCalc\Domain\Chemistry\Parser;
 
+use stdClass;
 
 /**
  * Chemistry reaction equation
@@ -73,11 +74,12 @@ class TokenStream
 	 * 
 	 * @param  string $message exception message
 	 * @param  string $codeKey exception code key
+	 * @param  object $mergeContext exception context to be merged in
 	 * @throws ParserException parser exception
 	 * @return void
 	 */
-	public function throwException(string $message = '', string $codeKey = null){
-		return $this->inputStream->throwException($message, $codeKey);
+	public function throwException(string $message = '', string $codeKey = null, stdClass $mergeContext = null){
+		return $this->inputStream->throwException($message, $codeKey, $mergeContext);
 	}
 
 	/**
