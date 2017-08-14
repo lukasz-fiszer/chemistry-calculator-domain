@@ -173,7 +173,7 @@ class Parser
 			$this->tokenStream->next();
 		}
 		else{
-			$this->tokenStream->throwException('Expected token of type: '.$tokenType.' and value of: '.$tokenValue);
+			$this->tokenStream->throwException('Expected token of type: '.$tokenType.' and value of: '.$tokenValue, 'parser_expected_other_token', (object) ['actualToken' => $this->tokenStream->peek(), 'expectedType' => $tokenType, 'expectedValue' => $tokenValue]);
 		}
 	}
 
@@ -184,7 +184,7 @@ class Parser
 	 * @return void
 	 */
 	protected function unexpectedToken(){
-		$this->tokenStream->throwException('Unexpected token: '.json_encode($this->tokenStream->peek()));
+		$this->tokenStream->throwException('Unexpected token: '.json_encode($this->tokenStream->peek()), 'parser_unexpected_token', (object) ['token' => $this->tokenStream->peek()]);
 	}
 
     /**
