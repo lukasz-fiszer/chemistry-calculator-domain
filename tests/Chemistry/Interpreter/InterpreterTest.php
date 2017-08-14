@@ -6,17 +6,25 @@ use ChemCalc\Domain\Chemistry\Interpreter\Interpreter;
 use ChemCalc\Domain\Tests\Res\ChemistryTestsData;
 use ChemCalc\Domain\Chemistry\Entity\ElementFactory;
 use ChemCalc\Domain\Chemistry\DataLoader\ElementDataLoader;
+use ChemCalc\Domain\Chemistry\Entity\MoleculeBuilder;
 
 
 class InterpreterTest extends \PHPUnit\Framework\TestCase
 {
+	static $testsData;
+	static $moleculeBuilder;
+
 	public function setUp(){
-		if(isset($this->initialized) && $this->initialized == true){
-			return;
-		}
-		$this->initialized = true;
-		$this->testsData = new ChemistryTestsData();
 		$this->elementFactory = new ElementFactory(new ElementDataLoader());
+		if(self::$testsData === null){
+			self::$testsData = new ChemistryTestsData();
+			self::$moleculeBuilder = new MoleculeBuilder(new ElementFactory(new ElementDataLoader()));
+		}
+	}
+
+	public static function tearDownAfterClass(){
+		self::$testsData = null;
+		self::$moleculeBuilder = null;
 	}
 
 	public function testConstructorPropertiesInjection(){
@@ -45,6 +53,6 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 		return array_map(function($testEntry){
 			//return [json_decode(json_encode($testEntry['parsed'])), json_encode(json_decode($testEntry['interpreted']))];
 			return [json_decode(json_encode($testEntry['parsed'])), (object) $testEntry['interpreted']];
-		}, $this->testsData->getInputParseTestsData());
+		}, self::$testsData->getInputParseTestsData());
 	}
 }

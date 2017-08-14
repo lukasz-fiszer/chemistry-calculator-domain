@@ -8,7 +8,7 @@ use Exception;
  * Chemistry reaction equation
  * Interpreter exception
  */
-class ParserException extends Exception
+class InterpreterException extends Exception
 {
 
 }
