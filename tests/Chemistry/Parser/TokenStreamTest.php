@@ -145,22 +145,29 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 	/**
 	 * @dataProvider exceptionThrowingMessageDataProvider
 	 */
-	public function testExceptionThrowingMessage($input, $message){
+	public function testExceptionThrowingMessage($input, $message, $code, $context){
 		$tokenStream = new TokenStream(new InputStream($input, new ParserExceptionBuilder()));
 		$this->expectException(ParserException::class);
 		$this->expectExceptionMessage($message);
-		while(!$tokenStream->eof()){
-			$tokenStream->next();
+		try{
+			while(!$tokenStream->eof()){
+				$tokenStream->next();
+			}
+		}
+		catch(Exception $e){
+			$this->assertAttributeEquals($code, 'code', $e);
+			$this->assertAttributeEquals((object) $context, 'parserContext', $e);
+			throw $e;
 		}
 	}
 
 	public function exceptionThrowingMessageDataProvider(){
 		return [
-			['test', 'Character exception: \'t\' (line: 0, column: 0)'],
-			['test2', 'Character exception: \'t\' (line: 0, column: 0)'],
-			['A + b', 'Character exception: \'b\' (line: 0, column: 4)'],
-			['A + Ab2b', 'Character exception: \'b\' (line: 0, column: 7)'],
-			['A + Abe2b20', 'Character exception: \'b\' (line: 0, column: 8)'],
+			['test', 'Character exception: \'t\' (line: 0, column: 0)', 1, ['input' => 'test', 'position' => 0, 'line' => 0, 'column' => 0, 'character' => 't']],
+			['test2', 'Character exception: \'t\' (line: 0, column: 0)', 1, ['input' => 'test2', 'position' => 0, 'line' => 0, 'column' => 0, 'character' => 't']],
+			['A + b', 'Character exception: \'b\' (line: 0, column: 4)', 1, ['input' => 'A + b', 'position' => 4, 'line' => 0, 'column' => 4, 'character' => 'b']],
+			['A + Ab2b', 'Character exception: \'b\' (line: 0, column: 7)', 1, ['input' => 'A + Ab2b', 'position' => 7, 'line' => 0, 'column' => 7, 'character' => 'b']],
+			['A + Abe2b20', 'Character exception: \'b\' (line: 0, column: 8)', 1, ['input' => 'A + Abe2b20', 'position' => 8, 'line' => 0, 'column' => 8, 'character' => 'b']],
 		];
 	}
 }

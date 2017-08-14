@@ -109,7 +109,7 @@ class TokenStream
 		if($this->is_operator_character($character)){
 			return (object) ['type' => 'operator', 'value' => $this->readWhile([$this, 'is_operator_character'])];
 		}
-		$this->throwException('Character exception: \''.$character.'\'', 'tokenizer_unrecognized_character');
+		$this->throwException('Character exception: \''.$character.'\'', 'tokenizer_unrecognized_character', (object) ['character' => $character]);
 	}
 
 	/**
