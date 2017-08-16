@@ -56,7 +56,7 @@ class Interpreter
 		$end = false;
 		for($i = 0; $i < count($nodes); $i++){
 			if($nodes[$i]->type != 'molecule'){
-				$this->getUnknownResult('Expected molecule node at '.$i.' node instead of: '.json_encode($nodes[$i]));
+				return $this->getUnknownResult('Expected molecule node at '.$i.' node instead of: '.json_encode($nodes[$i]));
 			}
 			$end = true;
 			if(++$i >= count($nodes)){
@@ -64,7 +64,7 @@ class Interpreter
 			}
 
 			if($nodes[$i]->type != 'operator'){
-				$this->getUnknownResult('Expected operator node at '.$i.' node instead of: '.json_encode($nodes[$i]));
+				return $this->getUnknownResult('Expected operator node at '.$i.' node instead of: '.json_encode($nodes[$i]));
 			}
 			$end = false;
 			if($nodes[$i]->mode == 'side_equality'){
@@ -73,13 +73,13 @@ class Interpreter
 		}
 
 		if($sidesCount < 2){
-			$this->getUnknownResult('Too few sides ('.$sidesCount.')');
+			return $this->getUnknownResult('Too few sides ('.$sidesCount.')');
 		}
 		if($sidesCount > 2){
-			$this->getUnknownResult('Too many sides ('.$sidesCount.')');
+			return $this->getUnknownResult('Too many sides ('.$sidesCount.')');
 		}
 		if($end === false){
-			$this->getUnknownResult('Operator should be followed by molecule');
+			return $this->getUnknownResult('Operator should be followed by molecule');
 		}
 
 		$interpreted = $this->interpretNodes($nodes);
