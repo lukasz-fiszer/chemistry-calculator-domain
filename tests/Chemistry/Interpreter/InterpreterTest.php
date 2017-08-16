@@ -15,7 +15,6 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 	static $moleculeBuilder;
 
 	public function setUp(){
-		$this->elementFactory = new ElementFactory(new ElementDataLoader());
 		if(self::$testsData === null){
 			self::$testsData = new ChemistryTestsData();
 			self::$moleculeBuilder = new MoleculeBuilder(new ElementFactory(new ElementDataLoader()));
@@ -28,23 +27,19 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 	}
 
 	public function testConstructorPropertiesInjection(){
-		$parsed = ['type' => 'top_level', 'nodes' => [
-			['type' => 'molecule', 'occurences' => 1, 'entries' => [
-				['type' => 'element', 'occurences' => 1, 'entry' => ['type' => 'element_identifier', 'value' => 'H']]
-			]]
-		]];
-		//$parsed = $this->testsData[0]['parsed'];
+		$parsed = self::$testsData->getInputParseTestsData()[0]['parsed'];
 		$parsed = json_decode(json_encode($parsed));
-		$interpreter = new Interpreter($parsed, $this->elementFactory);
+		$interpreter = new Interpreter($parsed, self::$moleculeBuilder);
 		$this->assertAttributeEquals($parsed, 'ast', $interpreter);
 		$this->assertEquals($parsed, $interpreter->getAst());
+		$this->assertAttributeEquals(self::$moleculeBuilder, 'moleculeBuilder', $interpreter);
 	}
 
 	/**
 	 * @dataProvider interpretMethodDataProvider
 	 */
 	public function testInterpretMethod($parsed, $interpreted){
-		$interpreter = new Interpreter($parsed, $this->elementFactory);
+		$interpreter = new Interpreter($parsed, self::$moleculeBuilder);
 		$this->assertEquals($interpreted, $interpreter->interpret());
 	}
 

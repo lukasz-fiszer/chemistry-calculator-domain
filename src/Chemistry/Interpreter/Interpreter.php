@@ -4,8 +4,8 @@ namespace ChemCalc\Domain\Chemistry\Interpreter;
 
 use stdClass;
 use ChemCalc\Domain\Chemistry\Entity\Molecule;
-use ChemCalc\Domain\Chemistry\Entity\Element;
 use ChemCalc\Domain\Chemistry\Entity\ElementFactory;
+use ChemCalc\Domain\Chemistry\Entity\MoleculeBuilder;
 
 /**
  * Chemistry reaction equation
@@ -21,21 +21,21 @@ class Interpreter
 	protected $ast;
 
 	/**
-	 * Element factory used to make elements
+	 * Molecule builder used to make molecules
 	 * 
-	 * @var ElementFactory
+	 * @var MoleculeBuilder
 	 */
-	protected $elementFactory;
+	protected $moleculeBuilder;
 
 	/**
 	 * Construct new interpreter
 	 * 
-	 * @param stdClass       $ast            parsed AST for interpreter
-	 * @param ElementFactory $elementFactory element factory used to make elements
+	 * @param stdClass        $ast             parsed AST for interpreter
+	 * @param MoleculeBuilder $moleculeBuilder molecule builder used to make molecules
 	 */
-	public function __construct(stdClass $ast, ElementFactory $elementFactory){
+	public function __construct(stdClass $ast, MoleculeBuilder $moleculeBuilder){
 		$this->ast = $ast;
-		$this->elementFactory = $elementFactory;
+		$this->moleculeBuilder = $moleculeBuilder;
 	}
 
 	/**
@@ -111,13 +111,18 @@ class Interpreter
 	 * @return Molecule molecule object
 	 */
 	protected function makeMolecule(stdClass $moleculeNode){
+		return $this->extractMoleculeNode($moleculeNode)->build();
+
 		$extractedMolecule = $this->extractMoleculeNode($moleculeNode);
-		$elements = [];
+		$moleculeBuilder = $this->moleculeBuilder;
+		//$elements = [];
 		foreach($extractedMolecule['elements'] as $symbol => $occurences){
-			$elements[] = ['element' => $this->makeElement($symbol), 'occurences' => $occurences];
+			//$elements[] = ['element' => $this->makeElement($symbol), 'occurences' => $occurences];
+			$moleculeBuilder = $moleculeBuilder->withElement($symbol, $occurences);
 		}
-		$molecule = new Molecule($elements, $extractedMolecule['formula']);
-		return $molecule;
+		//$molecule = new Molecule($elements, $extractedMolecule['formula']);
+		//return $molecule;
+		return $moleculeBuilder->withFormula($extractedMolecule['formula'])->build();
 	}
 
 	/**
@@ -138,6 +143,25 @@ class Interpreter
 	 * @return array array of elements and their occurences and molecule string formula
 	 */
 	protected function extractMoleculeNode(stdClass $moleculeNode){
+		$moleculeBuilder = $this->moleculeBuilder;
+		foreach($moleculeNode->entries as $entry){
+			if($entry->type == 'element'){
+				$moleculeBuilder = $moleculeBuilder->withElement($entry->entry->value, $entry->occurences);
+			}
+			else if($entry->type == 'charge'){
+				$moleculeBuilder = $moleculeBuilder->withElement($entry->value, $entry->occurences);
+			}
+			else if($entry->type == 'molecule'){
+				$molecule = $this->extractMoleculeNode($entry);
+				$moleculeBuilder = $moleculeBuilder->withBuilder($molecule, $entry->delimited ?? null, $entry->occurences);
+			}
+			else{
+				throw new InterpreterException('Unknown molecule node entry: '.json_encode($entry));
+			}
+		}
+		return $moleculeBuilder;
+		//return $moleculeBuilder->build();
+
 		$elements = [];
 		$molecules = [];
 		$formula = '';
