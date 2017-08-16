@@ -85,3 +85,20 @@ charge_identifier: operator with value in [+-] when in between of punctuation br
 operator(mode: plus): operator with value + (when not charge_identifier)
 operator(mode: side_equality): operator with value in {'=', '<=', '=>', '<=>', '<-', '->' or '<->'}
 ```
+
+### Interpereter
+
+Interpreter namespace contains interpreter and interpreter exception.
+
+`Interpreter` is constructed with `MoleculeBuilder`. It interprets parsed AST with its nodes that is given in constructor. In its `interpret()` method it returns interpreted object of type molecule, reaction equation or unknown, they are of scheme `[type: {string}, interpreted: {interpreted}]`. Following interpreted objects are returned:
+
+* Molecule (single node of type molecule)
+  `[type: 'molecule', interpreted: {MoleculeInstance}]`
+* Reaction equation (molecule nodes with plus and side equality operators)
+  `[type: 'reaction_equation', interpreted: [[MoleculeInstances], [MoleculeInstances], ]]`
+* Unknown (expected molecule or operator where other nodes was, too few or too many sides, operator should be followed by molecule)
+  `[type: 'unknown', message: {string}]`
+
+When interpreter meets nodes of unknown type it throws `InterpreterException`, when checking top level nodes or molecule inner nodes.
+
+`InterpreterException` is exception used by interpreter.
