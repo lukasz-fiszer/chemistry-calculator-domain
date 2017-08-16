@@ -4,7 +4,6 @@ namespace ChemCalc\Domain\Chemistry\Interpreter;
 
 use stdClass;
 use ChemCalc\Domain\Chemistry\Entity\Molecule;
-use ChemCalc\Domain\Chemistry\Entity\ElementFactory;
 use ChemCalc\Domain\Chemistry\Entity\MoleculeBuilder;
 
 /**
@@ -111,38 +110,17 @@ class Interpreter
 	 * @return Molecule molecule object
 	 */
 	protected function makeMolecule(stdClass $moleculeNode){
-		return $this->extractMoleculeNode($moleculeNode)->build();
-
-		$extractedMolecule = $this->extractMoleculeNode($moleculeNode);
-		$moleculeBuilder = $this->moleculeBuilder;
-		//$elements = [];
-		foreach($extractedMolecule['elements'] as $symbol => $occurences){
-			//$elements[] = ['element' => $this->makeElement($symbol), 'occurences' => $occurences];
-			$moleculeBuilder = $moleculeBuilder->withElement($symbol, $occurences);
-		}
-		//$molecule = new Molecule($elements, $extractedMolecule['formula']);
-		//return $molecule;
-		return $moleculeBuilder->withFormula($extractedMolecule['formula'])->build();
+		return $this->extractMoleculeNodeToBuilder($moleculeNode)->build();
 	}
 
 	/**
-	 * Make element object given its symbol
-	 * 
-	 * @param  string $symbol element symbol
-	 * @return Element element object
-	 */
-	protected function makeElement(string $symbol){
-		return $this->elementFactory->makeElementBySymbol($symbol);
-	}
-
-	/**
-	 * Extract molecule node, get elements and their occurences for given molecule node and its string formula
+	 * Extract molecule node to builder, return molecule builder prepared with inner part of molecule node
 	 * 
 	 * @param  stdClass $moleculeNode molecule node
 	 * @throws InterpreterException exception thrown for unknown molecule node entry
-	 * @return array array of elements and their occurences and molecule string formula
+	 * @return MoleculeBuilder extracted molecule builder
 	 */
-	protected function extractMoleculeNode(stdClass $moleculeNode){
+	protected function extractMoleculeNodeToBuilder(stdClass $moleculeNode){
 		$moleculeBuilder = $this->moleculeBuilder;
 		foreach($moleculeNode->entries as $entry){
 			if($entry->type == 'element'){
@@ -152,7 +130,7 @@ class Interpreter
 				$moleculeBuilder = $moleculeBuilder->withElement($entry->value, $entry->occurences);
 			}
 			else if($entry->type == 'molecule'){
-				$molecule = $this->extractMoleculeNode($entry);
+				$molecule = $this->extractMoleculeNodeToBuilder($entry);
 				$moleculeBuilder = $moleculeBuilder->withBuilder($molecule, $entry->delimited ?? null, $entry->occurences);
 			}
 			else{
@@ -160,41 +138,6 @@ class Interpreter
 			}
 		}
 		return $moleculeBuilder;
-		//return $moleculeBuilder->build();
-
-		$elements = [];
-		$molecules = [];
-		$formula = '';
-		foreach($moleculeNode->entries as $entry){
-			if($entry->type == 'element'){
-				isset($elements[$entry->entry->value]) ? null : $elements[$entry->entry->value] = 0;
-				$elements[$entry->entry->value] += $entry->occurences * $moleculeNode->occurences;
-				$formula .= $entry->occurences != 1 ? $entry->entry->value.$entry->occurences : $entry->entry->value;
-			}
-			else if($entry->type == 'charge'){
-				isset($elements[$entry->value]) ? null : $elements[$entry->value] = 0;
-				$elements[$entry->value] += $entry->occurences * $moleculeNode->occurences;
-				$formula .= $entry->occurences != 1 ? $entry->value.$entry->occurences : $entry->value;
-			}
-			else if($entry->type == 'molecule'){
-				$molecule = $this->extractMoleculeNode($entry);
-				$molecules[] = $molecule['elements'];
-				$formula .= $molecule['formula'];
-			}
-			else{
-				throw new InterpreterException('Unknown molecule node entry: '.json_encode($entry));
-			}
-		}
-		foreach($molecules as $molecule){
-			foreach($molecule as $element => $occurences){
-				isset($elements[$element]) ? null : $elements[$element] = 0;
-				$elements[$element] += $occurences * $moleculeNode->occurences;
-			}
-		}
-		if(isset($moleculeNode->delimited)){
-			$formula = $moleculeNode->delimited->value.$formula.$moleculeNode->delimited->opposite.($moleculeNode->occurences != 1 ? $moleculeNode->occurences : null);
-		}
-		return ['elements' => $elements, 'formula' => $formula];
 	}
 
 	/**
