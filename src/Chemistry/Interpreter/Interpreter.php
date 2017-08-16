@@ -84,10 +84,6 @@ class Interpreter
 
 		$interpreted = $this->interpretNodes($nodes);
 
-		/*if(count($interpreted) == 1 && $interpreted[0] instanceof Molecule){
-			return (object) ['type' => 'molecule', 'interpreted' => $interpreted];
-		}*/
-
 		$sides = [[]];
 		$i = 0;
 		foreach($interpreted as $node){

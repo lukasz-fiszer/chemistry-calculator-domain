@@ -24,11 +24,9 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 		if(self::$testsData === null){
 			self::$testsData = new ChemistryTestsData();
 			self::$moleculeBuilder = new MoleculeBuilder(new ElementFactory(new ElementDataLoader()));
-			//self::$h = (object) ['type' => 'element', 'occurences' => 1, (object) 'entry' => [
 			self::$h = (object) ['type' => 'element', 'occurences' => 1, 'entry' => (object) [
 				'type' => 'element_identifier', 'value' => 'H'
 			]];
-			//self::$o = (object) ['type' => 'element', 'occurences' => 1, (object) 'entry' => [
 			self::$o = (object) ['type' => 'element', 'occurences' => 1, 'entry' => (object) [
 				'type' => 'element_identifier', 'value' => 'O'
 			]];
@@ -74,18 +72,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 
 	public function testInterpretMethodNoExpectedMolecule(){
 		$parsed = (object) ['type' => 'top_level', 'nodes' => [
-			['type' => 'molecule', 'occurences' => 1, 'entries' => [
-				['type' => 'element', 'occurences' => 1, 'entry' => [
-					'type' => 'element_identifier', 'value' => 'H'
-				]]
-			]],
-			['type' => 'operator', 'value' => '+', 'mode' => 'plus'],
-			['type' => 'operator', 'value' => '=', 'mode' => 'side_equality'],
-			['type' => 'molecule', 'occurences' => 1, 'entries' => [
-				['type' => 'element', 'occurences' => 2, 'entry' => [
-					'type' => 'element_identifier', 'value' => 'H'
-				]]
-			]],
+			self::$hMolecule, self::$plus, self::$sideEquality, self::$hMolecule
 		]];
 		$interpreter = new Interpreter(json_decode(json_encode($parsed)), self::$moleculeBuilder);
 		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Expected molecule node at 2 node instead of: '.json_encode($parsed->nodes[2])], $interpreter->interpret());
