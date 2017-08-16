@@ -3,6 +3,7 @@
 namespace ChemCalc\Domain\Chemistry\Entity;
 
 use ChemCalc\Domain\Chemistry\Entity\ElementFactory;
+use stdClass;
 
 /**
  * Chemistry molecule builder
@@ -101,17 +102,22 @@ class MoleculeBuilder
 	/**
 	 * Add builder, merge it into current immutable builder clone
 	 * 
-	 * @param  self   $moleculeBuilder molecule builder
-	 * @return self                    new cloned builder merged
+	 * @param  self          $moleculeBuilder    molecule builder
+	 * @param  stdClass|null $delimited molecule delimiter
+	 * @param  int           $moleculeOccurences molecule occurences
+	 * @return self                              new cloned builder merged
 	 */
-	public function withBuilder(self $moleculeBuilder){
+	public function withBuilder(self $moleculeBuilder, stdClass $delimited = null, int $moleculeOccurences = 1){
 		$new = clone $this;
 
-		foreach($moleculeBuilder->elements as $element => $occurences){
-			$new = $this->addElement($new, $element, $occurences);
+		if($delimited === null){
+			$delimited = (object) ['value' => '', 'opposite' => ''];
 		}
-		$new->charge += $moleculeBuilder->charge;
-		$new->formula .= $this->buildFormulaFragment($moleculeBuilder->formula);
+		foreach($moleculeBuilder->elements as $element => $occurences){
+			$new = $this->addElement($new, $element, $occurences * $moleculeOccurences);
+		}
+		$new->charge += $moleculeBuilder->charge * $moleculeOccurences;
+		$new->formula .= $this->buildFormulaFragment($delimited->value.$moleculeBuilder->formula.$delimited->opposite, $moleculeOccurences);
 
 		return $new;
 	}

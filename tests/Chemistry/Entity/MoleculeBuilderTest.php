@@ -116,6 +116,29 @@ class MoleculeBuilderTest extends \PHPUnit\Framework\TestCase
 		$this->assertAttributeEquals(9, 'charge', $builder3);
 	}
 
+	public function testWithBuilderMethodAndDelimitedOccurences(){
+		$elementFactoryMock = $this->createMock(ElementFactory::class);
+		$moleculeBuilder = new MoleculeBuilder($elementFactoryMock, ['H' => 2, 'O' => 1], 'H2O');
+
+		$testBuilder = new MoleculeBuilder($elementFactoryMock, ['H' => 2, 'O' => 1], 'H2O', 10);
+		$builder2 = $moleculeBuilder->withBuilder($testBuilder, (object) ['value' => '{', 'opposite' => '}']);
+		$this->assertAttributeEquals(['H' => 2, 'O' => 1], 'elements', $moleculeBuilder);
+		$this->assertAttributeEquals('H2O', 'formula', $moleculeBuilder);
+		$this->assertAttributeEquals(0, 'charge', $moleculeBuilder);
+		$this->assertAttributeEquals(['H' => 4, 'O' => 2], 'elements', $builder2);
+		$this->assertAttributeEquals('H2O{H2O}', 'formula', $builder2);
+		$this->assertAttributeEquals(10, 'charge', $builder2);
+
+		$testBuilder2 = new MoleculeBuilder($elementFactoryMock, ['H' => 2, 'O' => 2, 'FicSym' => 2], 'H2O2FicSym2', -1);
+		$builder3 = $builder2->withBuilder($testBuilder2, (object) ['value' => '(', 'opposite' => ')'], 5);
+		$this->assertAttributeEquals(['H' => 4, 'O' => 2], 'elements', $builder2);
+		$this->assertAttributeEquals('H2O{H2O}', 'formula', $builder2);
+		$this->assertAttributeEquals(10, 'charge', $builder2);
+		$this->assertAttributeEquals(['H' => 14, 'O' => 12, 'FicSym' => 10], 'elements', $builder3);
+		$this->assertAttributeEquals('H2O{H2O}(H2O2FicSym2)5', 'formula', $builder3);
+		$this->assertAttributeEquals(5, 'charge', $builder3);
+	}
+
 	public function testBuildMethod(){
 		$elementFactoryMock = $this->createMock(ElementFactory::class);
 		$elementFactoryMock->expects($this->at(0))->method('makeElementBySymbol')->willReturn($this->h);
