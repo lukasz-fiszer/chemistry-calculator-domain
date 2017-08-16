@@ -48,11 +48,45 @@ class Interpreter
 			return $this->getUnknownResult('No nodes');
 		}
 
+		if(count($nodes) == 1 && $nodes[0]->type == 'molecule'){
+			return (object) ['type' => 'molecule', 'interpreted' => $this->interpretNodes($nodes)];
+		}
+
+		$sidesCount = 1;
+		$end = false;
+		for($i = 0; $i < count($nodes); $i++){
+			if($nodes[$i]->type != 'molecule'){
+				$this->getUnknownResult('Expected molecule node at '.$i.' node instead of: '.json_encode($nodes[$i]));
+			}
+			$end = true;
+			if(++$i >= count($nodes)){
+				break;
+			}
+
+			if($nodes[$i]->type != 'operator'){
+				$this->getUnknownResult('Expected operator node at '.$i.' node instead of: '.json_encode($nodes[$i]));
+			}
+			$end = false;
+			if($nodes[$i]->mode == 'side_equality'){
+				$sidesCount++;
+			}
+		}
+
+		if($sidesCount < 2){
+			$this->getUnknownResult('Too few sides ('.$sidesCount.')');
+		}
+		if($sidesCount > 2){
+			$this->getUnknownResult('Too many sides ('.$sidesCount.')');
+		}
+		if($end === false){
+			$this->getUnknownResult('Operator should be followed by molecule');
+		}
+
 		$interpreted = $this->interpretNodes($nodes);
 
-		if(count($interpreted) == 1 && $interpreted[0] instanceof Molecule){
+		/*if(count($interpreted) == 1 && $interpreted[0] instanceof Molecule){
 			return (object) ['type' => 'molecule', 'interpreted' => $interpreted];
-		}
+		}*/
 
 		$sides = [[]];
 		$i = 0;
