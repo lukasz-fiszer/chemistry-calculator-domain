@@ -67,7 +67,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 
 	public function testInterpretMethodNoNodes(){
 		$interpreter = new Interpreter((object) ['type' => 'top_level', 'nodes' => []], self::$moleculeBuilder);
-		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'No nodes'], $interpreter->interpret());
+		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'No nodes', 'context' => (object) ['code' => 1]], $interpreter->interpret());
 	}
 
 	public function testInterpretMethodNoExpectedMolecule(){
@@ -75,7 +75,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 			self::$hMolecule, self::$plus, self::$sideEquality, self::$hMolecule
 		]];
 		$interpreter = new Interpreter(json_decode(json_encode($parsed)), self::$moleculeBuilder);
-		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Expected molecule node at 2 node instead of: '.json_encode($parsed->nodes[2])], $interpreter->interpret());
+		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Expected molecule node at 2 node instead of: '.json_encode($parsed->nodes[2]), 'context' => (object) ['at' => 2, 'expectedType' => 'molecule', 'actual' => $parsed->nodes[2], 'code' => 2]], $interpreter->interpret());
 	}
 
 	public function testInterpretMethodNoExpectedOperator(){
@@ -83,7 +83,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 			self::$hMolecule, self::$oMolecule, self::$sideEquality, self::$hMolecule, self::$plus, self::$oMolecule
 		]];
 		$interpreter = new Interpreter(json_decode(json_encode($parsed)), self::$moleculeBuilder);
-		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Expected operator node at 1 node instead of: '.json_encode($parsed->nodes[1])], $interpreter->interpret());
+		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Expected operator node at 1 node instead of: '.json_encode($parsed->nodes[1]), 'context' => (object) ['at' => 1, 'expectedType' => 'operator', 'actual' => $parsed->nodes[1], 'code' => 3]], $interpreter->interpret());
 	}
 
 	public function testInterpretMethodTooFewSides(){
@@ -91,7 +91,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 			self::$hMolecule, self::$plus, self::$oMolecule
 		]];
 		$interpreter = new Interpreter(json_decode(json_encode($parsed)), self::$moleculeBuilder);
-		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Too few sides (1)'], $interpreter->interpret());
+		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Too few sides (1)', 'context' => (object) ['sidesCount' => 1, 'code' => 4]], $interpreter->interpret());
 	}
 
 	public function testInterpretMethodTooManySides(){
@@ -99,7 +99,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 			self::$hMolecule, self::$plus, self::$oMolecule, self::$sideEquality, self::$hMolecule, self::$sideEquality, self::$oMolecule, self::$sideEquality, self::$oMolecule
 		]];
 		$interpreter = new Interpreter(json_decode(json_encode($parsed)), self::$moleculeBuilder);
-		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Too many sides (4)'], $interpreter->interpret());
+		$this->assertEquals((object) ['type' => 'unknown', 'message' => 'Too many sides (4)', 'context' => (object) ['sidesCount' => 4, 'code' => 5]], $interpreter->interpret());
 	}
 
 	public function testInterpretMethodNoMoleculeAfterOperator(){
@@ -111,8 +111,9 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 		]];
 		$interpreter = new Interpreter(json_decode(json_encode($parsed)), self::$moleculeBuilder);
 		$interpreter2 = new Interpreter(json_decode(json_encode($parsed2)), self::$moleculeBuilder);
-		$response = (object) ['type' => 'unknown', 'message' => 'Operator should be followed by molecule'];
+		$response = (object) ['type' => 'unknown', 'message' => 'Operator should be followed by molecule', 'context' => (object) ['at' => 2, 'code' => 6]];
 		$this->assertEquals($response, $interpreter->interpret());
+		$response->context->at = 4;
 		$this->assertEquals($response, $interpreter2->interpret());
 	}
 

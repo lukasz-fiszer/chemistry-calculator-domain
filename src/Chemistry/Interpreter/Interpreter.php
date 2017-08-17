@@ -45,7 +45,7 @@ class Interpreter
 	public function interpret(){
 		$nodes = $this->ast->nodes;
 		if(count($nodes) <= 0){
-			return $this->getUnknownResult('No nodes');
+			return $this->getUnknownResult('No nodes', (object) ['code' => 1]);
 		}
 
 		if(count($nodes) == 1 && $nodes[0]->type == 'molecule'){
@@ -56,7 +56,7 @@ class Interpreter
 		$end = false;
 		for($i = 0; $i < count($nodes); $i++){
 			if($nodes[$i]->type != 'molecule'){
-				return $this->getUnknownResult('Expected molecule node at '.$i.' node instead of: '.json_encode($nodes[$i]));
+				return $this->getUnknownResult('Expected molecule node at '.$i.' node instead of: '.json_encode($nodes[$i]), (object) ['at' => $i, 'expectedType' => 'molecule', 'actual' => $nodes[$i], 'code' => 2]);
 			}
 			$end = true;
 			if(++$i >= count($nodes)){
@@ -64,7 +64,7 @@ class Interpreter
 			}
 
 			if($nodes[$i]->type != 'operator'){
-				return $this->getUnknownResult('Expected operator node at '.$i.' node instead of: '.json_encode($nodes[$i]));
+				return $this->getUnknownResult('Expected operator node at '.$i.' node instead of: '.json_encode($nodes[$i]), (object) ['at' => $i, 'expectedType' => 'operator', 'actual' => $nodes[$i], 'code' => 3]);
 			}
 			$end = false;
 			if($nodes[$i]->mode == 'side_equality'){
@@ -73,13 +73,13 @@ class Interpreter
 		}
 
 		if($sidesCount < 2){
-			return $this->getUnknownResult('Too few sides ('.$sidesCount.')');
+			return $this->getUnknownResult('Too few sides ('.$sidesCount.')', (object) ['sidesCount' => $sidesCount, 'code' => 4]);
 		}
 		if($sidesCount > 2){
-			return $this->getUnknownResult('Too many sides ('.$sidesCount.')');
+			return $this->getUnknownResult('Too many sides ('.$sidesCount.')', (object) ['sidesCount' => $sidesCount, 'code' => 5]);
 		}
 		if($end === false){
-			return $this->getUnknownResult('Operator should be followed by molecule');
+			return $this->getUnknownResult('Operator should be followed by molecule',  (object) ['at' => $i, 'code' => 6]);
 		}
 
 		$interpreted = $this->interpretNodes($nodes);
@@ -171,13 +171,14 @@ class Interpreter
 	}
 
 	/**
-	 * Get result object of type unknown and given message
+	 * Get result object of type unknown, given message and given context
 	 * 
-	 * @param  string $message object message
+	 * @param  string        $message object message
+	 * @param  stdClass|null $context object context
 	 * @return object interpretation result object
 	 */
-	protected function getUnknownResult(string $message){
-		return (object) ['type' => 'unknown', 'message' => $message];
+	protected function getUnknownResult(string $message, stdClass $context = null){
+		return (object) ['type' => 'unknown', 'message' => $message, 'context' => $context];
 	}
 
     /**
