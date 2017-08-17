@@ -102,3 +102,11 @@ Interpreter namespace contains interpreter and interpreter exception.
 When interpreter meets nodes of unknown type it throws `InterpreterException`, when checking top level nodes or molecule inner nodes.
 
 `InterpreterException` is exception used by interpreter.
+
+### Solver
+
+Solver namespace contains molecule and reaction equation solvers.
+
+`MoleculeSolver` takes in constructor `Molecule` and finds grams and moles for the molecule.
+
+`ReactionEquationSolver` takes in constructor array with sides of reaction equation with instances of `Molecule`. In its `findCoefficients()` method it finds ordered list of coprime integers that are stoichiometric coefficients for the reaction given.

@@ -8,6 +8,8 @@ use ChemCalc\Domain\Matrix\Decomposition\MatrixElimination;
 use Chippyash\Math\Matrix\RationalMatrix;
 use Chippyash\Math\Type\Calculator;
 
+use Exception;
+
 /**
  * Chemistry reaction equation solver
  */
@@ -29,7 +31,7 @@ class ReactionEquationSolver
 	public function __construct(array $reactionSides){
 		$this->reactionSides = $reactionSides;
 		if(count($reactionSides) != 2){
-			throw new \Exception('Number of reaction sides is different from 2');
+			throw new Exception('Number of reaction sides is different from 2');
 		}
 	}
 
