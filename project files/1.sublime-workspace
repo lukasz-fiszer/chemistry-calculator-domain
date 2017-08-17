@@ -4,8 +4,136 @@
 		"selected_items":
 		[
 			[
+				"Mole",
+				"MoleculeSolver"
+			],
+			[
+				"inter",
+				"interpreted"
+			],
+			[
+				"Inter",
+				"InterpreterException"
+			],
+			[
+				"interp",
+				"interpreted"
+			],
+			[
+				"El",
+				"ElementDataLoader"
+			],
+			[
+				"Ele",
+				"ElementFactory"
+			],
+			[
+				"side",
+				"sideEquality"
+			],
+			[
+				"molecule",
+				"molecule"
+			],
+			[
+				"sides",
+				"sidesCount"
+			],
+			[
+				"mole",
+				"moleculeNode"
+			],
+			[
+				"molecul",
+				"moleculeBuilder"
+			],
+			[
+				"extrac",
+				"extractMoleculeNode"
+			],
+			[
+				"moel",
+				"moleculeBuilder"
+			],
+			[
+				"Elem",
+				"ElementDataLoader"
+			],
+			[
+				"Eleme",
+				"ElementFactory"
+			],
+			[
+				"ele",
+				"elementFactory"
+			],
+			[
+				"Ex",
+				"Exception"
+			],
+			[
+				"token",
+				"tokenType"
+			],
+			[
+				"withMerge",
+				"withMergeParserContext"
+			],
+			[
+				"pars",
+				"parserContext2"
+			],
+			[
+				"input",
+				"inputStreamMock"
+			],
+			[
+				"inp",
+				"inputStreamMock"
+			],
+			[
+				"throw",
+				"throwExceptionDataProvider"
+			],
+			[
+				"toke",
+				"tokenizer"
+			],
+			[
+				"assert",
+				"assertAttributeEquals"
+			],
+			[
 				"exce",
-				"exceptionBuilder"
+				"exceptionThrownDataProvider"
+			],
+			[
+				"exc",
+				"exceptionBuilderMock"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"with",
+				"withParserColumn"
+			],
+			[
+				"withP",
+				"withParserPosition"
+			],
+			[
+				"withParser",
+				"withParserColumn"
+			],
+			[
+				"withPa",
+				"withParserInput"
+			],
+			[
+				"withM",
+				"withMethodTest"
 			],
 			[
 				"ex",
@@ -44,10 +172,6 @@
 				"elementMatcherMock"
 			],
 			[
-				"ele",
-				"elementMatcherMock"
-			],
-			[
 				"parserExce",
 				"ParserExceptionBuilder"
 			],
@@ -72,16 +196,8 @@
 				"ParserExceptionBuilder"
 			],
 			[
-				"exc",
-				"exception"
-			],
-			[
 				"ass",
 				"assertAttributeEquals"
-			],
-			[
-				"mole",
-				"Molecule"
 			],
 			[
 				"eles",
@@ -101,10 +217,6 @@
 			],
 			[
 				"sie",
-				"sideMatrix"
-			],
-			[
-				"side",
 				"sideMatrix"
 			],
 			[
@@ -232,18 +344,6 @@
 				"buildFormulaFragment"
 			],
 			[
-				"Ele",
-				"ElementFactory"
-			],
-			[
-				"inter",
-				"interpretNode"
-			],
-			[
-				"sides",
-				"sides"
-			],
-			[
 				"getD",
 				"getDataForElement"
 			],
@@ -296,10 +396,6 @@
 				"json_decode"
 			],
 			[
-				"interp",
-				"interpretedNodes"
-			],
-			[
 				"json",
 				"json_encode"
 			],
@@ -312,20 +408,12 @@
 				"interpretedNodes"
 			],
 			[
-				"molecule",
-				"molecule"
-			],
-			[
 				"del",
 				"delimited"
 			],
 			[
 				"moe",
 				"moleculeNode"
-			],
-			[
-				"extrac",
-				"extractedMolecule"
 			],
 			[
 				"Intep",
@@ -376,14 +464,6 @@
 				"unexpectedToken"
 			],
 			[
-				"token",
-				"tokenStream"
-			],
-			[
-				"toke",
-				"tokenValue"
-			],
-			[
 				"tok",
 				"tokenType"
 			],
@@ -408,10 +488,6 @@
 				"InputStream"
 			],
 			[
-				"throw",
-				"throwException"
-			],
-			[
 				"pre",
 				"previous"
 			],
@@ -432,141 +508,31 @@
 				"InputStream"
 			],
 			[
-				"input",
-				"inputStream"
-			],
-			[
 				"pos",
 				"position"
 			],
 			[
 				"Fic",
 				"Fictious"
-			],
-			[
-				"getElement",
-				"getElementEntry"
-			],
-			[
-				"array_diff",
-				"array_diff_assoc"
-			],
-			[
-				"atomi",
-				"atomicMass"
-			],
-			[
-				"sym",
-				"symbol"
-			],
-			[
-				"ret",
-				"returnElementData"
-			],
-			[
-				"to",
-				"toElementData"
-			],
-			[
-				"arrayinter",
-				"array_intersect_assoc"
-			],
-			[
-				"assert",
-				"assertEquals"
-			],
-			[
-				"for",
-				"formula"
-			],
-			[
-				"check",
-				"checkIfElementMatchesData"
-			],
-			[
-				"data",
-				"dataJsonPath"
-			],
-			[
-				"atom",
-				"atomicMass"
-			],
-			[
-				"sea",
-				"searchQuery"
-			],
-			[
-				"search",
-				"searchPhotosAndCategories"
-			],
-			[
-				"gene",
-				"generateBreadcrumbs"
-			],
-			[
-				"generate",
-				"generateViewData"
-			],
-			[
-				"para",
-				"param\t@param"
-			],
-			[
-				"Route",
-				"RouteGenerator"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/EntryPoint.php",
+			"settings":
+			{
+				"buffer_size": 5663,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/Interpreter.php",
 			"settings":
 			{
-				"buffer_size": 5760,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/ReactionEquationSolver.php",
-			"settings":
-			{
-				"buffer_size": 3171,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
-			"settings":
-			{
-				"buffer_size": 3389,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
-			"settings":
-			{
-				"buffer_size": 4118,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "1.sublime-project",
-			"settings":
-			{
-				"buffer_size": 137,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
-			"settings":
-			{
-				"buffer_size": 3474,
+				"buffer_size": 5733,
 				"line_ending": "Windows"
 			}
 		}
@@ -578,13 +544,21 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 354.0,
-		"last_filter": "preview",
+		"height": 227.0,
+		"last_filter": "getters",
 		"selected_items":
 		[
 			[
+				"getters",
+				"PHP: Generate Getters"
+			],
+			[
 				"preview",
 				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"",
+				"Convert Case: Title Case"
 			],
 			[
 				"getter",
@@ -593,10 +567,6 @@
 			[
 				"markdown",
 				"Markdown Preview: Preview in Browser"
-			],
-			[
-				"",
-				"Convert Case: Title Case"
 			],
 			[
 				"syntax markdown",
@@ -627,10 +597,6 @@
 				"Convert Case: Title Case"
 			],
 			[
-				"getters",
-				"PHP: Generate Getters"
-			],
-			[
 				"getter for",
 				"Generate Getter for ..."
 			],
@@ -659,7 +625,7 @@
 				"Generate Getter and Setter for ..."
 			]
 		],
-		"width": 478.0
+		"width": 382.0
 	},
 	"console":
 	{
@@ -682,47 +648,54 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser"
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/chemistry-calculator-domain/project files/1.sublime-project",
 		"/C/xampp/htdocs/chemistry-calculator-domain/docs/chemistry.md",
-		"/C/xampp/htdocs/chemistry-calculator-domain/docs/readme.md",
-		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
-		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown (Standard).sublime-settings",
-		"/C/xampp/htdocs/chemistry-calculator-domain/.gitignore",
-		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/MoleculeSolver.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Solver/MoleculeSolverTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/ReactionEquationSolver.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Solver/ReactionEquationSolverTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/ChemistryTestsData.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/Interpreter.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Interpreter/InterpreterTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/ElementFactory.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MoleculeBuilder.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/MatrixTestsData.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/docs/matrix.md",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeBuilderTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/InterpreterException.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/DataLoader/ElementDataLoaderTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionBuilderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/.gitignore",
+		"/C/xampp/htdocs/chemistry-calculator-domain/project files/1.sublime-project",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/TestCase.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Assert.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/docs/readme.md",
+		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
+		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown (Standard).sublime-settings",
+		"/C/xampp/htdocs/chemistry-calculator-domain/phpunit.xml",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementFactoryTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeBuilderTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/DataLoader/ElementDataLoaderTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Interpreter/InterpreterTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/sebastian/diff/src/Parser.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MoleculeBuilder.php",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/PHP Companion/PHP Companion.sublime-settings",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/docs/matrix.md",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Matrix/MatrixSolver.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/MatrixTestsData.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Matrix/Decomposition/MatrixElimination.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/method_item.html.dist",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit-mock-objects/tests/Generator/return_type_declarations_object_method.phpt",
@@ -730,20 +703,14 @@
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/User/MultiMarkdown.sublime-settings",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/src/Chippyash/Math/Matrix/Formatter/AsciiNumeric.php",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/PHP Getters and Setters/php-getters-setters.sublime-settings",
 		"/C/xampp/htdocs/chemistry-calculator-domain/res/PeriodicTableJSON.json",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Solver/ReactionEquationSolverTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/ElementFactory.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Matrix/MatrixSolverTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/src/Chippyash/Math/Matrix/RationalMatrix.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/matrix/src/Chippyash/Matrix/Matrix.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/src/Chippyash/Math/Matrix/NumericMatrix.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/src/Chippyash/Math/Matrix/Traits/ConvertNumberToRational.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Solver/MoleculeSolverTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/ChemistryTestsData.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/MoleculeSolver.php",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/User/php-getters-setters.sublime-settings",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/strong-type/src/Chippyash/Type/Number/Rational/RationalTypeFactory.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/strong-type/src/Chippyash/Type/TypeFactory.php",
@@ -783,13 +750,11 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/strong-type/README.md",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/matrix/src/Chippyash/Matrix/Interfaces/InvokableInterface.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/myclabs/deep-copy/composer.json",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/tests/TextUI/report-useless-tests.phpt",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Constraint/LogicalOr.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/Interfaces/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/tests/_files/ParseTestMethodAnnotationsMock.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/res/testsData.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/InterpreterException.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/InvokesInaccessibleMethod.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/Error/Error.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/MoleculeTest.php",
@@ -814,9 +779,7 @@
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/header.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/base.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/routes/web.php",
-		"/C/xampp/htdocs/chemistry-calculator/server.php",
-		"/C/xampp/htdocs/photo2/.gitignore",
-		"/C/xampp/htdocs/chemistry-calculator/composer.lock"
+		"/C/xampp/htdocs/chemistry-calculator/server.php"
 	],
 	"find":
 	{
@@ -837,6 +800,32 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"object",
+			"testInterpretMethodNoExpecteMolecule",
+			"5",
+			"moleculeBuilder",
+			"elementFactory",
+			"ElementFactory",
+			"elementFactory",
+			"ElementFactory",
+			"molecule",
+			"element",
+			"skip",
+			"throw",
+			"$attribute",
+			"{$method}",
+			":1480",
+			"createM",
+			"__",
+			"['column']",
+			"['line']",
+			"line",
+			"parserColumn",
+			"parserLine",
+			"null",
+			"$attribute",
+			"1",
+			"with",
 			"merge",
 			"with",
 			"parser",
@@ -938,33 +927,7 @@
 			"setup",
 			"());",
 			"var_dump",
-			"throw",
-			"character exception",
-			"character excepion",
-			"()[]{}",
-			"in_array",
-			"value()",
-			"in_array",
-			"}\n",
-			"\n\t\t",
-			"}\n",
-			"molecule",
-			"toElementData",
-			"Exception",
-			" $",
-			"name",
-			"n searchable",
-			"searchable(",
-			"firemodele",
-			"save(",
-			"save",
-			"touch",
-			"addphotosmodels",
-			"addpagemodel",
-			"latest",
-			"with",
-			"latest",
-			"hydrate"
+			"throw"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -985,159 +948,46 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/Interpreter.php",
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/EntryPoint.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5760,
+						"buffer_size": 5663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1083,
-								1083
+								3069,
+								3069
 							]
 						],
 						"settings":
 						{
+							"parser": "markdown",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"target": "browser"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1710.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/ReactionEquationSolver.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3171,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1461,
-								1461
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3389,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1346,
-								1346
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4118,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "1.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 137,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								88,
-								88
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1060.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/Interpreter.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3474,
+						"buffer_size": 5733,
 						"regions":
 						{
 						},
@@ -1153,11 +1003,11 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.x": -0.0,
+						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1165,7 +1015,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 70.0
 	},
 	"input":
 	{
@@ -1212,12 +1062,276 @@
 		"selected_items":
 		[
 			[
-				"input",
+				"chem",
+				"docs\\chemistry.md"
+			],
+			[
+				"reactio",
+				"tests\\Chemistry\\Solver\\ReactionEquationSolverTest.php"
+			],
+			[
+				"molsolver",
+				"tests\\Chemistry\\Solver\\MoleculeSolverTest.php"
+			],
+			[
+				"chemtestdata",
+				"tests\\Res\\ChemistryTestsData.php"
+			],
+			[
+				"chemtestdaa",
+				"tests\\Res\\ChemistryTestsData.php"
+			],
+			[
+				"interpreter",
+				"src\\Chemistry\\Interpreter\\Interpreter.php"
+			],
+			[
+				"inter",
+				"src\\Chemistry\\Interpreter\\Interpreter.php"
+			],
+			[
+				"interpretertest",
+				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
+			],
+			[
+				"interprter",
+				"src\\Chemistry\\Interpreter\\Interpreter.php"
+			],
+			[
+				"interptert",
+				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
+			],
+			[
+				"elemfactor",
+				"src\\Chemistry\\Entity\\ElementFactory.php"
+			],
+			[
+				"molebui",
+				"src\\Chemistry\\Entity\\MoleculeBuilder.php"
+			],
+			[
+				"parser",
+				"src\\Chemistry\\Parser\\Parser.php"
+			],
+			[
+				"matrixtestdata",
+				"tests\\Res\\MatrixTestsData.php"
+			],
+			[
+				"molsolvtest",
+				"tests\\Chemistry\\Solver\\MoleculeSolverTest.php"
+			],
+			[
+				"interpretr",
+				"src\\Chemistry\\Interpreter\\Interpreter.php"
+			],
+			[
+				"chemistry.md",
+				"docs\\chemistry.md"
+			],
+			[
+				"matrix.md",
+				"docs\\matrix.md"
+			],
+			[
+				"moleculebuildertest",
+				"tests\\Chemistry\\Entity\\MoleculeBuilderTest.php"
+			],
+			[
+				"molecule",
+				"src\\Chemistry\\Entity\\Molecule.php"
+			],
+			[
+				"moleculetest",
+				"tests\\Chemistry\\Entity\\MoleculeTest.php"
+			],
+			[
+				"moleculebuilder",
+				"src\\Chemistry\\Entity\\MoleculeBuilder.php"
+			],
+			[
+				"molec",
+				"src\\Chemistry\\Entity\\MoleculeBuilder.php"
+			],
+			[
+				"interprteertx",
+				"src\\Chemistry\\Interpreter\\InterpreterException.php"
+			],
+			[
+				"chemis",
+				"tests\\Res\\ChemistryTestsData.php"
+			],
+			[
+				"inputstreamtest",
 				"tests\\Chemistry\\Parser\\InputStreamTest.php"
+			],
+			[
+				"moleculeb",
+				"src\\Chemistry\\Entity\\MoleculeBuilder.php"
+			],
+			[
+				"matcheselement",
+				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
+			],
+			[
+				"dataloader",
+				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
+			],
+			[
+				"element",
+				"tests\\Chemistry\\Entity\\ElementTest.php"
+			],
+			[
+				"tokenstr",
+				"src\\Chemistry\\Parser\\TokenStream.php"
+			],
+			[
+				"tokenstrematest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"",
+				"src\\Chemistry\\Parser\\Parser.php"
+			],
+			[
+				"parserecbuil",
+				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"tokenstreamtest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"tokenstream",
+				"src\\Chemistry\\Parser\\TokenStream.php"
+			],
+			[
+				"parsertest",
+				"tests\\Chemistry\\Parser\\ParserTest.php"
+			],
+			[
+				"inputstr",
+				"src\\Chemistry\\Parser\\InputStream.php"
+			],
+			[
+				"inputstream",
+				"src\\Chemistry\\Parser\\InputStream.php"
+			],
+			[
+				"tokenstrtest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"tokenstre",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"parsexcbuilte",
+				"tests\\Chemistry\\Parser\\ParserExceptionBuilderTest.php"
+			],
+			[
+				"parserexc",
+				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"parserex",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
+			[
+				"parserextest",
+				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
+			],
+			[
+				"parexc",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
+			[
+				"excebuild",
+				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"inputstrtest",
+				"tests\\Chemistry\\Parser\\InputStreamTest.php"
+			],
+			[
+				"inputst",
+				"tests\\Chemistry\\Parser\\InputStreamTest.php"
+			],
+			[
+				"exbuiltest",
+				"tests\\Chemistry\\Parser\\ParserExceptionBuilderTest.php"
+			],
+			[
+				"tokens",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"parexbuild",
+				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"interpret",
+				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
 			],
 			[
 				"gitignore",
 				".gitignore"
+			],
+			[
+				"parsere",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
+			[
+				"parserexbuilder",
+				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"parserexce",
+				"src\\Chemistry\\Parser\\ParserException.php"
+			],
+			[
+				"excbultest",
+				"tests\\Chemistry\\Parser\\ParserExceptionBuilderTest.php"
+			],
+			[
+				"testcase",
+				"vendor\\phpunit\\phpunit\\src\\Framework\\TestCase.php"
+			],
+			[
+				"toknesttest",
+				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
+			],
+			[
+				"frameworkassert",
+				"vendor\\phpunit\\phpunit\\src\\Framework\\Assert.php"
+			],
+			[
+				"inputsrtest",
+				"tests\\Chemistry\\Parser\\InputStreamTest.php"
+			],
+			[
+				"parserectest",
+				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
+			],
+			[
+				"chemsitry",
+				"docs\\chemistry.md"
+			],
+			[
+				"moleculebuider",
+				"src\\Chemistry\\Entity\\MoleculeBuilder.php"
+			],
+			[
+				"parserexctest",
+				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
+			],
+			[
+				"parserec",
+				"tests\\Chemistry\\Parser\\ParserExceptionBuilderTest.php"
+			],
+			[
+				"input",
+				"tests\\Chemistry\\Parser\\InputStreamTest.php"
 			],
 			[
 				"paraserec",
@@ -1236,15 +1350,7 @@
 				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
 			],
 			[
-				"parserexce",
-				"src\\Chemistry\\Parser\\ParserException.php"
-			],
-			[
 				"parserexcep",
-				"src\\Chemistry\\Parser\\ParserException.php"
-			],
-			[
-				"parserec",
 				"src\\Chemistry\\Parser\\ParserException.php"
 			],
 			[
@@ -1258,14 +1364,6 @@
 			[
 				"parsexcep",
 				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
-			],
-			[
-				"parserexc",
-				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
-			],
-			[
-				"parserex",
-				"tests\\Chemistry\\Parser\\ParserExceptionBuilderTest.php"
 			],
 			[
 				"parserexcetest",
@@ -1284,10 +1382,6 @@
 				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
 			],
 			[
-				"inputstreamtest",
-				"tests\\Chemistry\\Parser\\InputStreamTest.php"
-			],
-			[
 				"phpunitframeworkassert",
 				"vendor\\phpunit\\phpunit\\src\\Framework\\Assert.php"
 			],
@@ -1300,10 +1394,6 @@
 				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
 			],
 			[
-				"parsertest",
-				"tests\\Chemistry\\Parser\\ParserTest.php"
-			],
-			[
 				"molbtest",
 				"tests\\Chemistry\\Entity\\MoleculeBuilderTest.php"
 			],
@@ -1312,28 +1402,12 @@
 				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
 			],
 			[
-				"tokenstreamtest",
-				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
-			],
-			[
 				"parserexbuil",
 				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
 			],
 			[
-				"interpreter",
-				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
-			],
-			[
 				"parseexbuilder",
 				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
-			],
-			[
-				"parser",
-				"src\\Chemistry\\Parser\\Parser.php"
-			],
-			[
-				"tokens",
-				"src\\Chemistry\\Parser\\TokenStream.php"
 			],
 			[
 				"inutstreamtest",
@@ -1344,20 +1418,8 @@
 				"src\\Chemistry\\Parser\\Parser.php"
 			],
 			[
-				"",
-				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
-			],
-			[
-				"tokenstream",
-				"src\\Chemistry\\Parser\\TokenStream.php"
-			],
-			[
 				"tokenstraemtest",
 				"tests\\Chemistry\\Parser\\TokenStreamTest.php"
-			],
-			[
-				"parserextest",
-				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
 			],
 			[
 				"parserbuildetest",
@@ -1384,10 +1446,6 @@
 				"docs\\chemistry.md"
 			],
 			[
-				"parsere",
-				"tests\\Chemistry\\Parser\\ParserExceptionTest.php"
-			],
-			[
 				"matchelemtest",
 				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
 			],
@@ -1398,10 +1456,6 @@
 			[
 				"inptstream",
 				"src\\Chemistry\\Parser\\InputStream.php"
-			],
-			[
-				"molecule",
-				"src\\Chemistry\\Entity\\Molecule.php"
 			],
 			[
 				"macteselem",
@@ -1428,10 +1482,6 @@
 				"vendor\\phpunit\\phpunit-mock-objects\\tests\\Generator\\return_type_declarations_object_method.phpt"
 			],
 			[
-				"matrixtestdata",
-				"tests\\Res\\MatrixTestsData.php"
-			],
-			[
 				"matrixeltest",
 				"tests\\Matrix\\Decomposition\\MatrixEliminationTest.php"
 			],
@@ -1442,22 +1492,6 @@
 			[
 				"an",
 				"vendor\\chippyash\\math-matrix\\src\\Chippyash\\Math\\Matrix\\Formatter\\AsciiNumeric.php"
-			],
-			[
-				"element",
-				"src\\Chemistry\\Entity\\Element.php"
-			],
-			[
-				"dataloader",
-				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
-			],
-			[
-				"inputstream",
-				"src\\Chemistry\\Parser\\InputStream.php"
-			],
-			[
-				"moleculetest",
-				"tests\\Chemistry\\Entity\\MoleculeTest.php"
 			],
 			[
 				"perio",
@@ -1532,196 +1566,12 @@
 				"tests\\Chemistry\\Entity\\MoleculeTest.php"
 			],
 			[
-				"chemtestdata",
-				"tests\\Res\\ChemistryTestsData.php"
-			],
-			[
 				"chemtest",
 				"tests\\Res\\ChemistryTestsData.php"
 			],
 			[
 				"intertest",
 				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
-			],
-			[
-				"rationalfac",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\RationalTypeFactory.php"
-			],
-			[
-				"typefac",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\TypeFactory.php"
-			],
-			[
-				"numerictypeinter",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Interfaces\\NumericTypeInterface.php"
-			],
-			[
-				"abstracttype",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\AbstractType.php"
-			],
-			[
-				"inttype",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\IntType.php"
-			],
-			[
-				"eliminationtest",
-				"tests\\Matrix\\Decomposition\\MatrixEliminationTest.php"
-			],
-			[
-				"elimiinationtest",
-				"vendor\\markrogoyski\\math-php\\tests\\NumericalAnalysis\\NumericalIntegration\\NumericalIntegrationTest.php"
-			],
-			[
-				"calulator",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Calculator\\Native.php"
-			],
-			[
-				"chicalculator",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Calculator\\CalculatorEngineInterface.php"
-			],
-			[
-				"caluclator",
-				"vendor\\arkitekto\\math\\src\\Calculator\\NativeCalculator.php"
-			],
-			[
-				"abstrrattype",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\AbstractRationalType.php"
-			],
-			[
-				"rationaltype",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\RationalType.php"
-			],
-			[
-				"rationaltyprf",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\RationalTypeFactory.php"
-			],
-			[
-				"calculator",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Calculator\\Native.php"
-			],
-			[
-				"rationalfactory",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\RationalTypeFactory.php"
-			],
-			[
-				"matrxitstdata",
-				"tests\\Res\\MatrixTestsData.php"
-			],
-			[
-				"matriel",
-				"tests\\Matrix\\Decomposition\\MatrixEliminationTest.php"
-			],
-			[
-				"comparatorengine",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Comparator\\AbstractComparatorEngine.php"
-			],
-			[
-				"native",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Calculator\\Native.php"
-			],
-			[
-				"comparator",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Comparator.php"
-			],
-			[
-				"matridata",
-				"tests\\Res\\MatrixTestsData.php"
-			],
-			[
-				"attempty",
-				"vendor\\chippyash\\matrix\\src\\Chippyash\\Matrix\\Attribute\\IsEmpty.php"
-			],
-			[
-				"testdata",
-				"tests\\Res\\MatrixTestsData.php"
-			],
-			[
-				"matrielte",
-				"tests\\Matrix\\Decomposition\\MatrixEliminationTest.php"
-			],
-			[
-				"abstracdec",
-				"vendor\\chippyash\\math-matrix\\src\\Chippyash\\Math\\Matrix\\Decomposition\\AbstractDecomposition.php"
-			],
-			[
-				"gaus",
-				"vendor\\chippyash\\math-matrix\\src\\Chippyash\\Math\\Matrix\\Decomposition\\GaussJordanElimination.php"
-			],
-			[
-				"gaussjor",
-				"vendor\\chippyash\\math-matrix\\test\\src\\Chippyash\\Math\\Matrix\\Decomposition\\GaussJordanEliminationTest.php"
-			],
-			[
-				"numericmatrix",
-				"vendor\\chippyash\\math-matrix\\src\\Chippyash\\Math\\Matrix\\NumericMatrix.php"
-			],
-			[
-				"gauj",
-				"vendor\\chippyash\\math-matrix\\test\\src\\Chippyash\\Math\\Matrix\\Decomposition\\GaussJordanEliminationTest.php"
-			],
-			[
-				"hgaussjor",
-				"vendor\\chippyash\\math-matrix\\test\\src\\Chippyash\\Math\\Matrix\\Decomposition\\GaussJordanEliminationTest.php"
-			],
-			[
-				"gauss",
-				"vendor\\chippyash\\math-matrix\\test\\src\\Chippyash\\Math\\Matrix\\Decomposition\\GaussJordanEliminationTest.php"
-			],
-			[
-				"lu",
-				"vendor\\chippyash\\math-matrix\\src\\Chippyash\\Math\\Matrix\\Decomposition\\Lu.php"
-			],
-			[
-				"ga",
-				"vendor\\chippyash\\math-matrix\\src\\Chippyash\\Math\\Matrix\\Decomposition\\GaussJordanElimination.php"
-			],
-			[
-				"assertrowsare",
-				"vendor\\chippyash\\matrix\\src\\Chippyash\\Matrix\\Traits\\AssertMatrixRowsAreEqual.php"
-			],
-			[
-				"rationaltypefac",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\RationalTypeFactory.php"
-			],
-			[
-				"typefactory",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\TypeFactory.php"
-			],
-			[
-				"testabcd",
-				"tests\\AbcdTest.php"
-			],
-			[
-				"asbtrmulti",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\AbstractMultiValueType.php"
-			],
-			[
-				"asbtracration",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\AbstractRationalType.php"
-			],
-			[
-				"asbtracttype",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\AbstractType.php"
-			],
-			[
-				"calcu",
-				"vendor\\chippyash\\math-type-calculator\\src\\Chippyash\\Math\\Type\\Calculator.php"
-			],
-			[
-				"asbtrtype",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\AbstractType.php"
-			],
-			[
-				"abstractmul",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\AbstractMultiValueType.php"
-			],
-			[
-				"asbtrrat",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\AbstractRationalType.php"
-			],
-			[
-				"rational",
-				"vendor\\chippyash\\strong-type\\src\\Chippyash\\Type\\Number\\Rational\\RationalType.php"
 			]
 		],
 		"width": 0.0

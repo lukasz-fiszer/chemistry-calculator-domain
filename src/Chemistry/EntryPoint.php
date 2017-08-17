@@ -1,6 +1,6 @@
 <?php
 
-namespace ChemCalc\Domain;
+namespace ChemCalc\Domain\Chemistry;
 
 use ChemCalc\Domain\Chemistry\Parser\InputStream;
 use ChemCalc\Domain\Chemistry\Parser\TokenStream;
@@ -140,7 +140,7 @@ class EntryPoint
 	 * @param  object $parsed parsed AST object for interpreter
 	 * @return Interpreter    interpreter with given parsed AST object
 	 */
-	protected function makeInterpreter(object $parsed){
+	protected function makeInterpreter(stdClass $parsed){
 		return new Interpreter($parsed, new MoleculeBuilder(new ElementFactory(new ElementDataLoader())));
 	}
 
