@@ -86,7 +86,7 @@ class EntryPoint
 	 */
 	public function proceed(){
 		if(count(trim($this->input)) == 0){
-			return $this->makeResponse('error', 1, null, 'Empty input');
+			return $this->makeResponse('error', 100, null, 'Empty input');
 		}
 
 		$this->parser = $this->makeParser($this->input);
@@ -94,7 +94,7 @@ class EntryPoint
 			$this->parsed = $this->parser->parse();
 		}
 		catch(ParserException $e){
-			return $this->makeResponse('error', $e->getCode() + 100, $e->getParserContext(), $e->getMessage(), $e);
+			return $this->makeResponse('error', 200 + $e->getCode(), $e->getParserContext(), $e->getMessage(), $e);
 		}
 
 		$this->interpreter = $this->makeInterpreter($this->parsed);
@@ -102,23 +102,23 @@ class EntryPoint
 			$this->interpreted = $this->interpreter->interpret();
 		}
 		catch(InterpreterException $e){
-			return $this->makeResponse('error', $e->getCode() + 200, null, $e->getMessage(), $e);
+			return $this->makeResponse('error', 300 + $e->getCode(), null, $e->getMessage(), $e);
 		}
 		if($this->interpreted->type == 'unknown'){
-			return $this->makeResponse('error', $this->interpreted->context->code + 250, $this->interpreted->context, $this->interpreted->message, $this->interpreted);
+			return $this->makeResponse('error', 350 + $this->interpreted->context->code, $this->interpreted->context, $this->interpreted->message, $this->interpreted);
 		}
 
 		if($this->interpreted->type == 'molecule'){
 			$molecule = $this->interpreted->interpreted[0];
 			$this->solver = new MoleculeSolver($molecule);
-			return $this->makeResponse('molecule', 2, (object) ['molecule' => $molecule, 'solver' => $this->solver]);
+			return $this->makeResponse('molecule', 1, (object) ['molecule' => $molecule, 'solver' => $this->solver]);
 		}
 
 		if($this->interpreted->type == 'reaction_equation'){
 			$sides = $this->interpreted->interpreted;
 			$this->solver = new ReactionEquationSolver($sides);
 			$this->solved = $this->solver->findCoefficients();
-			return $this->makeResponse('reaction_equation', 4, (object) ['sides' => $sides, 'solver' => $this->solver, 'solved' => $this->solved]);
+			return $this->makeResponse('reaction_equation', 2, (object) ['sides' => $sides, 'solver' => $this->solver, 'solved' => $this->solved]);
 		}
 
 		return $this->makeResponse('unknown', 0);
