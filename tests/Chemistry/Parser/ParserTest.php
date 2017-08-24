@@ -83,6 +83,11 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 			['H2O(Ab->)5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 8)', 4, ['input' => 'H2O(Ab->)5', 'position' => 8, 'line' => 0, 'column' => 8, 'actualToken' => (object) ['type' => 'operator', 'value' => '->'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
 			['H2O(Ab->]5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 8)', 4, ['input' => 'H2O(Ab->]5', 'position' => 8, 'line' => 0, 'column' => 8, 'actualToken' => (object) ['type' => 'operator', 'value' => '->'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
 			['H2O(AbAb]5', 'Expected token of type: punctuation and value of: ) (line: 0, column: 9)', 4, ['input' => 'H2O(AbAb]5', 'position' => 9, 'line' => 0, 'column' => 9, 'actualToken' => (object) ['type' => 'punctuation', 'value' => ']', 'mode' => 'close', 'opposite' => '['], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
+			['H(()', 'Expected token of type: punctuation and value of: ) (line: 0, column: 4)', 4, ['input' => 'H(()', 'position' => 4, 'line' => 0, 'column' => 4, 'actualToken' => null, 'expectedType' => 'punctuation', 'expectedValue' => ')']],
+			['H({}', 'Expected token of type: punctuation and value of: ) (line: 0, column: 4)', 4, ['input' => 'H({}', 'position' => 4, 'line' => 0, 'column' => 4, 'actualToken' => null, 'expectedType' => 'punctuation', 'expectedValue' => ')']],
+			['H({}}', 'Expected token of type: punctuation and value of: ) (line: 0, column: 5)', 4, ['input' => 'H({}}', 'position' => 5, 'line' => 0, 'column' => 5, 'actualToken' => (object) ['type' => 'punctuation', 'value' => '}', 'mode' => 'close', 'opposite' => '{'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
+			['H(12)', 'Expected token of type: punctuation and value of: ) (line: 0, column: 4)', 4, ['input' => 'H(12)', 'position' => 4, 'line' => 0, 'column' => 4, 'actualToken' => (object) ['type' => 'number', 'value' => '12'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
+			['H(++)', 'Expected token of type: punctuation and value of: ) (line: 0, column: 4)', 4, ['input' => 'H(++)', 'position' => 4, 'line' => 0, 'column' => 4, 'actualToken' => (object) ['type' => 'operator', 'value' => '++'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
 		];
 	}
 
