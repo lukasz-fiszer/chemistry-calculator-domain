@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ele",
+				"elementsData"
+			],
+			[
+				"Elemen",
+				"ElementDataLoader"
+			],
+			[
+				"molecul",
+				"molecules"
+			],
+			[
 				"Mole",
 				"MoleculeSolver"
 			],
@@ -44,10 +56,6 @@
 				"moleculeNode"
 			],
 			[
-				"molecul",
-				"moleculeBuilder"
-			],
-			[
 				"extrac",
 				"extractMoleculeNode"
 			],
@@ -62,10 +70,6 @@
 			[
 				"Eleme",
 				"ElementFactory"
-			],
-			[
-				"ele",
-				"elementFactory"
 			],
 			[
 				"Ex",
@@ -510,10 +514,6 @@
 			[
 				"pos",
 				"position"
-			],
-			[
-				"Fic",
-				"Fictious"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/EntryPoint.php",
 			"settings":
 			{
-				"buffer_size": 5663,
+				"buffer_size": 5675,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -647,15 +647,21 @@
 	[
 		"/C/xampp/htdocs/chemistry-calculator-domain",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver"
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/EntryPointTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/res/PeriodicTableJSON.json",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/ReactionEquationSolver.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/docs/chemistry.md",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/MoleculeSolver.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Solver/MoleculeSolverTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/ReactionEquationSolver.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Solver/ReactionEquationSolverTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/ChemistryTestsData.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/Interpreter.php",
@@ -663,22 +669,17 @@
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/ElementFactory.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MoleculeBuilder.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Element.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/MatrixTestsData.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/docs/matrix.md",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeBuilderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Interpreter/InterpreterException.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MoleculeTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/InputStreamTest.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/MatchesElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MatchesElement.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/DataLoader/ElementDataLoader.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/DataLoader/ElementDataLoaderTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Entity/ElementTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/TokenStreamTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserExceptionBuilderTest.php",
@@ -705,7 +706,6 @@
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/src/Chippyash/Math/Matrix/Formatter/AsciiNumeric.php",
 		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/PHP Getters and Setters/php-getters-setters.sublime-settings",
-		"/C/xampp/htdocs/chemistry-calculator-domain/res/PeriodicTableJSON.json",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Matrix/MatrixSolverTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/math-matrix/src/Chippyash/Math/Matrix/RationalMatrix.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/chippyash/matrix/src/Chippyash/Matrix/Matrix.php",
@@ -778,8 +778,7 @@
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/frontpage-header.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/header.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/base.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/routes/web.php",
-		"/C/xampp/htdocs/chemistry-calculator/server.php"
+		"/C/xampp/htdocs/chemistry-calculator/routes/web.php"
 	],
 	"find":
 	{
@@ -800,6 +799,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"']]]),",
+			"h",
 			"object",
 			"testInterpretMethodNoExpecteMolecule",
 			"5",
@@ -925,9 +926,7 @@
 			"Element",
 			"= ",
 			"setup",
-			"());",
-			"var_dump",
-			"throw"
+			"());"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -957,15 +956,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5663,
+						"buffer_size": 5675,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3069,
-								3069
+								42,
+								42
 							]
 						],
 						"settings":
@@ -975,7 +974,7 @@
 							"target": "browser"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1060.0,
+						"translation.y": 1125.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1004,7 +1003,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": -0.0,
-						"translation.y": 495.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1061,6 +1060,42 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"entrypointtest",
+				"tests\\Chemistry\\EntryPointTest.php"
+			],
+			[
+				"entrypotest",
+				"tests\\Chemistry\\EntryPointTest.php"
+			],
+			[
+				"reactionequationsolver",
+				"src\\Chemistry\\Solver\\ReactionEquationSolver.php"
+			],
+			[
+				"macthesele",
+				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
+			],
+			[
+				"elemdatalaoder",
+				"src\\Chemistry\\DataLoader\\ElementDataLoader.php"
+			],
+			[
+				"molecule",
+				"src\\Chemistry\\Entity\\Molecule.php"
+			],
+			[
+				"perio",
+				"res\\PeriodicTableJSON.json"
+			],
+			[
+				"element",
+				"src\\Chemistry\\Entity\\Element.php"
+			],
+			[
+				"parsertest",
+				"tests\\Chemistry\\Parser\\ParserTest.php"
+			],
 			[
 				"chem",
 				"docs\\chemistry.md"
@@ -1138,10 +1173,6 @@
 				"tests\\Chemistry\\Entity\\MoleculeBuilderTest.php"
 			],
 			[
-				"molecule",
-				"src\\Chemistry\\Entity\\Molecule.php"
-			],
-			[
 				"moleculetest",
 				"tests\\Chemistry\\Entity\\MoleculeTest.php"
 			],
@@ -1178,10 +1209,6 @@
 				"tests\\Chemistry\\DataLoader\\ElementDataLoaderTest.php"
 			],
 			[
-				"element",
-				"tests\\Chemistry\\Entity\\ElementTest.php"
-			],
-			[
 				"tokenstr",
 				"src\\Chemistry\\Parser\\TokenStream.php"
 			],
@@ -1204,10 +1231,6 @@
 			[
 				"tokenstream",
 				"src\\Chemistry\\Parser\\TokenStream.php"
-			],
-			[
-				"parsertest",
-				"tests\\Chemistry\\Parser\\ParserTest.php"
 			],
 			[
 				"inputstr",
@@ -1390,10 +1413,6 @@
 				"vendor\\phpunit\\phpunit\\src\\Framework\\TestCase.php"
 			],
 			[
-				"macthesele",
-				"tests\\Chemistry\\Entity\\MatchesElementTest.php"
-			],
-			[
 				"molbtest",
 				"tests\\Chemistry\\Entity\\MoleculeBuilderTest.php"
 			],
@@ -1494,10 +1513,6 @@
 				"vendor\\chippyash\\math-matrix\\src\\Chippyash\\Math\\Matrix\\Formatter\\AsciiNumeric.php"
 			],
 			[
-				"perio",
-				"res\\PeriodicTableJSON.json"
-			],
-			[
 				"periodc",
 				"res\\PeriodicTableJSON.json"
 			],
@@ -1556,22 +1571,6 @@
 			[
 				"chemistedata",
 				"tests\\Res\\ChemistryTestsData.php"
-			],
-			[
-				"moletest",
-				"tests\\Chemistry\\Entity\\MoleculeTest.php"
-			],
-			[
-				"molecultest",
-				"tests\\Chemistry\\Entity\\MoleculeTest.php"
-			],
-			[
-				"chemtest",
-				"tests\\Res\\ChemistryTestsData.php"
-			],
-			[
-				"intertest",
-				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
 			]
 		],
 		"width": 0.0

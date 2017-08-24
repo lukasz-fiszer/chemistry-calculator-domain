@@ -80,13 +80,26 @@ class Parser
 	 */
 	protected function parseMolecule(bool $chargeAllowed = false){
 		$entries = [];
+		// $isChargeOperator = function(){
+		// $isChargeOperator = function() use($this){
+		// $isChargeOperator = (function(){
 		$isChargeOperator = function(){
-			$token = $this->tokenStream->peek();
+			/*$token = $this->tokenStream->peek();
 			if($token->type == 'operator' && strpos('+-', $token->value) !== false){
+				return true;
+			}
+			return false;*/
+			if(!$this->isTokenType('operator')){
+				return false;
+			}
+			if(strpos('+-', $this->tokenStream->peek()->value) !== false){
 				return true;
 			}
 			return false;
 		};
+			// return false;});
+		// })->bindTo($this);
+		// })->bindTo($this, $this);
 		while($this->isMoleculeStart() || ($chargeAllowed && $isChargeOperator())){
 			$entries[] = $this->parseMoleculeEntry($chargeAllowed);
 		}
