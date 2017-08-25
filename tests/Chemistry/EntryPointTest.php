@@ -115,7 +115,7 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 					'status' => 'reaction_equation',
 					'code' => 2,
 					'context' => (object) [
-						'sides' => [
+						'sides' => $s = [
 							[
 								self::$molecules['h2'],
 								self::$molecules['o2']
@@ -124,7 +124,7 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 								self::$molecules['h2o']
 							]
 						],
-						'solver' => new ReactionEquationSolver([[self::$molecules['h2'], self::$molecules['o2']], [self::$molecules['h2o']]]),
+						'solver' => new ReactionEquationSolver($s),
 						'solved' => [2, 1, 2],
 					],
 					'message' => null,
@@ -138,7 +138,7 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 					'status' => 'reaction_equation',
 					'code' => 2,
 					'context' => (object) [
-						'sides' => [
+						'sides' => $s = [
 							[
 								self::$molecules['h2'],
 							],
@@ -146,7 +146,7 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 								self::$molecules['h2']
 							]
 						],
-						'solver' => new ReactionEquationSolver([[self::$molecules['h2']], [self::$molecules['h2']]]),
+						'solver' => new ReactionEquationSolver($s),
 						'solved' => [1, 1],
 					],
 					'message' => null,
@@ -186,15 +186,15 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 				[
 					'status' => 'error',
 					'code' => 201,
-					'context' => (object) [
+					'context' => $c = (object) [
 						'input' => 'test',
 						'position' => 0,
 						'line' => 0,
 						'column' => 0,
 						'character' => 't'
 					],
-					'message' => 'Character exception: \'t\' (line: 0, column: 0)',
-					'previous' => new ParserException('Character exception: \'t\' (line: 0, column: 0)', (object) ['input' => 'test', 'position' => 0, 'line' => 0, 'column' => 0, 'character' => 't'], 1),
+					'message' => $m = 'Character exception: \'t\' (line: 0, column: 0)',
+					'previous' => new ParserException($m, $c, 1),
 				]
 			],
 
@@ -210,8 +210,8 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 						'column' => 1,
 						'character' => 't'
 					],
-					'message' => 'Character exception: \'t\' (line: 0, column: 1)',
-					'previous' => new ParserException('Character exception: \'t\' (line: 0, column: 1)', $c, 1),
+					'message' => $m = 'Character exception: \'t\' (line: 0, column: 1)',
+					'previous' => new ParserException($m, $c, 1),
 				]
 			],
 
@@ -443,12 +443,12 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 			],
 
 			[
-				'H2 +',
+				'H2+O2=',
 				[
 					'status' => 'error',
 					'code' => 356,
 					'context' => $c = (object) [
-						'at' => 2,
+						'at' => 4,
 						'code' => 6,
 					],
 					'message' => $m = 'Operator should be followed by molecule',
@@ -460,7 +460,23 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 				]
 			],
 
-
+			[
+				'H2+O2=H2O+H2+',
+				[
+					'status' => 'error',
+					'code' => 356,
+					'context' => $c = (object) [
+						'at' => 8,
+						'code' => 6,
+					],
+					'message' => $m = 'Operator should be followed by molecule',
+					'previous' => (object) [
+						'type' => 'unknown',
+						'message' => $m,
+						'context' => $c
+					],
+				]
+			],
 
 		];
 	}
