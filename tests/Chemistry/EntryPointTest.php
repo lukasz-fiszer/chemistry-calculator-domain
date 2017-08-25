@@ -50,55 +50,6 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 		self::$elementsData = null;
 	}
 
-	public function testAbcd(){
-		/*$input = 'H2+=';
-		//$input = 'H2(';
-		$p = new \ChemCalc\Domain\Chemistry\Parser\Parser(new \ChemCalc\Domain\Chemistry\Parser\TokenStream(new \ChemCalc\Domain\Chemistry\Parser\InputStream($input, new \ChemCalc\Domain\Chemistry\Parser\ParserExceptionBuilder())));
-		var_dump($p->parse());
-		try{
-			var_dump($p->parse());
-		}*/
-		//catch(ParserException $e){
-			/*var_dump(array_keys((array) $e));
-			var_dump($e->getParserContext());
-			var_dump($e->getMessage());
-			var_dump($e->getCode());
-			var_dump($e->getPrevious());
-			var_dump($e->getFile());
-			var_dump($e->getLine());*/
-			// var_dump($e->getTrace());
-
-			//var_dump(count($e->getTrace()));
-			// var_dump($e->getTrace());
-			//echo $e->getTraceAsString();
-			// var_dump($e->getTrace()[0]);
-			// $trace = $e->getTrace();
-			// var_dump($trace);
-			// print_r($trace);
-			/*for($i = 0; $i < count($trace); $i++){
-				echo $i."\n";
-				echo count($trace)."\n";
-			}*/
-			// var_dump($trace[0]);
-			// var_dump($trace[8]);
-			// echo "\n";
-			// var_dump(array_keys((array) $trace[8]['args'][0]));
-			// var_dump(json_encode(array_keys((array) $trace[8]['args'][0])));
-			// var_dump($trace[8]['args'][0]);
-			// echo "\n";
-		//}
-		$input = 'H2+=';
-		$p = new \ChemCalc\Domain\Chemistry\Parser\Parser(new \ChemCalc\Domain\Chemistry\Parser\TokenStream(new \ChemCalc\Domain\Chemistry\Parser\InputStream($input, new \ChemCalc\Domain\Chemistry\Parser\ParserExceptionBuilder())));
-		$p->parse();
-
-		$e = new EntryPoint('H2+=');
-		$e->proceed();
-		$a = $e->proceed();
-		// var_dump($a);
-		// var_dump(get_class($e->proceed()));
-		//var_dump($e->proceed());
-	}
-
 	public function testConstructorPropertiesInjection(){
 		$entryPoint = new EntryPoint('test');
 		$this->assertAttributeEquals('test', 'input', $entryPoint);

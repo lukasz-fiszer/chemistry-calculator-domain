@@ -81,9 +81,6 @@ class Interpreter
 		if($sidesCount > 2){
 			return $this->getUnknownResult('Too many sides ('.$sidesCount.')', (object) ['sidesCount' => $sidesCount, 'code' => 5]);
 		}
-		/*if($end === false){
-			return $this->getUnknownResult('Operator should be followed by molecule',  (object) ['at' => $i, 'code' => 6]);
-		}*/
 
 		$interpreted = $this->interpretNodes($nodes);
 
