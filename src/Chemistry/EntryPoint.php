@@ -85,7 +85,7 @@ class EntryPoint
 	 * @return object response object for query input
 	 */
 	public function proceed(){
-		if(count(trim($this->input)) == 0){
+		if(strlen(trim($this->input)) == 0){
 			return $this->makeResponse('error', 100, null, 'Empty input');
 		}
 

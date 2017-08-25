@@ -72,15 +72,18 @@ class Interpreter
 			}
 		}
 
+		if($end === false){
+			return $this->getUnknownResult('Operator should be followed by molecule',  (object) ['at' => $i, 'code' => 6]);
+		}
 		if($sidesCount < 2){
 			return $this->getUnknownResult('Too few sides ('.$sidesCount.')', (object) ['sidesCount' => $sidesCount, 'code' => 4]);
 		}
 		if($sidesCount > 2){
 			return $this->getUnknownResult('Too many sides ('.$sidesCount.')', (object) ['sidesCount' => $sidesCount, 'code' => 5]);
 		}
-		if($end === false){
+		/*if($end === false){
 			return $this->getUnknownResult('Operator should be followed by molecule',  (object) ['at' => $i, 'code' => 6]);
-		}
+		}*/
 
 		$interpreted = $this->interpretNodes($nodes);
 
