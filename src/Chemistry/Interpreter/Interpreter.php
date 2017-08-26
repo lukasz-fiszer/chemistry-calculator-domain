@@ -157,7 +157,9 @@ class Interpreter
 				$moleculeBuilder = $moleculeBuilder->withElement($entry->entry->value, $entry->occurences);
 			}
 			else if($entry->type == 'charge'){
-				$moleculeBuilder = $moleculeBuilder->withElement($entry->value, $entry->occurences);
+				//$moleculeBuilder = $moleculeBuilder->withElement($entry->value, $entry->occurences);
+				//$moleculeBuilder = $moleculeBuilder->withCharge($entry->value, $entry->occurences);
+				$moleculeBuilder = $moleculeBuilder->withCharge($entry->value, $entry->occurences * ($entry->value == '-' ? -1 : 1));
 			}
 			else if($entry->type == 'molecule'){
 				$molecule = $this->extractMoleculeNodeToBuilder($entry);

@@ -15,6 +15,7 @@ class ChemistryTestsData
 		$this->chargePlus = new Element('unknown', '+', 0, false);
 		$this->chargeMinus = new Element('unknown', '-', 0, false);
 		$this->ab = new Element('unknown', 'Ab', 0, false);
+		$this->electronMass = 0.000548579909;
 	}
 
 	public function getInputParseTestsData(){
@@ -71,7 +72,7 @@ class ChemistryTestsData
 				]],
 			'interpreted' => 
 				['type' => 'molecule', 'interpreted' => [
-					new Molecule([['element' => $this->h, 'occurences' => 3], ['element' => $this->o, 'occurences' => 1], ['element' => $this->chargePlus, 'occurences' => 1]], 'H3O{+}')
+					new Molecule([['element' => $this->h, 'occurences' => 3], ['element' => $this->o, 'occurences' => 1]], 'H3O{+}', 1)
 				]],
 			],
 
@@ -95,7 +96,7 @@ class ChemistryTestsData
 				]],
 			'interpreted' => 
 				['type' => 'molecule', 'interpreted' => [
-					new Molecule([['element' => $this->h, 'occurences' => 3], ['element' => $this->o, 'occurences' => 1], ['element' => $this->chargePlus, 'occurences' => 1]], '{H3O+}')
+					new Molecule([['element' => $this->h, 'occurences' => 3], ['element' => $this->o, 'occurences' => 1]], '{H3O+}', 1)
 				]],
 			],
 
@@ -485,11 +486,11 @@ class ChemistryTestsData
 				['type' => 'reaction_equation', 'interpreted' => [
 					[new Molecule([['element' => $this->h, 'occurences' => 2]], 'H2'),
 					new Molecule([['element' => $this->o, 'occurences' => 2]], 'O2'),
-					new Molecule([['element' => $this->ab, 'occurences' => 17], ['element' => $this->chargePlus, 'occurences' => 24]], 'Ab(Ab[Ab{+}2]3)4'),
-					new Molecule([['element' => $this->chargeMinus, 'occurences' => 2]], '{-}2')],
+					new Molecule([['element' => $this->ab, 'occurences' => 17]], 'Ab(Ab[Ab{+}2]3)4', 24),
+					new Molecule([], '{-}2', -2)],
 					[new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], '(H2O)'),
-					new Molecule([['element' => $this->chargePlus, 'occurences' => 10]], '{+2}5'),
-					new Molecule([['element' => $this->ab, 'occurences' => 5], ['element' => $this->chargeMinus, 'occurences' => 10]], '{Ab-2}5'),
+					new Molecule([], '{+2}5', 10),
+					new Molecule([['element' => $this->ab, 'occurences' => 5]], '{Ab-2}5', -10),
 					new Molecule([['element' => $this->ab, 'occurences' => 10]], 'Ab10')]
 				]],
 			],
