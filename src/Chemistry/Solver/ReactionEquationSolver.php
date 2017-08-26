@@ -53,6 +53,7 @@ class ReactionEquationSolver
 	 */
 	protected function extractReactionMatrix(){
 		$elementsSymbols = $this->extractElementsSymbols();
+		$elementsSymbols[] = 'charge';
 		$reactionMatrix = array_fill(0, count($elementsSymbols), []);
 		foreach($this->reactionSides as $i => $side){
 			$sideMatrix = $this->buildSideMatrix($side, $elementsSymbols);
@@ -86,6 +87,7 @@ class ReactionEquationSolver
 					$sideMatrix[$index][$i] = $elementEntry['occurences'];
 				}
 			}
+			$sideMatrix[$index][$i] = $molecule->getCharge();
 		}
 		return $sideMatrix;
 	}

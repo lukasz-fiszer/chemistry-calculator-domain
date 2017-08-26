@@ -32,6 +32,7 @@ class ReactionEquationSolverTest extends \PHPUnit\Framework\TestCase
 		$this->n = new Element('name', 'N', 5);
 		$this->mn = new Element('name', 'Mn', 5);
 		$this->s = new Element('name', 'S', 5);
+		$this->cr = new Element('name', 'Cr', 5);
 	}
 
 	public function testConstructorPropertiesInjection(){
@@ -71,7 +72,7 @@ class ReactionEquationSolverTest extends \PHPUnit\Framework\TestCase
 			[
 				[[$this->emptyMolecule],
 				[$this->emptyMolecule]],
-				[]
+				[1, 1]
 			],
 			[
 				[[new Molecule([['element' => $this->fe, 'occurences' => 1]], 'Fe')],
@@ -95,6 +96,21 @@ class ReactionEquationSolverTest extends \PHPUnit\Framework\TestCase
 				new Molecule([['element' => $this->c, 'occurences' => 1], ['element' => $this->o, 'occurences' => 2]], 'CO2'),
 				new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O')]],
 				[10, 122, 299, 162, 5, 122, 60, 60, 188]
+			],
+			[
+				[[new Molecule([['element' => $this->cr, 'occurences' => 2], ['element' => $this->o, 'occurences' => 7]], 'Cr2O7{-2}', -2),
+				new Molecule([['element' => $this->h, 'occurences' => 1]], 'H{+}', 1),
+				new Molecule([], '{-}', -1)],
+				[new Molecule([['element' => $this->cr, 'occurences' => 1]], 'Cr{+3}', 3),
+				new Molecule([['element' => $this->h, 'occurences' => 2], ['element' => $this->o, 'occurences' => 1]], 'H2O')]],
+				[1, 14, 6, 2, 7]
+			],
+			[
+				[[new Molecule([], '{+}', 1),
+				new Molecule([], '{-}', -1)],
+				[new Molecule([], '{+}', 1),
+				new Molecule([], '{-}', -1)]],
+				[1, 1, 1, 1]
 			],
 		];
 	}
