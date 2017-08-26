@@ -19,7 +19,6 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 	static $oMolecule;
 	static $plus;
 	static $sideEquality;
-	static $electronMass;
 
 	public function setUp(){
 		if(self::$testsData === null){
@@ -35,7 +34,6 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 			self::$oMolecule = (object) ['type' => 'molecule', 'occurences' => 1, 'entries' => [self::$o]];
 			self::$plus = (object) ['type' => 'operator', 'value' => '+', 'mode' => 'plus'];
 			self::$sideEquality = (object) ['type' => 'operator', 'value' => '=', 'mode' => 'side_equality'];
-			self::$electronMass = 0.000548579909;
 		}
 	}
 
@@ -46,9 +44,8 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 		self::$o = null;
 		self::$plus = null;
 		self::$sideEquality = null;
-		static $hMolecule = null;
-		static $oMolecule = null;
-		self::$electronMass = null;
+		self::$hMolecule = null;
+		self::$oMolecule = null;
 	}
 
 	public function testConstructorPropertiesInjection(){

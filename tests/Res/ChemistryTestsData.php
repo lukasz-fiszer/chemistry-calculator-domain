@@ -15,7 +15,6 @@ class ChemistryTestsData
 		$this->chargePlus = new Element('unknown', '+', 0, false);
 		$this->chargeMinus = new Element('unknown', '-', 0, false);
 		$this->ab = new Element('unknown', 'Ab', 0, false);
-		$this->electronMass = 0.000548579909;
 	}
 
 	public function getInputParseTestsData(){

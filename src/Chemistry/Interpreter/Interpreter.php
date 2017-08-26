@@ -158,7 +158,6 @@ class Interpreter
 			}
 			else if($entry->type == 'charge'){
 				//$moleculeBuilder = $moleculeBuilder->withElement($entry->value, $entry->occurences);
-				//$moleculeBuilder = $moleculeBuilder->withCharge($entry->value, $entry->occurences);
 				$moleculeBuilder = $moleculeBuilder->withCharge($entry->value, $entry->occurences * ($entry->value == '-' ? -1 : 1));
 			}
 			else if($entry->type == 'molecule'){
