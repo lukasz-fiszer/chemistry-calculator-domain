@@ -80,13 +80,7 @@ class Parser
 	 */
 	protected function parseMolecule(bool $chargeAllowed = false){
 		$entries = [];
-		$isChargeOperator = function(){
-			if($this->isTokenType('operator') && strpos('+-', $this->tokenStream->peek()->value) !== false){
-				return true;
-			}
-			return false;
-		};
-		while($this->isMoleculeStart() || ($chargeAllowed && $isChargeOperator())){
+		while($this->isMoleculeStart() || ($chargeAllowed && $this->isChargeOperator())){
 			$entries[] = $this->parseMoleculeEntry($chargeAllowed);
 		}
 		//return (object) ['type' => 'molecule', 'entries' => $entries];
@@ -140,6 +134,18 @@ class Parser
 	 */
 	protected function isMoleculeStart(){
 		if($this->isTokenType('punctuation', null, ['mode' => 'open']) || $this->isTokenType('element_identifier')){
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Check if next token is charge operator
+	 * 
+	 * @return boolean true if token is charge operator
+	 */
+	protected function isChargeOperator(){
+		if($this->isTokenType('operator') && in_array($this->tokenStream->peek()->value, ['+', '-'], true)){
 			return true;
 		}
 		return false;

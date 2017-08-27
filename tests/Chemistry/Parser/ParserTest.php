@@ -88,6 +88,10 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 			['H({}}', 'Expected token of type: punctuation and value of: ) (line: 0, column: 5)', 4, ['input' => 'H({}}', 'position' => 5, 'line' => 0, 'column' => 5, 'actualToken' => (object) ['type' => 'punctuation', 'value' => '}', 'mode' => 'close', 'opposite' => '{'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
 			['H(12)', 'Expected token of type: punctuation and value of: ) (line: 0, column: 4)', 4, ['input' => 'H(12)', 'position' => 4, 'line' => 0, 'column' => 4, 'actualToken' => (object) ['type' => 'number', 'value' => '12'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
 			['H(++)', 'Expected token of type: punctuation and value of: ) (line: 0, column: 4)', 4, ['input' => 'H(++)', 'position' => 4, 'line' => 0, 'column' => 4, 'actualToken' => (object) ['type' => 'operator', 'value' => '++'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
+			['{+-}', 'Expected token of type: punctuation and value of: } (line: 0, column: 3)', 4, ['input' => '{+-}', 'position' => 3, 'line' => 0, 'column' => 3, 'actualToken' => (object) ['type' => 'operator', 'value' => '+-'], 'expectedType' => 'punctuation', 'expectedValue' => '}']],
+			['{-+}', 'Expected token of type: punctuation and value of: } (line: 0, column: 3)', 4, ['input' => '{-+}', 'position' => 3, 'line' => 0, 'column' => 3, 'actualToken' => (object) ['type' => 'operator', 'value' => '-+'], 'expectedType' => 'punctuation', 'expectedValue' => '}']],
+			['H(+-)', 'Expected token of type: punctuation and value of: ) (line: 0, column: 4)', 4, ['input' => 'H(+-)', 'position' => 4, 'line' => 0, 'column' => 4, 'actualToken' => (object) ['type' => 'operator', 'value' => '+-'], 'expectedType' => 'punctuation', 'expectedValue' => ')']],
+			['+-', 'Unexpected token: {"type":"operator","value":"+-"} (line: 0, column: 2)', 2, ['input' => '+-', 'position' => 2, 'line' => 0, 'column' => 2, 'token' => (object) ['type' => 'operator', 'value' => '+-']]],
 		];
 	}
 
