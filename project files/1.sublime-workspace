@@ -652,17 +652,17 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
+		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Solver/ReactionEquationSolver.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Solver/ReactionEquationSolverTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Interpreter/InterpreterTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Res/ChemistryTestsData.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/Molecule.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Entity/MoleculeBuilder.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/Parser.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/EntryPointTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/InputStream.php",
-		"/C/xampp/htdocs/chemistry-calculator-domain/tests/Chemistry/Parser/ParserTest.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/vendor/phpunit/phpunit/src/Framework/TestCase.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/TokenStream.php",
 		"/C/xampp/htdocs/chemistry-calculator-domain/src/Chemistry/Parser/ParserException.php",
@@ -1062,6 +1062,14 @@
 		"selected_items":
 		[
 			[
+				"parsertest",
+				"tests\\Chemistry\\Parser\\ParserTest.php"
+			],
+			[
+				"parser",
+				"src\\Chemistry\\Parser\\Parser.php"
+			],
+			[
 				"reactioneq",
 				"tests\\Chemistry\\Solver\\ReactionEquationSolverTest.php"
 			],
@@ -1078,20 +1086,12 @@
 				"tests\\Chemistry\\Interpreter\\InterpreterTest.php"
 			],
 			[
-				"parser",
-				"src\\Chemistry\\Parser\\Parser.php"
-			],
-			[
 				"moleculebuidler",
 				"src\\Chemistry\\Entity\\MoleculeBuilder.php"
 			],
 			[
 				"par",
 				"src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
-			],
-			[
-				"parsertest",
-				"tests\\Chemistry\\Parser\\ParserTest.php"
 			],
 			[
 				"parserte",
