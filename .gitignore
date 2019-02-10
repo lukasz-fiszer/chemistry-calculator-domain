@@ -1,2 +1,4 @@
 /vendor
 /coverage-html
+/project-files
+composer.lock
