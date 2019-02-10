@@ -15,13 +15,13 @@ class TokenStreamTest extends \PHPUnit\Framework\TestCase
 
 	static $exceptionBuilderMock;
 
-	public function setUp(){
+	public function setUp(): void {
 		if(self::$exceptionBuilderMock === null){
 			self::$exceptionBuilderMock = $this->createMock(ParserExceptionBuilder::class);
 		}
 	}
 
-	public static function tearDownAfterClass(){
+	public static function tearDownAfterClass(): void {
 		self::$exceptionBuilderMock = null;
 	}
 

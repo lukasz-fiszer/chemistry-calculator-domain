@@ -20,7 +20,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 	static $plus;
 	static $sideEquality;
 
-	public function setUp(){
+	public function setUp(): void {
 		if(self::$testsData === null){
 			self::$testsData = new ChemistryTestsData();
 			self::$moleculeBuilder = new MoleculeBuilder(new ElementFactory(new ElementDataLoader()));
@@ -37,7 +37,7 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
 		}
 	}
 
-	public static function tearDownAfterClass(){
+	public static function tearDownAfterClass(): void {
 		self::$testsData = null;
 		self::$moleculeBuilder = null;
 		self::$h = null;
