@@ -9,7 +9,7 @@ class MatchesElementTest extends \PHPUnit\Framework\TestCase
 {
 	use InvokesInaccessibleMethod;
 
-	public function setUp(){
+	public function setUp(): void {
 		if(isset($this->initialized) && $this->initialized == true){
 			return;
 		}

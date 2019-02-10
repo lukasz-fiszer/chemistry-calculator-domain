@@ -8,7 +8,7 @@ use ChemCalc\Domain\Chemistry\Solver\ReactionEquationSolver;
 
 class ReactionEquationSolverTest extends \PHPUnit\Framework\TestCase
 {
-	public function setUp(){
+	public function setUp(): void {
 		if(isset($this->initialized) && $this->initialized == true){
 			return;
 		}

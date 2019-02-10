@@ -16,7 +16,7 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 	static $molecules;
 	static $elementsData;
 
-	public function setUp(){
+	public function setUp(): void {
 		if(self::$elements === null){
 			self::$elementsData = (new ElementDataLoader())->loadData();
 			self::$elements = [
@@ -44,7 +44,7 @@ class EntryPointTest extends \PHPUnit\Framework\TestCase
 		}
 	}
 
-	public static function tearDownAfterClass(){
+	public static function tearDownAfterClass() : void {
 		self::$elements = null;
 		self::$molecules = null;
 		self::$elementsData = null;
